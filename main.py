@@ -25,7 +25,7 @@ from database import text
 # noinspection PyUnresolvedReferences
 from database import text_cs, text_de, text_eo, text_es, text_fr, text_it, text_ja, text_ko, text_la, text_zh_cn
 # noinspection PyUnresolvedReferences
-from api_keys import api_key, api_key_testing
+from .. import api_keys
 
 import functools
 
@@ -33,6 +33,8 @@ import functools
 PREFIX = '$'
 BOT_ID = 1007004463933952120
 MY_ID = 349164237605568513
+
+api_key, api_key_testing = api_keys.api_key, api_keys.api_key_testing
 
 # ---------------- Bot class ------------
 
