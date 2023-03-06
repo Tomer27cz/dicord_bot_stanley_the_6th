@@ -1,5 +1,6 @@
 import typing
 
+authorized_users = [416254812339044365, 349164237605568513]
 guild_ids = [837695985625858048, 1008145667622969397, 892403162315644928]
 
 # ------------------------------------------------------- RADIO -------------------------------------------------
@@ -496,6 +497,9 @@ for i in range(96):
 # ----------------------------------------------------- LITERALS ----------------------------------------------------
 
 
+# ----------------------------------------------------- DISCORD  ---------------------------------------------------
+
+no_embed = '||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​|| _ _ _ _ _ _'
 
 # ----------------------------------------------------- DICTIONARIES ------------------------------------------------
 
@@ -655,6 +659,7 @@ text = {
     'Player **already paused!**': '️Player **already paused!**',
     'That is not a **guild id!**': '️That is not a **guild id!**',
     'That guild doesn\'t exist or the bot is not in it': 'That guild doesn\'t exist or the bot is not in it',
+    'Nothing selected': 'Nothing selected',
 }
 
 text_cs = {
@@ -687,6 +692,7 @@ text_cs = {
     'clear': 'Vymaže frontu',
     'help': 'Ukáže tuto zprávu',
     'next_up': 'Nastaví další skladbu ve frontě',
+    # describe
     'action_type': '️Vyberte typ akce',
     'url': 'URL YouTube',
     'queue': '️Přehrajte konkrétní skladbu z fronty',
@@ -707,6 +713,7 @@ text_cs = {
     'game_size': 'Velikost hracího pole',
     'radio_menu': 'Menu muselo být rozděleno (limit na menu je 25)',
     'favourite_radio': 'Oblíbená rádia',
+    # message
     'Now playing': 'Nyní hraje',
     'Duration': 'Délka',
     'Requested by': 'Na vyžádání',
@@ -715,7 +722,7 @@ text_cs = {
     'Searching...': '️Vyhledávám...',
     'Result #': '️Výsledek č.',
     'added to queue!': 'přidáno do fronty!',
-    'songs from playlist added to queue!': '️skladbeb z playlistu přidány do fronty!',
+    'songs from playlist added to queue!': '️skladbeb z playlistu přidáno do fronty!',
     'Removed **all** songs from queue': '️Odstraněny **všechny** skladby z fronty',
     'REMOVED #': '️ODSTRANĚNO č.',
     'Showing...': '️Zobrazuje se...',
@@ -736,6 +743,7 @@ text_cs = {
     'Yes': 'Ano',
     'Changed the language for this server to: ': 'Jazyk pro tento server je nyní: ',
     'Disconnecting after 180 seconds of nothing playing': 'Odpojuji po 180 sekundách nečinnosti',
+    # errors
     '**Already playing**': '**Už se hraje**',
     'Bot is **not** in a voice channel': '️Bot **není** v hlasovém kanálu',
     'Bot already connected to a channel:': '️Bot je již připojen ke kanálu:',
@@ -768,6 +776,7 @@ text_cs = {
     'Player **already paused!**': '️Přehrávač **již pozastaven!**',
     'That is not a **guild id!**': 'To není **id serveru!**',
     'That guild doesn\'t exist or the bot is not in it': 'Tento server neexistuje nebo tam bot není',
+    'Nothing selected': 'Nic nevybráno',
 }
 
 text_de = {'search': 'Durchsuchen Sie YouTube nach der bereitgestellten Abfrage', 'queue_add': 'Song zur Warteschlange hinzufügen', 'queue_remove': 'Entfernt ein Lied aus der Warteschlange', 'queue_show': '️Zeigt die Warteschlange an', 'queue_move': '️ Verschiebt Song in der Warteschlange von [pos1] nach [pos2]', 'skip': '️Lied in der Warteschlange überspringen', 'loop': '️Schleifenmodus einschalten', 'loop_this': '️Dieser Befehl wiederholt das aktuell wiedergegebene Lied', 'queue_import': '️Importieren Sie Songs von einem Code in die Warteschlange', 'queue_export': 'Stellen Sie die Warteschlange als gemeinsam nutzbaren Code dar', 'nowplaying': '️Zeigt an, was gerade gespielt wird', 'radio': '️Spielt Radio aus der Liste ab', 'play': '️Spielt die Lieder ab :)', 'sound': 'Zeigt alle verfügbaren Soundeffekte an', 'ps': 'Spielt Soundeffekte nach Nummer', 'player': 'Steuern Sie den Spieler', 'stop': 'Stoppen Sie den Spieler', 'pause': 'Halten Sie den Player an', 'resume': 'Setzen Sie den Player fort', 'kys': '️Bot verpflichtet sich langsam', 'join': 'Bot tritt Sprachkanal bei', 'die': 'Bot verlässt Sprachkanal', 'ping': 'Dieser Befehl gibt die Latenz zurück', 'language': 'Ändern Sie die Sprache für diesen Server', 'force': 'Zwingen Sie den Bot, ein Lied zu spielen', 'volume': 'Stellen Sie die Lautstärke des Players ein', 'clear': 'Löscht die Warteschlange', 'help': 'Zeigt diese Meldung an', 'next_up': 'Legt den nächsten Song für die Wiedergabe fest', 'action_type': '️Wählen Sie den Aktionstyp', 'url': 'Youtube-URL', 'queue': '️Spielen Sie ein bestimmtes Lied aus der Warteschlange ab', 'search_number': '️Wählen Sie eines der Ergebnisse aus /search', 'search_this': 'Durchsucht YouTube nach dieser Abfrage', 'radio_type': '️Art des Radios', 'import_code': '️Der Code, den Sie von /queue_export erhalten', 'display_type': '️lang= Einbettungen, kurz= nur Text', 'number': '️Welche Position in der Warteschlange soll entfernt werden?', 'all_songs': '️Löscht die Warteschlange', 'pos': '️Wählen Sie eine Position in der Warteschlange, um dieses Lied einzufügen', 'mute_response': 'Wenn True, sendet der Befehl keine Textantwort', 'search_query': '️Durchsucht YouTube danach', 'effects_number': 'ID des Soundeffekts von /sound', 'queue_number': 'Nummer in der Warteschlange', 'channel_id': 'ID des Kanals, mit dem sich der Bot verbinden soll', 'number_of_searches': 'Wie viele Ergebnisse sollen angezeigt werden (Standard = 5)', 'game_size': 'Die Größe des Spielbretts', 'radio_menu': 'Das Menü musste geteilt werden (Limit ist 25 pro Menü)', 'favourite_radio': 'Lieblingsradios', 'Now playing': 'Läuft gerade', 'Duration': '️Dauer', 'Requested by': '️Angefordert von', 'Author': '️Autor', 'URL': '️URL', 'Searching...': '️Suche...', 'Result #': '️Ergebnis #', 'added to queue!': '️zur Warteschlange hinzugefügt!', 'songs from playlist added to queue!': '️Songs aus Playlist zur Warteschlange hinzugefügt!', 'Removed **all** songs from queue': '️**alle** Songs aus der Warteschlange entfernt', 'REMOVED #': '️ENTFERNT #', 'Showing...': '️Anzeigen...', 'Adding playlist to queue...': '️Wiedergabeliste zur Warteschlange hinzufügen...', 'Queue #': '️Warteschlange #', 'Queue **cleared**, Player will now loop **currently** playing song:': '️Warteschlange **gelöscht**, Player spielt jetzt **aktuell** den Song in einer Schleife:', '**Moved**': '️**Umgezogen**', 'Import code **required**': '️Importcode **erforderlich**', 'songs imported/added to queue': '️Lieder importiert/zur Warteschlange hinzugefügt', '**Already playing**, added to queue': '️**Spielt bereits**, zur Warteschlange hinzugefügt', 'Playing sound effect number': '️Wiedergabe der Soundeffektnummer', 'Committing seppuku...': '️Seppuku begehen...', 'Joined voice channel:': '️Beigetretener Sprachkanal:', 'Left voice channel:': '️Linker Sprachkanal:', '**Pong!** Latency:': '️**Pong!** Latenz:', 'This video is from a **playlist**, do you want to add the playlist to **queue?**': 'Dieses Video stammt aus einer **Playlist**, möchtest du die Playlist zur **Warteschlange hinzufügen?**', 'No, just add this': 'Nein, füge das einfach hinzu', 'Yes': 'Ja', 'Changed the language for this server to: ': 'Sprache für diesen Server geändert zu:', 'Disconnecting after 180 seconds of nothing playing': 'Verbindungsabbruch nach 180 Sekunden ohne Wiedergabe', '**Already playing**': '**Wird bereits gespielt**', 'Bot is **not** in a voice channel': '️Bot ist **nicht** in einem Sprachkanal', 'Bot already connected to a channel:': '️Bot bereits mit einem Kanal verbunden:', "Channel **doesn't exist** or bot doesn't have **sufficient permission** to join": 'Der Kanal **existiert nicht** oder der Bot hat keine **ausreichende Berechtigung** zum Beitreten', 'You are **not connected** to a voice channel': 'Sie sind **nicht mit einem Sprachkanal verbunden**', 'You are **not** in a **voice channel**': '️Du bist **nicht** in einem **Sprachkanal**', "You haven't searched anything yet": 'Sie haben noch nichts gesucht', 'not in **queue:**': '️nicht in **Warteschlange:**', 'An **error** occurred while trying to play the song': '️Beim Versuch, den Song abzuspielen, ist ein **Fehler** aufgetreten', 'Number **not in list** (use `/sound` to get all sound effects)': '️Nummer **nicht in Liste** (benutze `/sound` um alle Soundeffekte zu bekommen)', 'No such file/website supported': '️Keine solche Datei/Website unterstützt', 'There is no song playing right **now**, but there is one **paused:**': '️Es wird gerade **jetzt** kein Lied abgespielt, aber es gibt eine **pausierte:**', 'There is no song playing right **now**': '️Es wird gerade **jetzt** kein Song abgespielt', 'Bot is not connected to a voice channel, do `/join` or connect to a voice channel yourself': '️Bot ist nicht mit einem Sprachkanal verbunden, führe „/join“ aus oder verbinde dich selbst mit einem Sprachkanal', 'There is **nothing** in your **queue**': '️Es gibt **nichts** in deiner **Warteschlange**', 'Only **one** argument possible!': '️Nur **ein** Argument möglich!', 'is **not in queue**': '️ist **nicht in der Warteschlange**', 'Nothing is playing **right now**': '️Nichts spielt **im Moment**', 'There is **nothing to skip!**': '️Es gibt **nichts zu überspringen!**', 'You have not searched anything yet': '️Sie haben noch nichts gesucht', '`url` is **required**': '️`url` ist **erforderlich**', 'is not supported!': '️wird nicht unterstützt!', 'Chose only one!': '️Wählen Sie nur eine aus!', 'Nothing to **show**, queue is **empty!**': '️Nichts zu **zeigen**, Warteschlange ist **leer!**', 'Nothing to **remove**, queue is **empty!**': '️Nichts zu **entfernen**, Warteschlange ist **leer!**', 'Index out of range!': '️Index außerhalb des Bereichs!', 'Player **already resumed!**': '️Spieler **bereits wieder aufgenommen!**', 'No audio playing': '️Keine Audiowiedergabe', 'No audio': 'Kein Ton', 'Player **already paused!**': '️Spieler **bereits pausiert!**', 'That is not a **guild id!**': '️Das ist keine **Gilden-ID!**', "That guild doesn't exist or the bot is not in it": 'Diese Gilde existiert nicht oder der Bot ist nicht dabei'}
