@@ -20,8 +20,7 @@ from typing import Literal
 import traceback
 import datetime
 
-# noinspection PyUnresolvedReferences
-from api_keys import api_key, api_key_testing
+from api_keys import api_key
 
 import functools
 
@@ -2067,4 +2066,4 @@ async def help_command(ctx: commands.Context,
 
     await ctx.reply(embed=embed, ephemeral=True)
 
-bot.run(api_key_testing)
+bot.run(api_key)
