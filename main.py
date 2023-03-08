@@ -1285,7 +1285,8 @@ async def play(ctx: commands.Context,
         guild[guild_id].options.is_radio = False
 
     if not guild[guild_id].queue:
-        await ctx.reply(tg(guild_id, "There is **nothing** in your **queue**"))
+        if url != 'next':
+            await ctx.reply(tg(guild_id, "There is **nothing** in your **queue**"))
         return
 
     video = guild[guild_id].queue[0]
