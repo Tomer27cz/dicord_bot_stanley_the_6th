@@ -712,3 +712,1382 @@
 06/03/23 11:31:28 -no guild- Logged in as:
 06/03/23 11:31:28 -no guild- Oliver the 4th
 06/03/23 11:31:28 -no guild- 1007004463933952120
+06/03/23 14:18:22 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+06/03/23 14:18:22 -no guild- Trying to sync commands
+06/03/23 14:18:22 -no guild- Synced slash commands for Oliver the 4th#0617
+06/03/23 14:18:22 -no guild- Logged in as:
+06/03/23 14:18:22 -no guild- Oliver the 4th
+06/03/23 14:18:22 -no guild- 1007004463933952120
+06/03/23 14:18:41 -1008145667622969397- Command (play) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/watch?v=WFP13u6AyZk'])
+06/03/23 14:18:41 -1008145667622969397- Command (queue) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/watch?v=WFP13u6AyZk', None, True])
+06/03/23 14:18:42 -1008145667622969397- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+06/03/23 14:19:12 -1008145667622969397- Command (play) was requested by (Tomer27cz#4272) -- (options: ['next'])
+06/03/23 14:19:12 -1008145667622969397- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+06/03/23 14:19:17 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+06/03/23 14:19:17 -no guild- Trying to sync commands
+06/03/23 14:19:17 -no guild- Synced slash commands for Oliver the 4th#0617
+06/03/23 14:19:17 -no guild- Logged in as:
+06/03/23 14:19:17 -no guild- Oliver the 4th
+06/03/23 14:19:17 -no guild- 1007004463933952120
+06/03/23 14:19:18 -1008145667622969397- Command (play) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/watch?v=WFP13u6AyZk'])
+06/03/23 14:19:18 -1008145667622969397- Command (queue) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/watch?v=WFP13u6AyZk', None, True])
+06/03/23 14:19:18 -1008145667622969397- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+06/03/23 14:19:46 -1008145667622969397- Command (play) was requested by (Tomer27cz#4272) -- (options: ['next'])
+06/03/23 14:19:46 -1008145667622969397- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+06/03/23 14:19:51 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+06/03/23 14:19:51 -no guild- Trying to sync commands
+06/03/23 14:19:52 -no guild- Synced slash commands for Oliver the 4th#0617
+06/03/23 14:19:52 -no guild- Logged in as:
+06/03/23 14:19:52 -no guild- Oliver the 4th
+06/03/23 14:19:52 -no guild- 1007004463933952120
+06/03/23 14:19:53 -1008145667622969397- Command (play) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/watch?v=WFP13u6AyZk'])
+06/03/23 14:19:53 -1008145667622969397- Command (queue) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/watch?v=WFP13u6AyZk', None, True])
+06/03/23 14:19:54 -1008145667622969397- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+06/03/23 14:20:48 -1008145667622969397- Command (play) was requested by (Tomer27cz#4272) -- (options: ['next'])
+06/03/23 14:20:48 -1008145667622969397- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+06/03/23 14:20:52 -1008145667622969397- Command (play) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/watch?v=WFP13u6AyZk'])
+06/03/23 14:20:52 -1008145667622969397- Command (queue) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/watch?v=WFP13u6AyZk', None, True])
+06/03/23 14:20:52 -1008145667622969397- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+06/03/23 14:20:53 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+06/03/23 14:20:53 -no guild- Trying to sync commands
+06/03/23 14:20:54 -no guild- Synced slash commands for Oliver the 4th#0617
+06/03/23 14:20:54 -no guild- Logged in as:
+06/03/23 14:20:54 -no guild- Oliver the 4th
+06/03/23 14:20:54 -no guild- 1007004463933952120
+06/03/23 14:23:06 -1008145667622969397- Command (play) was requested by (Tomer27cz#4272) -- (options: ['next'])
+06/03/23 14:24:13 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+06/03/23 14:24:13 -no guild- Trying to sync commands
+06/03/23 14:24:13 -no guild- Synced slash commands for Oliver the 4th#0617
+06/03/23 14:24:13 -no guild- Logged in as:
+06/03/23 14:24:13 -no guild- Oliver the 4th
+06/03/23 14:24:13 -no guild- 1007004463933952120
+06/03/23 14:24:18 -1008145667622969397- Command (radio) was requested by (Tomer27cz#4272) -- (options: [None, None, None, None, 'Rádio BLANÍK'])
+06/03/23 14:24:18 -1008145667622969397- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+06/03/23 14:29:26 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+06/03/23 14:29:26 -no guild- Trying to sync commands
+06/03/23 14:29:26 -no guild- Synced slash commands for Oliver the 4th#0617
+06/03/23 14:29:26 -no guild- Logged in as:
+06/03/23 14:29:26 -no guild- Oliver the 4th
+06/03/23 14:29:26 -no guild- 1007004463933952120
+06/03/23 14:29:32 -1008145667622969397- Command (radio) was requested by (Tomer27cz#4272) -- (options: [None, None, None, None, 'Rádio BLANÍK'])
+06/03/23 14:29:32 -1008145667622969397- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+06/03/23 14:30:22 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+06/03/23 14:30:22 -no guild- Trying to sync commands
+06/03/23 14:30:22 -no guild- Synced slash commands for Oliver the 4th#0617
+06/03/23 14:30:22 -no guild- Logged in as:
+06/03/23 14:30:22 -no guild- Oliver the 4th
+06/03/23 14:30:22 -no guild- 1007004463933952120
+06/03/23 14:30:26 -1008145667622969397- Command (radio) was requested by (Tomer27cz#4272) -- (options: [None, None, None, None, 'Rádio BLANÍK'])
+06/03/23 14:30:27 -1008145667622969397- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+06/03/23 14:31:31 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [10])
+06/03/23 14:31:31 -1008145667622969397- Command raised an exception: KeyError: 'Changed the volume for this server to: '
+06/03/23 14:31:52 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [200])
+06/03/23 14:31:52 -1008145667622969397- Command raised an exception: KeyError: 'Changed the volume for this server to: '
+06/03/23 14:32:07 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [100])
+06/03/23 14:32:07 -1008145667622969397- Command raised an exception: KeyError: 'Changed the volume for this server to: '
+06/03/23 14:34:15 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+06/03/23 14:34:15 -no guild- Trying to sync commands
+06/03/23 14:34:15 -no guild- Synced slash commands for Oliver the 4th#0617
+06/03/23 14:34:15 -no guild- Logged in as:
+06/03/23 14:34:15 -no guild- Oliver the 4th
+06/03/23 14:34:15 -no guild- 1007004463933952120
+06/03/23 14:34:16 -1008145667622969397- Command (radio) was requested by (Tomer27cz#4272) -- (options: [None, None, None, None, 'Rádio BLANÍK'])
+06/03/23 14:34:17 -1008145667622969397- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+06/03/23 14:34:44 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [100])
+06/03/23 14:34:44 -1008145667622969397- Command raised an exception: KeyError: 'Changed the volume for this server to: '
+06/03/23 14:34:59 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [50])
+06/03/23 14:34:59 -1008145667622969397- Command raised an exception: KeyError: 'Changed the volume for this server to: '
+06/03/23 14:35:49 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+06/03/23 14:35:49 -no guild- Trying to sync commands
+06/03/23 14:35:50 -no guild- Synced slash commands for Oliver the 4th#0617
+06/03/23 14:35:50 -no guild- Logged in as:
+06/03/23 14:35:50 -no guild- Oliver the 4th
+06/03/23 14:35:50 -no guild- 1007004463933952120
+06/03/23 14:35:52 -1008145667622969397- Command (radio) was requested by (Tomer27cz#4272) -- (options: [None, None, None, None, 'Rádio BLANÍK'])
+06/03/23 14:35:52 -1008145667622969397- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+06/03/23 14:36:19 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [100])
+06/03/23 14:36:33 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [10])
+06/03/23 14:36:45 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [50])
+06/03/23 14:37:08 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [200])
+06/03/23 14:37:15 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [300])
+06/03/23 14:37:21 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [500])
+06/03/23 14:37:55 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [1000])
+06/03/23 14:38:11 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+06/03/23 14:38:11 -no guild- Trying to sync commands
+06/03/23 14:38:12 -no guild- Synced slash commands for Oliver the 4th#0617
+06/03/23 14:38:12 -no guild- Logged in as:
+06/03/23 14:38:12 -no guild- Oliver the 4th
+06/03/23 14:38:12 -no guild- 1007004463933952120
+06/03/23 14:38:13 -1008145667622969397- Command (radio) was requested by (Tomer27cz#4272) -- (options: [None, None, None, None, 'Rádio BLANÍK'])
+06/03/23 14:38:13 -1008145667622969397- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+06/03/23 14:40:00 -1008145667622969397- Command (add_to_queue) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/watch?v=pICAha0nsb0'])
+06/03/23 14:40:00 -1008145667622969397- Command (queue) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/watch?v=pICAha0nsb0', None, True])
+06/03/23 14:40:05 -1008145667622969397- Command (play) was requested by (Tomer27cz#4272) -- (options: [None])
+06/03/23 14:40:18 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [10])
+06/03/23 14:40:26 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [50])
+06/03/23 14:40:34 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [100])
+06/03/23 14:40:40 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [1000])
+06/03/23 14:40:52 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [10000])
+06/03/23 14:41:21 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [100])
+06/03/23 14:41:33 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [100000])
+06/03/23 14:42:35 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [100])
+06/03/23 14:45:41 -1008145667622969397- Command (play) was requested by (Tomer27cz#4272) -- (options: ['next'])
+06/03/23 14:46:09 -1008145667622969397- Command (play) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/watch?v=fvYbjUTZQzo&list=PLjDkdFyoLDDPIc-FwFV1rkK0reJscpyF0'])
+06/03/23 14:46:09 -1008145667622969397- Command (queue) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/watch?v=fvYbjUTZQzo&list=PLjDkdFyoLDDPIc-FwFV1rkK0reJscpyF0', None, True])
+06/03/23 14:46:13 -1008145667622969397- Command (queue) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/playlist?list=PLjDkdFyoLDDPIc-FwFV1rkK0reJscpyF0', None, True])
+06/03/23 14:46:20 -1008145667622969397- Command (play) was requested by (Tomer27cz#4272) -- (options: [None])
+06/03/23 14:53:03 -1008145667622969397- Command (play) was requested by (Tomer27cz#4272) -- (options: ['next'])
+06/03/23 14:56:10 -1008145667622969397- Command (play) was requested by (Tomer27cz#4272) -- (options: ['next'])
+06/03/23 14:58:39 -1008145667622969397- Command (play) was requested by (Tomer27cz#4272) -- (options: ['next'])
+06/03/23 15:03:02 -1008145667622969397- Command (play) was requested by (Tomer27cz#4272) -- (options: ['next'])
+06/03/23 15:04:03 -1008145667622969397- Command (play) was requested by (Tomer27cz#4272) -- (options: ['next'])
+06/03/23 15:04:03 -1008145667622969397- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+06/03/23 15:04:08 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+06/03/23 15:04:08 -no guild- Trying to sync commands
+06/03/23 15:04:08 -no guild- Synced slash commands for Oliver the 4th#0617
+06/03/23 15:04:08 -no guild- Logged in as:
+06/03/23 15:04:08 -no guild- Oliver the 4th
+06/03/23 15:04:08 -no guild- 1007004463933952120
+06/03/23 15:04:26 -1008145667622969397- Command (radio) was requested by (Tomer27cz#4272) -- (options: [None, None, None, None, 'Rádio BLANÍK'])
+06/03/23 15:04:26 -1008145667622969397- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+06/03/23 15:04:26 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [0.5])
+06/03/23 15:04:26 -1008145667622969397- Hybrid command raised an error: Command 'radio' raised an exception: AttributeError: 'NoneType' object has no attribute 'volume'
+06/03/23 15:04:37 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [10])
+06/03/23 15:04:37 -1008145667622969397- Hybrid command raised an error: Command 'volume' raised an exception: AttributeError: 'NoneType' object has no attribute 'volume'
+06/03/23 15:05:28 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+06/03/23 15:05:28 -no guild- Trying to sync commands
+06/03/23 15:05:28 -no guild- Synced slash commands for Oliver the 4th#0617
+06/03/23 15:05:28 -no guild- Logged in as:
+06/03/23 15:05:28 -no guild- Oliver the 4th
+06/03/23 15:05:28 -no guild- 1007004463933952120
+06/03/23 15:05:31 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [10])
+06/03/23 15:05:36 -1008145667622969397- Command (radio) was requested by (Tomer27cz#4272) -- (options: [None, None, None, None, 'Rádio BLANÍK'])
+06/03/23 15:05:37 -1008145667622969397- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+06/03/23 15:05:37 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [10])
+06/03/23 15:05:37 -1008145667622969397- Hybrid command raised an error: Command 'radio' raised an exception: AttributeError: 'NoneType' object has no attribute 'volume'
+06/03/23 15:08:31 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+06/03/23 15:08:31 -no guild- Trying to sync commands
+06/03/23 15:08:31 -no guild- Synced slash commands for Oliver the 4th#0617
+06/03/23 15:08:31 -no guild- Logged in as:
+06/03/23 15:08:31 -no guild- Oliver the 4th
+06/03/23 15:08:31 -no guild- 1007004463933952120
+06/03/23 15:08:36 -1008145667622969397- Command (radio) was requested by (Tomer27cz#4272) -- (options: [None, None, None, None, 'Rádio BLANÍK'])
+06/03/23 15:08:36 -1008145667622969397- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+06/03/23 15:08:36 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [0.5])
+06/03/23 15:08:36 -1008145667622969397- Hybrid command raised an error: Command 'radio' raised an exception: AttributeError: 'NoneType' object has no attribute 'volume'
+06/03/23 15:09:27 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+06/03/23 15:09:27 -no guild- Trying to sync commands
+06/03/23 15:09:27 -no guild- Synced slash commands for Oliver the 4th#0617
+06/03/23 15:09:27 -no guild- Logged in as:
+06/03/23 15:09:27 -no guild- Oliver the 4th
+06/03/23 15:09:27 -no guild- 1007004463933952120
+06/03/23 15:09:32 -1008145667622969397- Command (radio) was requested by (Tomer27cz#4272) -- (options: [None, None, None, None, 'Rádio BLANÍK'])
+06/03/23 15:09:32 -1008145667622969397- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+06/03/23 15:09:32 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [0.5])
+06/03/23 15:09:32 -1008145667622969397- Hybrid command raised an error: Command 'radio' raised an exception: AttributeError: 'NoneType' object has no attribute 'volume'
+06/03/23 15:14:32 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+06/03/23 15:14:32 -no guild- Trying to sync commands
+06/03/23 15:14:32 -no guild- Synced slash commands for Oliver the 4th#0617
+06/03/23 15:14:32 -no guild- Logged in as:
+06/03/23 15:14:32 -no guild- Oliver the 4th
+06/03/23 15:14:32 -no guild- 1007004463933952120
+06/03/23 15:14:36 -1008145667622969397- Command (radio) was requested by (Tomer27cz#4272) -- (options: [None, None, None, None, 'Rádio BLANÍK'])
+06/03/23 15:14:36 -1008145667622969397- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+06/03/23 15:14:36 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [50.0])
+06/03/23 15:14:50 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+06/03/23 15:14:50 -no guild- Trying to sync commands
+06/03/23 15:14:55 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [10])
+06/03/23 15:15:01 -1008145667622969397- Command (radio) was requested by (Tomer27cz#4272) -- (options: [None, None, None, None, 'Rádio BLANÍK'])
+06/03/23 15:15:01 -1008145667622969397- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+06/03/23 15:15:02 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [1000])
+06/03/23 15:15:24 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [10])
+06/03/23 15:15:32 -no guild- Synced slash commands for Oliver the 4th#0617
+06/03/23 15:15:32 -no guild- Logged in as:
+06/03/23 15:15:32 -no guild- Oliver the 4th
+06/03/23 15:15:32 -no guild- 1007004463933952120
+06/03/23 15:15:42 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [50])
+06/03/23 15:15:50 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [100])
+06/03/23 15:15:57 -1008145667622969397- Command (radio) was requested by (Tomer27cz#4272) -- (options: [None, None, None, None, 'Rádio BLANÍK'])
+06/03/23 15:15:58 -1008145667622969397- Command (stop) was requested by (Tomer27cz#4272) -- (options: [True])
+06/03/23 15:15:58 -1008145667622969397- Command (volume) was requested by (Tomer27cz#4272) -- (options: [10000])
+06/03/23 15:20:34 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+06/03/23 15:20:34 -no guild- Trying to sync commands
+06/03/23 15:20:34 -no guild- Synced slash commands for Testing Bot#3465
+06/03/23 15:20:34 -no guild- Logged in as:
+06/03/23 15:20:34 -no guild- Testing Bot
+06/03/23 15:20:34 -no guild- 1009574748302356581
+06/03/23 15:23:07 -892403162315644928- Command (radio) was requested by (Tomer27cz#4272) -- (options: [None, None, None, None, 'Rádio BLANÍK'])
+06/03/23 15:23:07 -892403162315644928- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+06/03/23 15:23:07 -892403162315644928- Command (volume) was requested by (Tomer27cz#4272) -- (options: [50.0])
+06/03/23 15:39:26 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+06/03/23 15:39:26 -no guild- Trying to sync commands
+06/03/23 15:39:27 -no guild- Synced slash commands for Testing Bot#3465
+06/03/23 15:39:27 -no guild- Logged in as:
+06/03/23 15:39:27 -no guild- Testing Bot
+06/03/23 15:39:27 -no guild- 1009574748302356581
+06/03/23 21:02:47 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+06/03/23 21:02:47 -no guild- Trying to sync commands
+06/03/23 21:02:47 -no guild- Synced slash commands for Testing Bot#3465
+06/03/23 21:02:47 -no guild- Logged in as:
+06/03/23 21:02:47 -no guild- Testing Bot
+06/03/23 21:02:47 -no guild- 1009574748302356581
+07/03/23 19:34:22 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 19:34:22 -no guild- Trying to sync commands
+07/03/23 19:34:22 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 19:34:22 -no guild- Logged in as:
+07/03/23 19:34:22 -no guild- Testing Bot
+07/03/23 19:34:22 -no guild- 1009574748302356581
+07/03/23 19:34:40 -892403162315644928- Command (log) was requested by (Tomer27cz#4272) -- (options: None)
+07/03/23 19:34:41 -892403162315644928- Hybrid command raised an error: Command 'zz_log' raised an exception: TypeError: Object of type Guild is not JSON serializable
+07/03/23 19:36:14 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 19:36:14 -no guild- Trying to sync commands
+07/03/23 19:36:14 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 19:36:14 -no guild- Logged in as:
+07/03/23 19:36:14 -no guild- Testing Bot
+07/03/23 19:36:14 -no guild- 1009574748302356581
+07/03/23 19:36:16 -892403162315644928- Command (log) was requested by (Tomer27cz#4272) -- (options: None)
+07/03/23 19:36:17 -892403162315644928- Hybrid command raised an error: Command 'zz_log' raised an exception: KeyError: 0
+07/03/23 19:40:40 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 19:40:40 -no guild- Trying to sync commands
+07/03/23 19:40:40 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 19:40:40 -no guild- Logged in as:
+07/03/23 19:40:40 -no guild- Testing Bot
+07/03/23 19:40:40 -no guild- 1009574748302356581
+07/03/23 19:40:45 -892403162315644928- Command (log) was requested by (Tomer27cz#4272) -- (options: None)
+07/03/23 19:40:47 -892403162315644928- Hybrid command raised an error: Command 'zz_log' raised an exception: TypeError: Object of type Guild is not JSON serializable
+07/03/23 20:04:07 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 20:04:07 -no guild- Trying to sync commands
+07/03/23 20:04:07 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 20:04:07 -no guild- Logged in as:
+07/03/23 20:04:07 -no guild- Testing Bot
+07/03/23 20:04:07 -no guild- 1009574748302356581
+07/03/23 20:04:13 -892403162315644928- Command (log) was requested by (Tomer27cz#4272) -- (options: None)
+07/03/23 20:04:14 -892403162315644928- Hybrid command raised an error: Command 'zz_log' raised an exception: TypeError: cannot unpack non-iterable int object
+07/03/23 20:05:35 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 20:05:35 -no guild- Trying to sync commands
+07/03/23 20:05:35 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 20:05:35 -no guild- Logged in as:
+07/03/23 20:05:35 -no guild- Testing Bot
+07/03/23 20:05:35 -no guild- 1009574748302356581
+07/03/23 20:05:37 -892403162315644928- Command (log) was requested by (Tomer27cz#4272) -- (options: None)
+07/03/23 20:06:18 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 20:06:18 -no guild- Trying to sync commands
+07/03/23 20:06:18 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 20:06:18 -no guild- Logged in as:
+07/03/23 20:06:18 -no guild- Testing Bot
+07/03/23 20:06:18 -no guild- 1009574748302356581
+07/03/23 20:06:20 -892403162315644928- Command (log) was requested by (Tomer27cz#4272) -- (options: None)
+07/03/23 20:06:21 -892403162315644928- Hybrid command raised an error: Command 'zz_log' raised an exception: TypeError: cannot unpack non-iterable int object
+07/03/23 20:06:53 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 20:06:53 -no guild- Trying to sync commands
+07/03/23 20:06:53 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 20:06:53 -no guild- Logged in as:
+07/03/23 20:06:53 -no guild- Testing Bot
+07/03/23 20:06:53 -no guild- 1009574748302356581
+07/03/23 20:06:55 -892403162315644928- Command (log) was requested by (Tomer27cz#4272) -- (options: None)
+07/03/23 20:06:56 -892403162315644928- Hybrid command raised an error: Command 'zz_log' raised an exception: TypeError: cannot unpack non-iterable int object
+07/03/23 20:07:25 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 20:07:25 -no guild- Trying to sync commands
+07/03/23 20:07:25 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 20:07:25 -no guild- Logged in as:
+07/03/23 20:07:25 -no guild- Testing Bot
+07/03/23 20:07:25 -no guild- 1009574748302356581
+07/03/23 20:07:26 -892403162315644928- Command (log) was requested by (Tomer27cz#4272) -- (options: None)
+07/03/23 20:07:28 -892403162315644928- Hybrid command raised an error: Command 'zz_log' raised an exception: TypeError: cannot unpack non-iterable int object
+07/03/23 20:08:45 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 20:08:45 -no guild- Trying to sync commands
+07/03/23 20:08:45 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 20:08:45 -no guild- Logged in as:
+07/03/23 20:08:45 -no guild- Testing Bot
+07/03/23 20:08:45 -no guild- 1009574748302356581
+07/03/23 20:08:46 -892403162315644928- Command (log) was requested by (Tomer27cz#4272) -- (options: None)
+07/03/23 20:08:48 -892403162315644928- Hybrid command raised an error: Command 'zz_log' raised an exception: TypeError: cannot unpack non-iterable int object
+07/03/23 20:10:04 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 20:10:04 -no guild- Trying to sync commands
+07/03/23 20:10:05 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 20:10:05 -no guild- Logged in as:
+07/03/23 20:10:05 -no guild- Testing Bot
+07/03/23 20:10:05 -no guild- 1009574748302356581
+07/03/23 20:10:06 -892403162315644928- Command (log) was requested by (Tomer27cz#4272) -- (options: None)
+07/03/23 20:11:56 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 20:11:56 -no guild- Trying to sync commands
+07/03/23 20:11:56 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 20:11:56 -no guild- Logged in as:
+07/03/23 20:11:56 -no guild- Testing Bot
+07/03/23 20:11:56 -no guild- 1009574748302356581
+07/03/23 20:13:01 -892403162315644928- Command (log) was requested by (Tomer27cz#4272) -- (options: None)
+07/03/23 20:15:45 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 20:15:45 -no guild- Trying to sync commands
+07/03/23 20:15:45 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 20:15:45 -no guild- Logged in as:
+07/03/23 20:15:45 -no guild- Testing Bot
+07/03/23 20:15:45 -no guild- 1009574748302356581
+07/03/23 20:16:19 -892403162315644928- Command (queue) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/playlist?list=PLjDkdFyoLDDPIc-FwFV1rkK0reJscpyF0', None, None])
+07/03/23 20:16:35 -892403162315644928- Command (log) was requested by (Tomer27cz#4272) -- (options: None)
+07/03/23 20:16:35 -892403162315644928- Hybrid command raised an error: Command 'zz_log' raised an exception: TypeError: Object of type Member is not JSON serializable
+07/03/23 20:20:41 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 20:20:41 -no guild- Trying to sync commands
+07/03/23 20:20:42 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 20:20:42 -no guild- Logged in as:
+07/03/23 20:20:42 -no guild- Testing Bot
+07/03/23 20:20:42 -no guild- 1009574748302356581
+07/03/23 20:20:44 -892403162315644928- Command (log) was requested by (Tomer27cz#4272) -- (options: None)
+07/03/23 20:20:44 -892403162315644928- Hybrid command raised an error: Command 'zz_log' raised an exception: AttributeError: 'dict' object has no attribute '__dict__'
+07/03/23 20:23:03 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 20:23:03 -no guild- Trying to sync commands
+07/03/23 20:23:04 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 20:23:04 -no guild- Logged in as:
+07/03/23 20:23:04 -no guild- Testing Bot
+07/03/23 20:23:04 -no guild- 1009574748302356581
+07/03/23 20:23:17 -892403162315644928- Command (queue) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/playlist?list=PLjDkdFyoLDDPIc-FwFV1rkK0reJscpyF0', None, None])
+07/03/23 20:23:29 -892403162315644928- Command (log) was requested by (Tomer27cz#4272) -- (options: None)
+07/03/23 20:23:29 -892403162315644928- Hybrid command raised an error: Command 'zz_log' raised an exception: AttributeError: 'str' object has no attribute '__dict__'
+07/03/23 20:26:08 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 20:26:08 -no guild- Trying to sync commands
+07/03/23 20:26:09 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 20:26:09 -no guild- Logged in as:
+07/03/23 20:26:09 -no guild- Testing Bot
+07/03/23 20:26:09 -no guild- 1009574748302356581
+07/03/23 20:26:12 -892403162315644928- Command (queue) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/playlist?list=PLjDkdFyoLDDPIc-FwFV1rkK0reJscpyF0', None, None])
+07/03/23 20:26:22 -892403162315644928- Command (log) was requested by (Tomer27cz#4272) -- (options: None)
+07/03/23 20:26:22 -892403162315644928- Hybrid command raised an error: Command 'zz_log' raised an exception: AttributeError: 'Member' object has no attribute '__dict__'
+07/03/23 20:30:08 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 20:30:08 -no guild- Trying to sync commands
+07/03/23 20:30:09 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 20:30:09 -no guild- Logged in as:
+07/03/23 20:30:09 -no guild- Testing Bot
+07/03/23 20:30:09 -no guild- 1009574748302356581
+07/03/23 20:30:12 -892403162315644928- Command (queue) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/playlist?list=PLjDkdFyoLDDPIc-FwFV1rkK0reJscpyF0', None, None])
+07/03/23 20:30:21 -892403162315644928- Command (log) was requested by (Tomer27cz#4272) -- (options: None)
+07/03/23 20:30:21 -892403162315644928- Hybrid command raised an error: Command 'zz_log' raised an exception: AttributeError: 'NoneType' object has no attribute 'id'
+07/03/23 20:32:21 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 20:32:21 -no guild- Trying to sync commands
+07/03/23 20:32:21 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 20:32:21 -no guild- Logged in as:
+07/03/23 20:32:21 -no guild- Testing Bot
+07/03/23 20:32:21 -no guild- 1009574748302356581
+07/03/23 20:32:23 -892403162315644928- Command (queue) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/playlist?list=PLjDkdFyoLDDPIc-FwFV1rkK0reJscpyF0', None, None])
+07/03/23 20:32:33 -892403162315644928- Command (log) was requested by (Tomer27cz#4272) -- (options: None)
+07/03/23 20:34:38 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 20:34:38 -no guild- Trying to sync commands
+07/03/23 20:34:38 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 20:34:38 -no guild- Logged in as:
+07/03/23 20:34:38 -no guild- Testing Bot
+07/03/23 20:34:38 -no guild- 1009574748302356581
+07/03/23 20:34:41 -892403162315644928- Command (log) was requested by (Tomer27cz#4272) -- (options: None)
+07/03/23 20:42:38 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 20:42:38 -no guild- Trying to sync commands
+07/03/23 20:42:38 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 20:42:38 -no guild- Logged in as:
+07/03/23 20:42:38 -no guild- Testing Bot
+07/03/23 20:42:38 -no guild- 1009574748302356581
+07/03/23 20:42:48 -892403162315644928- Command (kys) was requested by (Tomer27cz#4272) -- (options: None)
+07/03/23 20:50:30 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 20:50:30 -no guild- Trying to sync commands
+07/03/23 20:50:31 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 20:50:31 -no guild- Logged in as:
+07/03/23 20:50:31 -no guild- Testing Bot
+07/03/23 20:50:31 -no guild- 1009574748302356581
+07/03/23 20:52:41 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 20:52:41 -no guild- Trying to sync commands
+07/03/23 20:52:41 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 20:52:41 -no guild- Logged in as:
+07/03/23 20:52:41 -no guild- Testing Bot
+07/03/23 20:52:41 -no guild- 1009574748302356581
+07/03/23 20:52:54 -892403162315644928- Command (play) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/playlist?list=PLjDkdFyoLDDPIc-FwFV1rkK0reJscpyF0'])
+07/03/23 20:52:55 -892403162315644928- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+07/03/23 20:53:12 -892403162315644928- Command (play) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/playlist?list=PLjDkdFyoLDDPIc-FwFV1rkK0reJscpyF0'])
+07/03/23 20:53:12 -892403162315644928- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+07/03/23 20:53:13 -892403162315644928- Hybrid command raised an error: Command 'play' raised an exception: InteractionResponded: This interaction has already been responded to before
+07/03/23 20:55:19 -892403162315644928- Command (play) was requested by (Tomer27cz#4272) -- (options: [None])
+07/03/23 20:57:29 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 20:57:29 -no guild- Trying to sync commands
+07/03/23 20:57:30 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 20:57:30 -no guild- Logged in as:
+07/03/23 20:57:30 -no guild- Testing Bot
+07/03/23 20:57:30 -no guild- 1009574748302356581
+07/03/23 20:58:48 -892403162315644928- Command (play) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/playlist?list=PLjDkdFyoLDDPIc-FwFV1rkK0reJscpyF0'])
+07/03/23 20:58:49 -892403162315644928- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+07/03/23 20:58:49 -892403162315644928- Command (queue) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/playlist?list=PLjDkdFyoLDDPIc-FwFV1rkK0reJscpyF0', None, True])
+07/03/23 21:05:39 -892403162315644928- Command (play) was requested by (Tomer27cz#4272) -- (options: ['next'])
+07/03/23 21:08:45 -892403162315644928- Command (play) was requested by (Tomer27cz#4272) -- (options: ['next'])
+07/03/23 21:11:15 -892403162315644928- Command (play) was requested by (Tomer27cz#4272) -- (options: ['next'])
+07/03/23 21:14:49 -892403162315644928- Command (play) was requested by (Tomer27cz#4272) -- (options: ['next'])
+07/03/23 21:14:49 -892403162315644928- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+07/03/23 21:15:01 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 21:15:01 -no guild- Trying to sync commands
+07/03/23 21:15:01 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 21:15:01 -no guild- Logged in as:
+07/03/23 21:15:01 -no guild- Testing Bot
+07/03/23 21:15:01 -no guild- 1009574748302356581
+07/03/23 21:15:12 -892403162315644928- Command (probe) was requested by (Tomer27cz#4272) -- (options: ['https://ice2.abradio.cz/alternative128.aac'])
+07/03/23 21:15:12 -892403162315644928- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+07/03/23 21:15:12 -892403162315644928- Command (volume) was requested by (Tomer27cz#4272) -- (options: [50.0])
+07/03/23 21:15:12 -all- Updated guilds.json
+07/03/23 21:15:13 -all- Updated guilds.json
+07/03/23 21:15:56 -892403162315644928- Command (stop) was requested by (Tomer27cz#4272) -- (options: [False])
+07/03/23 21:15:56 -all- Updated guilds.json
+07/03/23 21:16:03 -892403162315644928- Command (probe) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/watch?v=ng0xXM33yrI'])
+07/03/23 21:16:03 -892403162315644928- Command (volume) was requested by (Tomer27cz#4272) -- (options: [50.0])
+07/03/23 21:16:03 -all- Updated guilds.json
+07/03/23 21:16:03 -all- Updated guilds.json
+07/03/23 21:18:00 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 21:18:00 -no guild- Trying to sync commands
+07/03/23 21:18:01 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 21:18:01 -no guild- Logged in as:
+07/03/23 21:18:01 -no guild- Testing Bot
+07/03/23 21:18:01 -no guild- 1009574748302356581
+07/03/23 21:18:14 -892403162315644928- Command (probe) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/watch?v=ng0xXM33yrI'])
+07/03/23 21:18:14 -892403162315644928- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+07/03/23 21:18:14 -892403162315644928- Command (volume) was requested by (Tomer27cz#4272) -- (options: [50.0])
+07/03/23 21:18:14 -all- Updated guilds.json
+07/03/23 21:18:14 -all- Updated guilds.json
+07/03/23 21:18:41 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 21:18:41 -no guild- Trying to sync commands
+07/03/23 21:18:42 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 21:18:42 -no guild- Logged in as:
+07/03/23 21:18:42 -no guild- Testing Bot
+07/03/23 21:18:42 -no guild- 1009574748302356581
+07/03/23 21:18:44 -892403162315644928- Command (probe) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/watch?v=ng0xXM33yrI'])
+07/03/23 21:18:44 -892403162315644928- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+07/03/23 21:18:46 -892403162315644928- Command (volume) was requested by (Tomer27cz#4272) -- (options: [50.0])
+07/03/23 21:18:46 -all- Updated guilds.json
+07/03/23 21:18:46 -all- Updated guilds.json
+07/03/23 21:20:54 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 21:20:54 -no guild- Trying to sync commands
+07/03/23 21:20:54 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 21:20:54 -no guild- Logged in as:
+07/03/23 21:20:54 -no guild- Testing Bot
+07/03/23 21:20:54 -no guild- 1009574748302356581
+07/03/23 21:20:56 -892403162315644928- Command (probe) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/watch?v=ng0xXM33yrI'])
+07/03/23 21:20:56 -892403162315644928- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+07/03/23 21:20:57 -892403162315644928- Command (volume) was requested by (Tomer27cz#4272) -- (options: [50.0])
+07/03/23 21:20:57 -all- Updated guilds.json
+07/03/23 21:20:58 -all- Updated guilds.json
+07/03/23 21:21:14 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 21:21:14 -no guild- Trying to sync commands
+07/03/23 21:21:17 -892403162315644928- Command (probe) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/watch?v=ng0xXM33yrI'])
+07/03/23 21:21:17 -892403162315644928- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+07/03/23 21:21:19 -892403162315644928- Command (volume) was requested by (Tomer27cz#4272) -- (options: [50.0])
+07/03/23 21:21:19 -all- Updated guilds.json
+07/03/23 21:21:19 -all- Updated guilds.json
+07/03/23 21:21:54 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 21:21:54 -no guild- Logged in as:
+07/03/23 21:21:54 -no guild- Testing Bot
+07/03/23 21:21:54 -no guild- 1009574748302356581
+07/03/23 21:25:55 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 21:25:55 -no guild- Trying to sync commands
+07/03/23 21:25:55 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 21:25:55 -no guild- Logged in as:
+07/03/23 21:25:55 -no guild- Testing Bot
+07/03/23 21:25:55 -no guild- 1009574748302356581
+07/03/23 21:25:57 -892403162315644928- Command (probe) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/watch?v=ng0xXM33yrI'])
+07/03/23 21:25:57 -892403162315644928- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+07/03/23 21:26:50 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 21:26:50 -no guild- Trying to sync commands
+07/03/23 21:26:51 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 21:26:51 -no guild- Logged in as:
+07/03/23 21:26:51 -no guild- Testing Bot
+07/03/23 21:26:51 -no guild- 1009574748302356581
+07/03/23 21:26:51 -892403162315644928- Command (probe) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/watch?v=ng0xXM33yrI'])
+07/03/23 21:26:51 -892403162315644928- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+07/03/23 21:26:54 -892403162315644928- Command (volume) was requested by (Tomer27cz#4272) -- (options: [50.0])
+07/03/23 21:26:54 -all- Updated guilds.json
+07/03/23 21:26:55 -892403162315644928- Hybrid command raised an error: Command 'zz_probe' raised an exception: NotFound: 404 Not Found (error code: 10062): Unknown interaction
+07/03/23 21:27:33 -892403162315644928- Command (probe) was requested by (Tomer27cz#4272) -- (options: ['https://ice2.abradio.cz/alternative128.aac'])
+07/03/23 21:27:35 -892403162315644928- Command (volume) was requested by (Tomer27cz#4272) -- (options: [50.0])
+07/03/23 21:27:35 -all- Updated guilds.json
+07/03/23 21:27:35 -all- Updated guilds.json
+07/03/23 21:28:06 -892403162315644928- Command (disconnect) was requested by (Tomer27cz#4272) -- (options: None)
+07/03/23 21:28:06 -892403162315644928- Command (stop) was requested by (Tomer27cz#4272) -- (options: [True])
+07/03/23 21:28:06 -all- Updated guilds.json
+07/03/23 21:28:07 -all- Updated guilds.json
+07/03/23 21:32:35 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 21:32:35 -no guild- Trying to sync commands
+07/03/23 21:32:35 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 21:32:35 -no guild- Logged in as:
+07/03/23 21:32:35 -no guild- Testing Bot
+07/03/23 21:32:35 -no guild- 1009574748302356581
+07/03/23 21:33:14 -892403162315644928- Command (probe) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/watch?v=ng0xXM33yrI'])
+07/03/23 21:34:23 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 21:34:23 -no guild- Trying to sync commands
+07/03/23 21:34:24 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 21:34:24 -no guild- Logged in as:
+07/03/23 21:34:24 -no guild- Testing Bot
+07/03/23 21:34:24 -no guild- 1009574748302356581
+07/03/23 21:34:36 -892403162315644928- Command (probe) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/watch?v=ng0xXM33yrI'])
+07/03/23 21:37:06 -892403162315644928- Command (probe) was requested by (Tomer27cz#4272) -- (options: ['https://icecdn-19d24861e90342cc8decb03c24c8a419.msvdn.net/icecastRelay/S53422322/bTdUFhYMnnra/icecast'])
+07/03/23 21:37:07 -892403162315644928- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+07/03/23 21:37:07 -892403162315644928- Command (volume) was requested by (Tomer27cz#4272) -- (options: [50.0])
+07/03/23 21:37:07 -all- Updated guilds.json
+07/03/23 21:37:08 -all- Updated guilds.json
+07/03/23 21:37:24 -892403162315644928- Command (nowplaying) was requested by (Tomer27cz#4272) -- (options: [False])
+07/03/23 21:37:24 -892403162315644928- Hybrid command raised an error: Command 'nowplaying' raised an exception: AttributeError: 'FromProbe' object has no attribute 'renew'
+07/03/23 21:37:57 -892403162315644928- Command (probe) was requested by (Tomer27cz#4272) -- (options: ['https://icecdn-19d24861e90342cc8decb03c24c8a419.msvdn.net/icecastRelay/S53422322/bTdUFhYMnnra/icecast'])
+07/03/23 21:37:57 -892403162315644928- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+07/03/23 21:37:58 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 21:37:58 -no guild- Trying to sync commands
+07/03/23 21:37:58 -892403162315644928- Command (volume) was requested by (Tomer27cz#4272) -- (options: [50.0])
+07/03/23 21:37:58 -all- Updated guilds.json
+07/03/23 21:37:58 -all- Updated guilds.json
+07/03/23 21:37:59 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 21:37:59 -no guild- Logged in as:
+07/03/23 21:37:59 -no guild- Testing Bot
+07/03/23 21:37:59 -no guild- 1009574748302356581
+07/03/23 21:38:03 -892403162315644928- Command (nowplaying) was requested by (Tomer27cz#4272) -- (options: [False])
+07/03/23 21:38:04 -all- Updated guilds.json
+07/03/23 21:40:37 -892403162315644928- Command (add_to_queue) was requested by (Tomer27cz#4272) -- (options: ['ha ha gay'])
+07/03/23 21:40:37 -892403162315644928- Command (queue) was requested by (Tomer27cz#4272) -- (options: ['ha ha gay', None, True])
+07/03/23 21:40:38 -all- Updated guilds.json
+07/03/23 21:40:59 -892403162315644928- Command (kys) was requested by (Tomer27cz#4272) -- (options: None)
+07/03/23 21:41:44 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 21:41:44 -no guild- Trying to sync commands
+07/03/23 21:41:45 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 21:41:45 -no guild- Logged in as:
+07/03/23 21:41:45 -no guild- Testing Bot
+07/03/23 21:41:45 -no guild- 1009574748302356581
+07/03/23 21:41:47 -892403162315644928- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+07/03/23 21:41:51 -892403162315644928- Command (nowplaying) was requested by (Tomer27cz#4272) -- (options: [False])
+07/03/23 21:41:51 -all- Updated guilds.json
+07/03/23 21:46:52 -892403162315644928- Command (kys) was requested by (Tomer27cz#4272) -- (options: None)
+07/03/23 21:57:46 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 21:57:46 -no guild- Trying to sync commands
+07/03/23 21:57:47 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 21:57:47 -no guild- Logged in as:
+07/03/23 21:57:47 -no guild- Testing Bot
+07/03/23 21:57:47 -no guild- 1009574748302356581
+07/03/23 21:58:10 -892403162315644928- Command (queue) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/playlist?list=PLjDkdFyoLDDPIc-FwFV1rkK0reJscpyF0', None, None])
+07/03/23 21:58:11 -892403162315644928- Hybrid command raised an error: Command 'queue' raised an exception: KeyError: 892403162315644928
+07/03/23 21:58:42 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 21:58:42 -no guild- Trying to sync commands
+07/03/23 21:58:42 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 21:58:42 -no guild- Logged in as:
+07/03/23 21:58:42 -no guild- Testing Bot
+07/03/23 21:58:42 -no guild- 1009574748302356581
+07/03/23 22:01:29 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 22:01:29 -no guild- Trying to sync commands
+07/03/23 22:01:29 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 22:01:29 -no guild- Logged in as:
+07/03/23 22:01:29 -no guild- Testing Bot
+07/03/23 22:01:29 -no guild- 1009574748302356581
+07/03/23 22:01:37 -892403162315644928- Command (queue) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/playlist?list=PLjDkdFyoLDDPIc-FwFV1rkK0reJscpyF0', None, None])
+07/03/23 22:01:45 -all- Updated guilds.json
+07/03/23 22:02:46 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 22:02:46 -no guild- Trying to sync commands
+07/03/23 22:02:47 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 22:02:47 -no guild- Logged in as:
+07/03/23 22:02:47 -no guild- Testing Bot
+07/03/23 22:02:47 -no guild- 1009574748302356581
+07/03/23 22:03:12 -892403162315644928- Command (show) was requested by (Tomer27cz#4272) -- (options: [None, False])
+07/03/23 22:03:13 -all- Updated guilds.json
+07/03/23 22:03:23 -892403162315644928- Command (play) was requested by (Tomer27cz#4272) -- (options: [None])
+07/03/23 22:03:23 -892403162315644928- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+07/03/23 22:03:25 -all- Updated guilds.json
+07/03/23 22:03:35 -892403162315644928- Command (nowplaying) was requested by (Tomer27cz#4272) -- (options: [False])
+07/03/23 22:03:36 -all- Updated guilds.json
+07/03/23 22:07:08 -892403162315644928- Command (disconnect) was requested by (Tomer27cz#4272) -- (options: None)
+07/03/23 22:07:08 -892403162315644928- Command (stop) was requested by (Tomer27cz#4272) -- (options: [True])
+07/03/23 22:07:08 -all- Updated guilds.json
+07/03/23 22:07:08 -892403162315644928- Command (play) was requested by (Tomer27cz#4272) -- (options: ['next'])
+07/03/23 22:07:08 -892403162315644928- stopped
+07/03/23 22:07:08 -all- Updated guilds.json
+07/03/23 23:00:47 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+07/03/23 23:00:47 -no guild- Loading guilds.json...
+07/03/23 23:01:00 -no guild- Trying to sync commands
+07/03/23 23:01:00 -no guild- Synced slash commands for Testing Bot#3465
+07/03/23 23:01:00 -no guild- Logged in as:
+07/03/23 23:01:00 -no guild- Testing Bot
+07/03/23 23:01:00 -no guild- 1009574748302356581
+08/03/23 00:22:43 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 00:22:43 -no guild- Loading radio.json ...
+08/03/23 00:22:43 -no guild- Loading languages.json ...
+08/03/23 00:22:43 -no guild- Loading other.json ...
+08/03/23 00:23:03 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 00:23:03 -no guild- Loading radio.json ...
+08/03/23 00:23:03 -no guild- Loading languages.json ...
+08/03/23 00:23:03 -no guild- Loading other.json ...
+08/03/23 00:23:03 -no guild- Loading guilds.json ...
+08/03/23 00:25:16 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 00:25:16 -no guild- Loading radio.json ...
+08/03/23 00:25:16 -no guild- Loading languages.json ...
+08/03/23 00:25:16 -no guild- Loading other.json ...
+08/03/23 00:25:16 -no guild- Loading guilds.json ...
+08/03/23 00:25:25 -no guild- Loading sound_effects folder ...
+08/03/23 00:25:28 -no guild- Trying to sync commands
+08/03/23 00:25:29 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 00:25:29 -no guild- Logged in as:
+08/03/23 00:25:29 -no guild- Testing Bot
+08/03/23 00:25:29 -no guild- 1009574748302356581
+08/03/23 00:25:54 -892403162315644928- Command (play) was requested by (Tomer27cz#4272) -- (options: [None])
+08/03/23 00:25:54 -892403162315644928- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+08/03/23 00:25:56 -all- Updated guilds.json
+08/03/23 00:26:17 -892403162315644928- Command (language) was requested by (Tomer27cz#4272) -- (options: ['es'])
+08/03/23 00:26:17 -all- Updated guilds.json
+08/03/23 00:26:41 -892403162315644928- Command (radio) was requested by (Tomer27cz#4272) -- (options: ['Český rozhlas České Budějovice', None, None, None, None])
+08/03/23 00:26:41 -892403162315644928- Command (stop) was requested by (Tomer27cz#4272) -- (options: [True])
+08/03/23 00:26:41 -all- Updated guilds.json
+08/03/23 00:26:41 -892403162315644928- Command (volume) was requested by (Tomer27cz#4272) -- (options: [50.0])
+08/03/23 00:26:41 -all- Updated guilds.json
+08/03/23 00:26:41 -892403162315644928- Command (play) was requested by (Tomer27cz#4272) -- (options: ['next'])
+08/03/23 00:26:41 -892403162315644928- stopped
+08/03/23 00:26:41 -all- Updated guilds.json
+08/03/23 00:26:52 -892403162315644928- Command (radio) was requested by (Tomer27cz#4272) -- (options: [None, None, None, None, 'Rádio BLANÍK'])
+08/03/23 00:26:53 -892403162315644928- Command (stop) was requested by (Tomer27cz#4272) -- (options: [True])
+08/03/23 00:26:53 -all- Updated guilds.json
+08/03/23 00:26:53 -892403162315644928- Command (volume) was requested by (Tomer27cz#4272) -- (options: [50.0])
+08/03/23 00:26:53 -all- Updated guilds.json
+08/03/23 00:26:53 -all- Updated guilds.json
+08/03/23 00:27:05 -892403162315644928- Command (nowplaying) was requested by (Tomer27cz#4272) -- (options: [False])
+08/03/23 00:27:05 -all- Updated guilds.json
+08/03/23 00:32:53 -892403162315644928- Command (nowplaying) was requested by (Tomer27cz#4272) -- (options: [False])
+08/03/23 00:32:54 -all- Updated guilds.json
+08/03/23 00:34:31 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 00:34:31 -no guild- Loading radio.json ...
+08/03/23 00:34:31 -no guild- Loading languages.json ...
+08/03/23 00:34:31 -no guild- Loading other.json ...
+08/03/23 00:34:31 -no guild- Loading guilds.json ...
+08/03/23 00:34:32 -no guild- Loading sound_effects folder ...
+08/03/23 00:34:35 -no guild- Trying to sync commands
+08/03/23 00:34:35 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 00:34:35 -no guild- Logged in as:
+08/03/23 00:34:35 -no guild- Testing Bot
+08/03/23 00:34:35 -no guild- 1009574748302356581
+08/03/23 00:34:40 -892403162315644928- Command (show) was requested by (Tomer27cz#4272) -- (options: [None, False])
+08/03/23 00:35:24 -892403162315644928- Command (queue) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/playlist?list=PLjDkdFyoLDDPIc-FwFV1rkK0reJscpyF0', None, None])
+08/03/23 00:35:33 -all- Updated guilds.json
+08/03/23 00:35:47 -892403162315644928- Command (play) was requested by (Tomer27cz#4272) -- (options: [None])
+08/03/23 00:35:47 -892403162315644928- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+08/03/23 00:35:50 -all- Updated guilds.json
+08/03/23 00:36:48 -892403162315644928- Command (disconnect) was requested by (Tomer27cz#4272) -- (options: None)
+08/03/23 00:36:48 -892403162315644928- Command (stop) was requested by (Tomer27cz#4272) -- (options: [True])
+08/03/23 00:36:48 -all- Updated guilds.json
+08/03/23 00:36:48 -892403162315644928- Command (play) was requested by (Tomer27cz#4272) -- (options: ['next'])
+08/03/23 00:36:48 -892403162315644928- stopped
+08/03/23 00:36:48 -all- Updated guilds.json
+08/03/23 00:36:57 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 00:36:57 -no guild- Loading radio.json ...
+08/03/23 00:36:57 -no guild- Loading languages.json ...
+08/03/23 00:36:57 -no guild- Loading other.json ...
+08/03/23 00:36:57 -no guild- Loading guilds.json ...
+08/03/23 00:36:58 -no guild- Loading sound_effects folder ...
+08/03/23 00:37:00 -no guild- Trying to sync commands
+08/03/23 00:37:01 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 00:37:01 -no guild- Logged in as:
+08/03/23 00:37:01 -no guild- Testing Bot
+08/03/23 00:37:01 -no guild- 1009574748302356581
+08/03/23 00:37:05 -892403162315644928- Command (show) was requested by (Tomer27cz#4272) -- (options: [None, False])
+08/03/23 00:37:06 -all- Updated guilds.json
+08/03/23 00:37:14 -892403162315644928- Command (play) was requested by (Tomer27cz#4272) -- (options: [None])
+08/03/23 00:37:15 -892403162315644928- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+08/03/23 00:37:17 -all- Updated guilds.json
+08/03/23 00:38:34 -892403162315644928- Command (sound) was requested by (Tomer27cz#4272) -- (options: None)
+08/03/23 00:39:18 -892403162315644928- Command (play) was requested by (Tomer27cz#4272) -- (options: ['next'])
+08/03/23 00:39:18 -892403162315644928- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+08/03/23 00:45:56 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 00:45:56 -no guild- Loading radio.json ...
+08/03/23 00:45:56 -no guild- Loading languages.json ...
+08/03/23 00:45:56 -no guild- Loading other.json ...
+08/03/23 00:45:56 -no guild- Loading guilds.json ...
+08/03/23 00:45:56 -no guild- Loading sound_effects folder ...
+08/03/23 00:45:59 -no guild- Trying to sync commands
+08/03/23 00:46:00 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 00:46:00 -no guild- Logged in as:
+08/03/23 00:46:00 -no guild- Testing Bot
+08/03/23 00:46:00 -no guild- 1009574748302356581
+08/03/23 00:46:14 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 00:46:14 -no guild- Loading radio.json ...
+08/03/23 00:46:14 -no guild- Loading languages.json ...
+08/03/23 00:46:14 -no guild- Loading other.json ...
+08/03/23 00:46:14 -no guild- Loading guilds.json ...
+08/03/23 00:46:15 -no guild- Loading sound_effects folder ...
+08/03/23 00:46:18 -no guild- Trying to sync commands
+08/03/23 00:46:24 -892403162315644928- Command (sound) was requested by (Tomer27cz#4272) -- (options: None)
+08/03/23 00:47:00 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 00:47:00 -no guild- Logged in as:
+08/03/23 00:47:00 -no guild- Testing Bot
+08/03/23 00:47:00 -no guild- 1009574748302356581
+08/03/23 00:47:10 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 00:47:10 -no guild- Loading radio.json ...
+08/03/23 00:47:10 -no guild- Loading languages.json ...
+08/03/23 00:47:10 -no guild- Loading other.json ...
+08/03/23 00:47:10 -no guild- Loading guilds.json ...
+08/03/23 00:47:10 -no guild- Loading sound_effects folder ...
+08/03/23 00:47:13 -no guild- Trying to sync commands
+08/03/23 00:47:14 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 00:47:14 -no guild- Logged in as:
+08/03/23 00:47:14 -no guild- Testing Bot
+08/03/23 00:47:14 -no guild- 1009574748302356581
+08/03/23 00:47:17 -892403162315644928- Command (ps) was requested by (Tomer27cz#4272) -- (options: [1])
+08/03/23 00:47:17 -892403162315644928- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+08/03/23 00:47:18 -892403162315644928- Command (stop) was requested by (Tomer27cz#4272) -- (options: [True])
+08/03/23 00:47:18 -all- Updated guilds.json
+08/03/23 00:47:18 -892403162315644928- Command (volume) was requested by (Tomer27cz#4272) -- (options: [50.0])
+08/03/23 00:47:18 -all- Updated guilds.json
+08/03/23 00:47:19 -all- Updated guilds.json
+08/03/23 00:47:30 -892403162315644928- Command (disconnect) was requested by (Tomer27cz#4272) -- (options: None)
+08/03/23 00:47:30 -892403162315644928- Command (stop) was requested by (Tomer27cz#4272) -- (options: [True])
+08/03/23 00:47:30 -all- Updated guilds.json
+08/03/23 00:47:30 -all- Updated guilds.json
+08/03/23 00:48:07 -892403162315644928- Command (volume) was requested by (Tomer27cz#4272) -- (options: [10000])
+08/03/23 00:48:08 -all- Updated guilds.json
+08/03/23 00:48:16 -892403162315644928- Command (volume) was requested by (Tomer27cz#4272) -- (options: [100000])
+08/03/23 00:48:17 -all- Updated guilds.json
+08/03/23 00:48:26 -892403162315644928- Command (ps) was requested by (Tomer27cz#4272) -- (options: [1])
+08/03/23 00:48:26 -892403162315644928- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+08/03/23 00:48:27 -892403162315644928- Command (stop) was requested by (Tomer27cz#4272) -- (options: [True])
+08/03/23 00:48:27 -all- Updated guilds.json
+08/03/23 00:48:27 -892403162315644928- Command (volume) was requested by (Tomer27cz#4272) -- (options: [100000.0])
+08/03/23 00:48:27 -all- Updated guilds.json
+08/03/23 00:48:27 -all- Updated guilds.json
+08/03/23 00:48:59 -892403162315644928- Command (disconnect) was requested by (Tomer27cz#4272) -- (options: None)
+08/03/23 00:48:59 -892403162315644928- Command (stop) was requested by (Tomer27cz#4272) -- (options: [True])
+08/03/23 00:48:59 -all- Updated guilds.json
+08/03/23 00:48:59 -all- Updated guilds.json
+08/03/23 00:49:04 -892403162315644928- Command (volume) was requested by (Tomer27cz#4272) -- (options: [100])
+08/03/23 00:49:05 -all- Updated guilds.json
+08/03/23 00:49:12 -892403162315644928- Command (ps) was requested by (Tomer27cz#4272) -- (options: [1])
+08/03/23 00:49:12 -892403162315644928- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+08/03/23 00:49:12 -892403162315644928- Command (stop) was requested by (Tomer27cz#4272) -- (options: [True])
+08/03/23 00:49:12 -all- Updated guilds.json
+08/03/23 00:49:12 -892403162315644928- Command (volume) was requested by (Tomer27cz#4272) -- (options: [100.0])
+08/03/23 00:49:12 -all- Updated guilds.json
+08/03/23 00:49:12 -all- Updated guilds.json
+08/03/23 00:49:22 -892403162315644928- Command (disconnect) was requested by (Tomer27cz#4272) -- (options: None)
+08/03/23 00:49:22 -892403162315644928- Command (stop) was requested by (Tomer27cz#4272) -- (options: [True])
+08/03/23 00:49:22 -all- Updated guilds.json
+08/03/23 00:49:22 -all- Updated guilds.json
+08/03/23 00:50:41 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 00:50:41 -no guild- Loading radio.json ...
+08/03/23 00:50:41 -no guild- Loading languages.json ...
+08/03/23 00:50:41 -no guild- Loading other.json ...
+08/03/23 00:50:41 -no guild- Loading guilds.json ...
+08/03/23 00:50:42 -no guild- Loading sound_effects folder ...
+08/03/23 00:50:45 -no guild- Trying to sync commands
+08/03/23 00:50:45 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 00:50:45 -no guild- Logged in as:
+08/03/23 00:50:45 -no guild- Testing Bot
+08/03/23 00:50:45 -no guild- 1009574748302356581
+08/03/23 00:50:50 -892403162315644928- Command (volume) was requested by (Tomer27cz#4272) -- (options: [100])
+08/03/23 00:50:51 -all- Updated guilds.json
+08/03/23 00:51:04 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 00:51:04 -no guild- Loading radio.json ...
+08/03/23 00:51:04 -no guild- Loading languages.json ...
+08/03/23 00:51:04 -no guild- Loading other.json ...
+08/03/23 00:51:04 -no guild- Loading guilds.json ...
+08/03/23 00:51:05 -no guild- Loading sound_effects folder ...
+08/03/23 00:51:08 -no guild- Trying to sync commands
+08/03/23 00:51:12 -892403162315644928- Command (volume) was requested by (Tomer27cz#4272) -- (options: [100])
+08/03/23 00:51:12 -all- Updated guilds.json
+08/03/23 00:51:35 -892403162315644928- Command (volume) was requested by (Tomer27cz#4272) -- (options: [10000])
+08/03/23 00:51:35 -all- Updated guilds.json
+08/03/23 00:51:42 -892403162315644928- Command (ps) was requested by (Tomer27cz#4272) -- (options: [1])
+08/03/23 00:51:42 -892403162315644928- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+08/03/23 00:51:43 -892403162315644928- Command (stop) was requested by (Tomer27cz#4272) -- (options: [True])
+08/03/23 00:51:43 -all- Updated guilds.json
+08/03/23 00:51:43 -892403162315644928- Command (volume) was requested by (Tomer27cz#4272) -- (options: [10000.0])
+08/03/23 00:51:43 -all- Updated guilds.json
+08/03/23 00:51:43 -all- Updated guilds.json
+08/03/23 00:51:45 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 00:51:45 -no guild- Logged in as:
+08/03/23 00:51:45 -no guild- Testing Bot
+08/03/23 00:51:45 -no guild- 1009574748302356581
+08/03/23 00:52:00 -892403162315644928- Command (disconnect) was requested by (Tomer27cz#4272) -- (options: None)
+08/03/23 00:52:00 -892403162315644928- Command (stop) was requested by (Tomer27cz#4272) -- (options: [True])
+08/03/23 00:52:00 -all- Updated guilds.json
+08/03/23 00:52:01 -all- Updated guilds.json
+08/03/23 00:52:05 -892403162315644928- Command (ps) was requested by (Tomer27cz#4272) -- (options: [1])
+08/03/23 00:52:05 -892403162315644928- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+08/03/23 00:52:05 -892403162315644928- Command (stop) was requested by (Tomer27cz#4272) -- (options: [True])
+08/03/23 00:52:05 -all- Updated guilds.json
+08/03/23 00:52:05 -892403162315644928- Command (volume) was requested by (Tomer27cz#4272) -- (options: [10000.0])
+08/03/23 00:52:05 -all- Updated guilds.json
+08/03/23 00:52:06 -all- Updated guilds.json
+08/03/23 00:52:31 -892403162315644928- Command (disconnect) was requested by (Tomer27cz#4272) -- (options: None)
+08/03/23 00:52:31 -892403162315644928- Command (stop) was requested by (Tomer27cz#4272) -- (options: [True])
+08/03/23 00:52:31 -all- Updated guilds.json
+08/03/23 00:52:32 -all- Updated guilds.json
+08/03/23 00:55:09 -892403162315644928- Command (queue) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/playlist?list=PLjDkdFyoLDDPIc-FwFV1rkK0reJscpyF0', None, None])
+08/03/23 00:55:18 -all- Updated guilds.json
+08/03/23 00:55:34 -892403162315644928- Command (show) was requested by (Tomer27cz#4272) -- (options: [None, False])
+08/03/23 00:55:36 -all- Updated guilds.json
+08/03/23 00:58:30 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 00:58:30 -no guild- Loading radio.json ...
+08/03/23 00:58:30 -no guild- Loading languages.json ...
+08/03/23 00:58:30 -no guild- Loading other.json ...
+08/03/23 00:58:30 -no guild- Loading guilds.json ...
+08/03/23 00:58:30 -no guild- Loading sound_effects folder ...
+08/03/23 00:58:34 -no guild- Trying to sync commands
+08/03/23 00:58:34 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 00:58:34 -no guild- Logged in as:
+08/03/23 00:58:34 -no guild- Testing Bot
+08/03/23 00:58:34 -no guild- 1009574748302356581
+08/03/23 00:58:34 -892403162315644928- Command (show) was requested by (Tomer27cz#4272) -- (options: [None, False])
+08/03/23 00:58:36 -all- Updated guilds.json
+08/03/23 01:03:40 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 01:03:40 -no guild- Loading radio.json ...
+08/03/23 01:03:40 -no guild- Loading languages.json ...
+08/03/23 01:03:40 -no guild- Loading other.json ...
+08/03/23 01:03:40 -no guild- Loading guilds.json ...
+08/03/23 01:03:40 -no guild- Loading sound_effects folder ...
+08/03/23 01:03:43 -no guild- Trying to sync commands
+08/03/23 01:03:44 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 01:03:44 -no guild- Logged in as:
+08/03/23 01:03:44 -no guild- Testing Bot
+08/03/23 01:03:44 -no guild- 1009574748302356581
+08/03/23 01:03:46 -892403162315644928- Command (show) was requested by (Tomer27cz#4272) -- (options: [None, True])
+08/03/23 01:03:48 -all- Updated guilds.json
+08/03/23 01:08:43 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 01:08:43 -no guild- Loading radio.json ...
+08/03/23 01:08:43 -no guild- Loading languages.json ...
+08/03/23 01:08:43 -no guild- Loading other.json ...
+08/03/23 01:08:43 -no guild- Loading guilds.json ...
+08/03/23 01:08:44 -no guild- Loading sound_effects folder ...
+08/03/23 01:08:47 -no guild- Trying to sync commands
+08/03/23 01:08:47 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 01:08:47 -no guild- Logged in as:
+08/03/23 01:08:47 -no guild- Testing Bot
+08/03/23 01:08:47 -no guild- 1009574748302356581
+08/03/23 01:08:53 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 01:08:53 -no guild- Loading radio.json ...
+08/03/23 01:08:53 -no guild- Loading languages.json ...
+08/03/23 01:08:53 -no guild- Loading other.json ...
+08/03/23 01:08:53 -no guild- Loading guilds.json ...
+08/03/23 01:08:54 -no guild- Loading sound_effects folder ...
+08/03/23 01:08:57 -no guild- Trying to sync commands
+08/03/23 01:09:36 -892403162315644928- Command (show) was requested by (Tomer27cz#4272) -- (options: ['medium', False])
+08/03/23 01:09:37 -892403162315644928- Command raised an exception: HTTPException: 400 Bad Request (error code: 50035): Invalid Form Body
+08/03/23 01:09:37 -892403162315644928- In embeds: Embed size exceeds maximum size of 6000
+08/03/23 01:09:47 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 01:09:47 -no guild- Logged in as:
+08/03/23 01:09:47 -no guild- Testing Bot
+08/03/23 01:09:47 -no guild- 1009574748302356581
+08/03/23 01:14:18 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 01:14:18 -no guild- Loading radio.json ...
+08/03/23 01:14:18 -no guild- Loading languages.json ...
+08/03/23 01:14:18 -no guild- Loading other.json ...
+08/03/23 01:14:18 -no guild- Loading guilds.json ...
+08/03/23 01:14:19 -no guild- Loading sound_effects folder ...
+08/03/23 01:14:22 -no guild- Trying to sync commands
+08/03/23 01:14:23 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 01:14:23 -no guild- Logged in as:
+08/03/23 01:14:23 -no guild- Testing Bot
+08/03/23 01:14:23 -no guild- 1009574748302356581
+08/03/23 01:14:26 -892403162315644928- Command (show) was requested by (Tomer27cz#4272) -- (options: ['medium', False])
+08/03/23 01:14:26 -892403162315644928- Hybrid command raised an error: Command 'show' raised an exception: NotFound: 404 Not Found (error code: 10062): Unknown interaction
+08/03/23 01:15:03 -892403162315644928- Command (show) was requested by (Tomer27cz#4272) -- (options: [None, False])
+08/03/23 01:15:03 -all- Updated guilds.json
+08/03/23 01:15:38 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 01:15:38 -no guild- Loading radio.json ...
+08/03/23 01:15:38 -no guild- Loading languages.json ...
+08/03/23 01:15:38 -no guild- Loading other.json ...
+08/03/23 01:15:38 -no guild- Loading guilds.json ...
+08/03/23 01:15:39 -no guild- Loading sound_effects folder ...
+08/03/23 01:15:42 -no guild- Trying to sync commands
+08/03/23 01:15:42 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 01:15:42 -no guild- Logged in as:
+08/03/23 01:15:42 -no guild- Testing Bot
+08/03/23 01:15:42 -no guild- 1009574748302356581
+08/03/23 01:15:44 -892403162315644928- Command (show) was requested by (Tomer27cz#4272) -- (options: ['short', False])
+08/03/23 01:15:45 -all- Updated guilds.json
+08/03/23 01:16:13 -892403162315644928- Command (show) was requested by (Tomer27cz#4272) -- (options: ['medium', False])
+08/03/23 01:16:13 -892403162315644928- Hybrid command raised an error: Command 'show' raised an exception: NotFound: 404 Not Found (error code: 10062): Unknown interaction
+08/03/23 01:17:37 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 01:17:37 -no guild- Loading radio.json ...
+08/03/23 01:17:37 -no guild- Loading languages.json ...
+08/03/23 01:17:37 -no guild- Loading other.json ...
+08/03/23 01:17:37 -no guild- Loading guilds.json ...
+08/03/23 01:17:38 -no guild- Loading sound_effects folder ...
+08/03/23 01:17:41 -no guild- Trying to sync commands
+08/03/23 01:17:41 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 01:17:41 -no guild- Logged in as:
+08/03/23 01:17:41 -no guild- Testing Bot
+08/03/23 01:17:41 -no guild- 1009574748302356581
+08/03/23 01:17:43 -892403162315644928- Command (show) was requested by (Tomer27cz#4272) -- (options: ['medium', False])
+08/03/23 01:17:43 -892403162315644928- Hybrid command raised an error: Command 'show' raised an exception: NotFound: 404 Not Found (error code: 10062): Unknown interaction
+08/03/23 01:20:26 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 01:20:26 -no guild- Loading radio.json ...
+08/03/23 01:20:26 -no guild- Loading languages.json ...
+08/03/23 01:20:26 -no guild- Loading other.json ...
+08/03/23 01:20:26 -no guild- Loading guilds.json ...
+08/03/23 01:20:27 -no guild- Loading sound_effects folder ...
+08/03/23 01:20:30 -no guild- Trying to sync commands
+08/03/23 01:20:31 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 01:20:31 -no guild- Logged in as:
+08/03/23 01:20:31 -no guild- Testing Bot
+08/03/23 01:20:31 -no guild- 1009574748302356581
+08/03/23 01:20:32 -892403162315644928- Command (show) was requested by (Tomer27cz#4272) -- (options: ['medium', False])
+08/03/23 01:20:33 -892403162315644928- Hybrid command raised an error: Command 'show' raised an exception: NotFound: 404 Not Found (error code: 10062): Unknown interaction
+08/03/23 01:20:42 -892403162315644928- Command (show) was requested by (Tomer27cz#4272) -- (options: ['short', False])
+08/03/23 01:20:43 -all- Updated guilds.json
+08/03/23 01:23:13 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 01:23:13 -no guild- Loading radio.json ...
+08/03/23 01:23:13 -no guild- Loading languages.json ...
+08/03/23 01:23:13 -no guild- Loading other.json ...
+08/03/23 01:23:13 -no guild- Loading guilds.json ...
+08/03/23 01:23:14 -no guild- Loading sound_effects folder ...
+08/03/23 01:23:17 -no guild- Trying to sync commands
+08/03/23 01:23:17 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 01:23:17 -no guild- Logged in as:
+08/03/23 01:23:17 -no guild- Testing Bot
+08/03/23 01:23:17 -no guild- 1009574748302356581
+08/03/23 01:23:21 -892403162315644928- Command (show) was requested by (Tomer27cz#4272) -- (options: ['medium', False])
+08/03/23 01:23:23 -all- Updated guilds.json
+08/03/23 01:25:17 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 01:25:17 -no guild- Loading radio.json ...
+08/03/23 01:25:17 -no guild- Loading languages.json ...
+08/03/23 01:25:17 -no guild- Loading other.json ...
+08/03/23 01:25:17 -no guild- Loading guilds.json ...
+08/03/23 01:25:18 -no guild- Loading sound_effects folder ...
+08/03/23 01:25:21 -no guild- Trying to sync commands
+08/03/23 01:25:21 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 01:25:21 -no guild- Logged in as:
+08/03/23 01:25:21 -no guild- Testing Bot
+08/03/23 01:25:21 -no guild- 1009574748302356581
+08/03/23 01:51:14 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 01:51:14 -no guild- Loading radio.json ...
+08/03/23 01:51:14 -no guild- Loading languages.json ...
+08/03/23 01:51:14 -no guild- Loading other.json ...
+08/03/23 01:51:14 -no guild- Loading guilds.json ...
+08/03/23 01:51:15 -no guild- Loading sound_effects folder ...
+08/03/23 01:51:18 -no guild- Trying to sync commands
+08/03/23 01:51:18 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 01:51:18 -no guild- Logged in as:
+08/03/23 01:51:18 -no guild- Testing Bot
+08/03/23 01:51:18 -no guild- 1009574748302356581
+08/03/23 01:51:50 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 01:51:50 -no guild- Loading radio.json ...
+08/03/23 01:51:50 -no guild- Loading languages.json ...
+08/03/23 01:51:50 -no guild- Loading other.json ...
+08/03/23 01:51:50 -no guild- Loading guilds.json ...
+08/03/23 01:51:51 -no guild- Loading sound_effects folder ...
+08/03/23 01:51:54 -no guild- Trying to sync commands
+08/03/23 01:51:55 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 01:51:55 -no guild- Logged in as:
+08/03/23 01:51:55 -no guild- Testing Bot
+08/03/23 01:51:55 -no guild- 1009574748302356581
+08/03/23 01:56:55 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 01:56:55 -no guild- Loading radio.json ...
+08/03/23 01:56:55 -no guild- Loading languages.json ...
+08/03/23 01:56:55 -no guild- Loading other.json ...
+08/03/23 01:56:55 -no guild- Loading guilds.json ...
+08/03/23 01:56:56 -no guild- Loading sound_effects folder ...
+08/03/23 01:57:26 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 01:57:26 -no guild- Loading radio.json ...
+08/03/23 01:57:26 -no guild- Loading languages.json ...
+08/03/23 01:57:26 -no guild- Loading other.json ...
+08/03/23 01:57:26 -no guild- Loading guilds.json ...
+08/03/23 01:57:26 -no guild- Loading sound_effects folder ...
+08/03/23 01:57:29 -no guild- Trying to sync commands
+08/03/23 01:57:30 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 01:57:30 -no guild- Logged in as:
+08/03/23 01:57:30 -no guild- Testing Bot
+08/03/23 01:57:30 -no guild- 1009574748302356581
+08/03/23 01:58:53 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 01:58:53 -no guild- Loading radio.json ...
+08/03/23 01:58:53 -no guild- Loading languages.json ...
+08/03/23 01:58:53 -no guild- Loading other.json ...
+08/03/23 01:58:53 -no guild- Loading guilds.json ...
+08/03/23 01:58:54 -no guild- Loading sound_effects folder ...
+08/03/23 01:58:57 -no guild- Trying to sync commands
+08/03/23 01:58:58 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 01:58:58 -no guild- Logged in as:
+08/03/23 01:58:58 -no guild- Testing Bot
+08/03/23 01:58:58 -no guild- 1009574748302356581
+08/03/23 01:59:15 -892403162315644928- Command (help) was requested by (Tomer27cz#4272) -- (options: None)
+08/03/23 01:59:15 -892403162315644928- Command raised an exception: KeyError: 'Use `/help <command>` to get help on a command'
+08/03/23 02:06:44 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 02:06:44 -no guild- Loading radio.json ...
+08/03/23 02:06:44 -no guild- Loading languages.json ...
+08/03/23 02:06:44 -no guild- Loading other.json ...
+08/03/23 02:06:44 -no guild- Loading guilds.json ...
+08/03/23 02:06:45 -no guild- Loading sound_effects folder ...
+08/03/23 02:06:48 -no guild- Trying to sync commands
+08/03/23 02:06:48 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 02:06:48 -no guild- Logged in as:
+08/03/23 02:06:48 -no guild- Testing Bot
+08/03/23 02:06:48 -no guild- 1009574748302356581
+08/03/23 02:07:05 -892403162315644928- Command (help) was requested by (Tomer27cz#4272) -- (options: ['queue'])
+08/03/23 02:10:34 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 02:10:34 -no guild- Loading radio.json ...
+08/03/23 02:10:34 -no guild- Loading languages.json ...
+08/03/23 02:10:34 -no guild- Loading other.json ...
+08/03/23 02:10:34 -no guild- Loading guilds.json ...
+08/03/23 02:10:35 -no guild- Loading sound_effects folder ...
+08/03/23 02:10:38 -no guild- Trying to sync commands
+08/03/23 02:10:39 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 02:10:39 -no guild- Logged in as:
+08/03/23 02:10:39 -no guild- Testing Bot
+08/03/23 02:10:39 -no guild- 1009574748302356581
+08/03/23 02:10:46 -892403162315644928- Command (help) was requested by (Tomer27cz#4272) -- (options: ['queue'])
+08/03/23 02:20:19 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 02:20:19 -no guild- Loading radio.json ...
+08/03/23 02:20:19 -no guild- Loading languages.json ...
+08/03/23 02:20:19 -no guild- Loading other.json ...
+08/03/23 02:20:19 -no guild- Loading guilds.json ...
+08/03/23 02:20:20 -no guild- Loading sound_effects folder ...
+08/03/23 02:20:23 -no guild- Trying to sync commands
+08/03/23 02:20:24 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 02:20:24 -no guild- Logged in as:
+08/03/23 02:20:24 -no guild- Testing Bot
+08/03/23 02:20:24 -no guild- 1009574748302356581
+08/03/23 02:20:36 -892403162315644928- Command (help) was requested by (Tomer27cz#4272) -- (options: ['queue'])
+08/03/23 02:20:36 -892403162315644928- Command raised an exception: KeyError: 'position'
+08/03/23 02:20:51 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 02:20:51 -no guild- Loading radio.json ...
+08/03/23 02:20:51 -no guild- Loading languages.json ...
+08/03/23 02:20:51 -no guild- Loading other.json ...
+08/03/23 02:20:51 -no guild- Loading guilds.json ...
+08/03/23 02:20:52 -no guild- Loading sound_effects folder ...
+08/03/23 02:20:54 -no guild- Trying to sync commands
+08/03/23 02:20:55 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 02:20:55 -no guild- Logged in as:
+08/03/23 02:20:55 -no guild- Testing Bot
+08/03/23 02:20:55 -no guild- 1009574748302356581
+08/03/23 02:20:56 -892403162315644928- Command (help) was requested by (Tomer27cz#4272) -- (options: ['queue'])
+08/03/23 02:22:45 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 02:22:45 -no guild- Loading radio.json ...
+08/03/23 02:22:45 -no guild- Loading languages.json ...
+08/03/23 02:22:45 -no guild- Loading other.json ...
+08/03/23 02:22:45 -no guild- Loading guilds.json ...
+08/03/23 02:22:45 -no guild- Loading sound_effects folder ...
+08/03/23 02:22:48 -no guild- Trying to sync commands
+08/03/23 02:22:49 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 02:22:49 -no guild- Logged in as:
+08/03/23 02:22:49 -no guild- Testing Bot
+08/03/23 02:22:49 -no guild- 1009574748302356581
+08/03/23 02:22:50 -892403162315644928- Command (help) was requested by (Tomer27cz#4272) -- (options: ['queue'])
+08/03/23 02:22:50 -892403162315644928- Command raised an exception: KeyError: 'is_internal'
+08/03/23 02:23:05 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 02:23:05 -no guild- Loading radio.json ...
+08/03/23 02:23:05 -no guild- Loading languages.json ...
+08/03/23 02:23:05 -no guild- Loading other.json ...
+08/03/23 02:23:05 -no guild- Loading guilds.json ...
+08/03/23 02:23:06 -no guild- Loading sound_effects folder ...
+08/03/23 02:23:09 -no guild- Trying to sync commands
+08/03/23 02:23:12 -892403162315644928- Command (help) was requested by (Tomer27cz#4272) -- (options: ['queue'])
+08/03/23 14:41:47 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 14:41:47 -no guild- Loading radio.json ...
+08/03/23 14:41:47 -no guild- Loading languages.json ...
+08/03/23 14:41:47 -no guild- Loading other.json ...
+08/03/23 14:41:47 -no guild- Loading guilds.json ...
+08/03/23 14:41:49 -no guild- Loading sound_effects folder ...
+08/03/23 14:41:52 -no guild- Trying to sync commands
+08/03/23 14:41:52 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 14:41:52 -no guild- Logged in as:
+08/03/23 14:41:52 -no guild- Testing Bot
+08/03/23 14:41:52 -no guild- 1009574748302356581
+08/03/23 14:42:00 -892403162315644928- Command (list_radios) was requested by (Tomer27cz#4272) -- (options: [True])
+08/03/23 14:42:00 -892403162315644928- Command raised an exception: ValueError: too many values to unpack (expected 2)
+08/03/23 14:43:40 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 14:43:40 -no guild- Loading radio.json ...
+08/03/23 14:43:40 -no guild- Loading languages.json ...
+08/03/23 14:43:40 -no guild- Loading other.json ...
+08/03/23 14:43:40 -no guild- Loading guilds.json ...
+08/03/23 14:43:41 -no guild- Loading sound_effects folder ...
+08/03/23 14:43:44 -no guild- Trying to sync commands
+08/03/23 14:43:44 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 14:43:44 -no guild- Logged in as:
+08/03/23 14:43:44 -no guild- Testing Bot
+08/03/23 14:43:44 -no guild- 1009574748302356581
+08/03/23 14:43:50 -892403162315644928- Command (list_radios) was requested by (Tomer27cz#4272) -- (options: [True])
+08/03/23 15:13:14 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 15:13:14 -no guild- Loading radio.json ...
+08/03/23 15:13:14 -no guild- Loading languages.json ...
+08/03/23 15:13:14 -no guild- Loading other.json ...
+08/03/23 15:13:14 -no guild- Loading guilds.json ...
+08/03/23 15:13:15 -no guild- Loading sound_effects folder ...
+08/03/23 15:13:18 -no guild- Trying to sync commands
+08/03/23 15:13:19 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 15:13:19 -no guild- Logged in as:
+08/03/23 15:13:19 -no guild- Testing Bot
+08/03/23 15:13:19 -no guild- 1009574748302356581
+08/03/23 15:13:36 -892403162315644928- Command (language) was requested by (Tomer27cz#4272) -- (options: ['en'])
+08/03/23 15:13:37 -all- Updated guilds.json
+08/03/23 15:13:49 -892403162315644928- Command (help) was requested by (Tomer27cz#4272) -- (options: None)
+08/03/23 15:13:49 -892403162315644928- Command raised an exception: AttributeError: 'Context' object has no attribute 'guild_id'
+08/03/23 15:15:03 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 15:15:03 -no guild- Loading radio.json ...
+08/03/23 15:15:03 -no guild- Loading languages.json ...
+08/03/23 15:15:03 -no guild- Loading other.json ...
+08/03/23 15:15:03 -no guild- Loading guilds.json ...
+08/03/23 15:15:04 -no guild- Loading sound_effects folder ...
+08/03/23 15:15:08 -no guild- Trying to sync commands
+08/03/23 15:15:08 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 15:15:08 -no guild- Logged in as:
+08/03/23 15:15:08 -no guild- Testing Bot
+08/03/23 15:15:08 -no guild- 1009574748302356581
+08/03/23 15:15:15 -892403162315644928- Command (help) was requested by (Tomer27cz#4272) -- (options: None)
+08/03/23 15:17:19 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 15:17:19 -no guild- Loading radio.json ...
+08/03/23 15:17:19 -no guild- Loading languages.json ...
+08/03/23 15:17:19 -no guild- Loading other.json ...
+08/03/23 15:17:19 -no guild- Loading guilds.json ...
+08/03/23 15:17:20 -no guild- Loading sound_effects folder ...
+08/03/23 15:17:23 -no guild- Trying to sync commands
+08/03/23 15:17:23 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 15:17:23 -no guild- Logged in as:
+08/03/23 15:17:23 -no guild- Testing Bot
+08/03/23 15:17:23 -no guild- 1009574748302356581
+08/03/23 15:17:43 -892403162315644928- Command (help) was requested by (Tomer27cz#4272) -- (options: None)
+08/03/23 15:17:57 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 15:17:57 -no guild- Loading radio.json ...
+08/03/23 15:17:57 -no guild- Loading languages.json ...
+08/03/23 15:17:57 -no guild- Loading other.json ...
+08/03/23 15:17:57 -no guild- Loading guilds.json ...
+08/03/23 15:17:58 -no guild- Loading sound_effects folder ...
+08/03/23 15:18:01 -no guild- Trying to sync commands
+08/03/23 15:18:01 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 15:18:01 -no guild- Logged in as:
+08/03/23 15:18:01 -no guild- Testing Bot
+08/03/23 15:18:01 -no guild- 1009574748302356581
+08/03/23 15:18:02 -892403162315644928- Command (help) was requested by (Tomer27cz#4272) -- (options: None)
+08/03/23 15:18:44 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 15:18:44 -no guild- Loading radio.json ...
+08/03/23 15:18:44 -no guild- Loading languages.json ...
+08/03/23 15:18:44 -no guild- Loading other.json ...
+08/03/23 15:18:44 -no guild- Loading guilds.json ...
+08/03/23 15:18:45 -no guild- Loading sound_effects folder ...
+08/03/23 15:18:48 -no guild- Trying to sync commands
+08/03/23 15:18:49 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 15:18:49 -no guild- Logged in as:
+08/03/23 15:18:49 -no guild- Testing Bot
+08/03/23 15:18:49 -no guild- 1009574748302356581
+08/03/23 15:18:50 -892403162315644928- Command (help) was requested by (Tomer27cz#4272) -- (options: None)
+08/03/23 15:19:04 -892403162315644928- Command (help) was requested by (Tomer27cz#4272) -- (options: ['play'])
+08/03/23 15:20:24 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 15:20:24 -no guild- Loading radio.json ...
+08/03/23 15:20:24 -no guild- Loading languages.json ...
+08/03/23 15:20:24 -no guild- Loading other.json ...
+08/03/23 15:20:24 -no guild- Loading guilds.json ...
+08/03/23 15:20:25 -no guild- Loading sound_effects folder ...
+08/03/23 15:20:28 -no guild- Trying to sync commands
+08/03/23 15:20:29 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 15:20:29 -no guild- Logged in as:
+08/03/23 15:20:29 -no guild- Testing Bot
+08/03/23 15:20:29 -no guild- 1009574748302356581
+08/03/23 15:20:55 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 15:20:55 -no guild- Loading radio.json ...
+08/03/23 15:20:55 -no guild- Loading languages.json ...
+08/03/23 15:20:55 -no guild- Loading other.json ...
+08/03/23 15:20:55 -no guild- Loading guilds.json ...
+08/03/23 15:20:56 -no guild- Loading sound_effects folder ...
+08/03/23 15:20:59 -no guild- Trying to sync commands
+08/03/23 15:21:00 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 15:21:00 -no guild- Logged in as:
+08/03/23 15:21:00 -no guild- Testing Bot
+08/03/23 15:21:00 -no guild- 1009574748302356581
+08/03/23 15:21:09 -892403162315644928- Command (help) was requested by (Tomer27cz#4272) -- (options: None)
+08/03/23 15:23:23 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 15:23:23 -no guild- Loading radio.json ...
+08/03/23 15:23:23 -no guild- Loading languages.json ...
+08/03/23 15:23:23 -no guild- Loading other.json ...
+08/03/23 15:23:23 -no guild- Loading guilds.json ...
+08/03/23 15:23:24 -no guild- Loading sound_effects folder ...
+08/03/23 15:23:27 -no guild- Trying to sync commands
+08/03/23 15:23:28 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 15:23:28 -no guild- Logged in as:
+08/03/23 15:23:28 -no guild- Testing Bot
+08/03/23 15:23:28 -no guild- 1009574748302356581
+08/03/23 15:23:37 -892403162315644928- Command (help) was requested by (Tomer27cz#4272) -- (options: None)
+08/03/23 15:24:54 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 15:24:54 -no guild- Loading radio.json ...
+08/03/23 15:24:54 -no guild- Loading languages.json ...
+08/03/23 15:24:54 -no guild- Loading other.json ...
+08/03/23 15:24:54 -no guild- Loading guilds.json ...
+08/03/23 15:24:55 -no guild- Loading sound_effects folder ...
+08/03/23 15:24:58 -no guild- Trying to sync commands
+08/03/23 15:24:58 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 15:24:58 -no guild- Logged in as:
+08/03/23 15:24:58 -no guild- Testing Bot
+08/03/23 15:24:58 -no guild- 1009574748302356581
+08/03/23 15:25:05 -892403162315644928- Command (help) was requested by (Tomer27cz#4272) -- (options: None)
+08/03/23 15:32:29 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 15:32:29 -no guild- Loading radio.json ...
+08/03/23 15:32:29 -no guild- Loading languages.json ...
+08/03/23 15:32:29 -no guild- Loading other.json ...
+08/03/23 15:32:29 -no guild- Loading guilds.json ...
+08/03/23 15:32:30 -no guild- Loading sound_effects folder ...
+08/03/23 15:32:33 -no guild- Trying to sync commands
+08/03/23 15:32:33 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 15:32:33 -no guild- Logged in as:
+08/03/23 15:32:33 -no guild- Testing Bot
+08/03/23 15:32:33 -no guild- 1009574748302356581
+08/03/23 15:44:45 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 15:44:45 -no guild- Loading radio.json ...
+08/03/23 15:44:45 -no guild- Loading languages.json ...
+08/03/23 15:44:45 -no guild- Loading other.json ...
+08/03/23 15:44:45 -no guild- Loading guilds.json ...
+08/03/23 15:44:46 -no guild- Loading sound_effects folder ...
+08/03/23 15:44:49 -no guild- Trying to sync commands
+08/03/23 15:45:30 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 15:45:30 -no guild- Loading radio.json ...
+08/03/23 15:45:30 -no guild- Loading languages.json ...
+08/03/23 15:45:30 -no guild- Loading other.json ...
+08/03/23 15:45:30 -no guild- Loading guilds.json ...
+08/03/23 15:45:31 -no guild- Loading sound_effects folder ...
+08/03/23 15:45:34 -no guild- Trying to sync commands
+08/03/23 15:45:34 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 15:45:34 -no guild- Logged in as:
+08/03/23 15:45:34 -no guild- Testing Bot
+08/03/23 15:45:34 -no guild- 1009574748302356581
+08/03/23 15:45:36 -892403162315644928- Command (join) was requested by (Tomer27cz#4272) -- (options: [None])
+08/03/23 15:45:45 -892403162315644928- Command (disconnect) was requested by (Tomer27cz#4272) -- (options: None)
+08/03/23 15:45:45 -892403162315644928- Command (stop) was requested by (Tomer27cz#4272) -- (options: [True])
+08/03/23 15:45:45 -all- Updated guilds.json
+08/03/23 15:45:46 -all- Updated guilds.json
+08/03/23 15:47:03 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 15:47:03 -no guild- Loading radio.json ...
+08/03/23 15:47:03 -no guild- Loading languages.json ...
+08/03/23 15:47:03 -no guild- Loading other.json ...
+08/03/23 15:47:03 -no guild- Loading guilds.json ...
+08/03/23 15:47:04 -no guild- Loading sound_effects folder ...
+08/03/23 15:47:07 -no guild- Trying to sync commands
+08/03/23 15:47:07 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 15:47:07 -no guild- Logged in as:
+08/03/23 15:47:07 -no guild- Testing Bot
+08/03/23 15:47:07 -no guild- 1009574748302356581
+08/03/23 15:47:13 -892403162315644928- Command (show) was requested by (Tomer27cz#4272) -- (options: ['medium', False])
+08/03/23 15:47:15 -all- Updated guilds.json
+08/03/23 15:47:23 -892403162315644928- Command (clear) was requested by (Tomer27cz#4272) -- (options: [False])
+08/03/23 15:47:55 -892403162315644928- Command (queue) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/playlist?list=OLAK5uy_l0IHBi4LAzj-Gqgi1YST1MCFB1ATKxFX8', None, None])
+08/03/23 15:48:04 -all- Updated guilds.json
+08/03/23 15:48:10 -892403162315644928- Command (show) was requested by (Tomer27cz#4272) -- (options: ['medium', False])
+08/03/23 15:48:11 -all- Updated guilds.json
+08/03/23 15:48:30 -892403162315644928- Command (show) was requested by (Tomer27cz#4272) -- (options: ['short', True])
+08/03/23 15:48:30 -all- Updated guilds.json
+08/03/23 15:48:47 -892403162315644928- Command (help) was requested by (Tomer27cz#4272) -- (options: [None])
+08/03/23 15:49:02 -892403162315644928- Command (help) was requested by (Tomer27cz#4272) -- (options: ['volume'])
+08/03/23 15:57:07 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 15:57:07 -no guild- Loading radio.json ...
+08/03/23 15:57:07 -no guild- Loading languages.json ...
+08/03/23 15:57:07 -no guild- Loading other.json ...
+08/03/23 15:57:07 -no guild- Loading guilds.json ...
+08/03/23 15:57:08 -no guild- Loading sound_effects folder ...
+08/03/23 15:58:23 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 15:58:23 -no guild- Loading radio.json ...
+08/03/23 15:58:23 -no guild- Loading languages.json ...
+08/03/23 15:58:23 -no guild- Loading other.json ...
+08/03/23 15:58:23 -no guild- Loading guilds.json ...
+08/03/23 15:58:24 -no guild- Loading sound_effects folder ...
+08/03/23 16:03:53 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 16:03:53 -no guild- Loading radio.json ...
+08/03/23 16:03:53 -no guild- Loading languages.json ...
+08/03/23 16:03:53 -no guild- Loading other.json ...
+08/03/23 16:03:53 -no guild- Loading guilds.json ...
+08/03/23 16:03:54 -no guild- Loading sound_effects folder ...
+08/03/23 16:05:01 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 16:05:01 -no guild- Loading radio.json ...
+08/03/23 16:05:01 -no guild- Loading languages.json ...
+08/03/23 16:05:01 -no guild- Loading other.json ...
+08/03/23 16:05:01 -no guild- Loading guilds.json ...
+08/03/23 16:05:02 -no guild- Loading sound_effects folder ...
+08/03/23 16:05:05 -no guild- Trying to sync commands
+08/03/23 16:05:06 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 16:05:06 -no guild- Logged in as:
+08/03/23 16:05:06 -no guild- Testing Bot
+08/03/23 16:05:06 -no guild- 1009574748302356581
+08/03/23 16:05:36 -892403162315644928- Command (language) was requested by (Tomer27cz#4272) -- (options: ['ru'])
+08/03/23 16:05:37 -all- Updated guilds.json
+08/03/23 16:51:12 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 16:51:12 -no guild- Loading radio.json ...
+08/03/23 16:51:12 -no guild- Loading languages.json ...
+08/03/23 16:51:12 -no guild- Loading other.json ...
+08/03/23 16:51:12 -no guild- Loading guilds.json ...
+08/03/23 16:51:12 -no guild- Loading sound_effects folder ...
+08/03/23 16:51:15 -no guild- Trying to sync commands
+08/03/23 16:51:16 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 16:51:16 -no guild- Logged in as:
+08/03/23 16:51:16 -no guild- Testing Bot
+08/03/23 16:51:16 -no guild- 1009574748302356581
+08/03/23 16:51:23 -892403162315644928- Command (language) was requested by (Tomer27cz#4272) -- (options: ['cs'])
+08/03/23 16:51:24 -all- Updated guilds.json
+08/03/23 16:51:43 -892403162315644928- Command (help) was requested by (Tomer27cz#4272) -- (options: ['shuffle'])
+08/03/23 17:56:32 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 17:56:32 -no guild- Loading radio.json ...
+08/03/23 17:56:32 -no guild- Loading languages.json ...
+08/03/23 17:56:32 -no guild- Loading other.json ...
+08/03/23 17:56:32 -no guild- Loading guilds.json ...
+08/03/23 17:56:33 -no guild- Loading sound_effects folder ...
+08/03/23 17:58:50 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 17:58:50 -no guild- Loading radio.json ...
+08/03/23 17:58:50 -no guild- Loading languages.json ...
+08/03/23 17:58:50 -no guild- Loading other.json ...
+08/03/23 17:58:50 -no guild- Loading guilds.json ...
+08/03/23 17:58:51 -no guild- Loading sound_effects folder ...
+08/03/23 17:58:54 -no guild- Trying to sync commands
+08/03/23 17:58:54 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 17:58:54 -no guild- Logged in as:
+08/03/23 17:58:54 -no guild- Testing Bot
+08/03/23 17:58:54 -no guild- 1009574748302356581
+08/03/23 17:59:58 -892403162315644928- Hybrid command raised an error: Command 'zz_config' raised an exception: IndexError: list index out of range
+08/03/23 18:03:08 -892403162315644928- You do not own this bot.
+08/03/23 18:06:37 -892403162315644928- Hybrid command raised an error: Command 'zz_config' raised an exception: IndexError: list index out of range
+08/03/23 18:06:49 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 18:06:49 -no guild- Loading radio.json ...
+08/03/23 18:06:49 -no guild- Loading languages.json ...
+08/03/23 18:06:49 -no guild- Loading other.json ...
+08/03/23 18:06:49 -no guild- Loading guilds.json ...
+08/03/23 18:06:50 -no guild- Loading sound_effects folder ...
+08/03/23 18:06:53 -no guild- Trying to sync commands
+08/03/23 18:06:54 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 18:06:54 -no guild- Logged in as:
+08/03/23 18:06:54 -no guild- Testing Bot
+08/03/23 18:06:54 -no guild- 1009574748302356581
+08/03/23 18:09:24 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 18:09:24 -no guild- Loading radio.json ...
+08/03/23 18:09:24 -no guild- Loading languages.json ...
+08/03/23 18:09:24 -no guild- Loading other.json ...
+08/03/23 18:09:24 -no guild- Loading guilds.json ...
+08/03/23 18:09:25 -no guild- Loading sound_effects folder ...
+08/03/23 18:09:28 -no guild- Trying to sync commands
+08/03/23 18:09:29 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 18:09:29 -no guild- Logged in as:
+08/03/23 18:09:29 -no guild- Testing Bot
+08/03/23 18:09:29 -no guild- 1009574748302356581
+08/03/23 18:09:51 -892403162315644928- Command (queue) was requested by (Tomer27cz#4272) -- (options: ['https://www.youtube.com/playlist?list=PL9tY0BWXOZFtnRrd-t4faQTykUevC47Go', None, None])
+08/03/23 18:09:59 -all- Updated guilds.json
+08/03/23 18:10:17 -892403162315644928- Command (log) was requested by (Tomer27cz#4272) -- (options: ['json'])
+08/03/23 18:10:17 -all- Updated guilds.json
+08/03/23 18:10:23 -892403162315644928- Command (clear) was requested by (Tomer27cz#4272) -- (options: [False])
+08/03/23 18:10:57 -892403162315644928- Command (show) was requested by (Tomer27cz#4272) -- (options: [None, False])
+08/03/23 18:19:31 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 18:19:31 -no guild- Loading radio.json ...
+08/03/23 18:19:31 -no guild- Loading languages.json ...
+08/03/23 18:19:31 -no guild- Loading other.json ...
+08/03/23 18:19:31 -no guild- Loading guilds.json ...
+08/03/23 18:19:32 -no guild- Loading sound_effects folder ...
+08/03/23 18:19:35 -no guild- Trying to sync commands
+08/03/23 18:19:35 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 18:19:35 -no guild- Logged in as:
+08/03/23 18:19:35 -no guild- Testing Bot
+08/03/23 18:19:35 -no guild- 1009574748302356581
+08/03/23 18:19:43 -892403162315644928- Command (show) was requested by (Tomer27cz#4272) -- (options: [None, False])
+08/03/23 18:19:43 -892403162315644928- Hybrid command raised an error: Command 'show' raised an exception: TypeError: '<=' not supported between instances of 'list' and 'int'
+08/03/23 18:20:45 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 18:20:45 -no guild- Loading radio.json ...
+08/03/23 18:20:45 -no guild- Loading languages.json ...
+08/03/23 18:20:45 -no guild- Loading other.json ...
+08/03/23 18:20:45 -no guild- Loading guilds.json ...
+08/03/23 18:20:46 -no guild- Loading sound_effects folder ...
+08/03/23 18:20:49 -no guild- Trying to sync commands
+08/03/23 18:20:49 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 18:20:49 -no guild- Logged in as:
+08/03/23 18:20:49 -no guild- Testing Bot
+08/03/23 18:20:49 -no guild- 1009574748302356581
+08/03/23 18:20:51 -892403162315644928- Command (show) was requested by (Tomer27cz#4272) -- (options: [None, False])
+08/03/23 18:20:53 -all- Updated guilds.json
+08/03/23 18:25:45 -no guild- --------------------------------------- NEW / REBOOTED ----------------------------------------
+08/03/23 18:25:45 -no guild- Loading radio.json ...
+08/03/23 18:25:45 -no guild- Loading languages.json ...
+08/03/23 18:25:45 -no guild- Loading other.json ...
+08/03/23 18:25:45 -no guild- Loading guilds.json ...
+08/03/23 18:25:46 -no guild- Loading sound_effects folder ...
+08/03/23 18:25:49 -no guild- Trying to sync commands
+08/03/23 18:25:49 -no guild- Synced slash commands for Testing Bot#3465
+08/03/23 18:25:49 -no guild- Logged in as:
+08/03/23 18:25:49 -no guild- Testing Bot
+08/03/23 18:25:49 -no guild- 1009574748302356581
+08/03/23 18:26:36 -892403162315644928- Command (config) was requested by (Tomer27cz#4272) -- (options: None)
+08/03/23 18:26:36 -no guild- Loading guilds.json ...
+08/03/23 18:26:57 -892403162315644928- Command (show) was requested by (Tomer27cz#4272) -- (options: [None, False])
+08/03/23 18:26:58 -all- Updated guilds.json

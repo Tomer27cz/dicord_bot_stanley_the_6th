@@ -1,39 +1,29 @@
+import random
+
 import discord
 import asyncio
-from discord import FFmpegPCMAudio, app_commands, Forbidden
+from discord import FFmpegPCMAudio, app_commands
 from discord.ext import commands
 from discord.ui import View
-
 
 import yt_dlp
 import youtubesearchpython
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import requests
+import json
 
 from os import path, listdir
-from math import ceil
 from mutagen.mp3 import MP3
 import sys
 from typing import Literal
 import traceback
 import datetime
 
-from database import radia_stream, radia_url, radia_cz_literal1, radia_cz_literal2, radia_cz_literal3, radia_cz_literal4, \
-    favourite_radia_literal, radia_name, radia_thumbnail, radio_website, guild_ids, react_dict, language_list_literal,\
-    authorized_users, no_embed
-from database import text
 # noinspection PyUnresolvedReferences
-from database import text_cs, text_de, text_eo, text_es, text_fr, text_it, text_ja, text_ko, text_la, text_zh_cn
-# noinspection PyUnresolvedReferences
-# from api_keys import api_key, api_key_testing
+from api_keys import api_key, api_key_testing
 
 import functools
-
-
-PREFIX = '$'
-BOT_ID = 1007004463933952120
-MY_ID = 349164237605568513
 
 # ---------------- Bot class ------------
 
@@ -41,18 +31,16 @@ MY_ID = 349164237605568513
 class Bot(commands.Bot):
     def __init__(self):
         intents = discord.Intents.all()
-        super().__init__(command_prefix=PREFIX, intents=intents)
+        super().__init__(command_prefix=prefix, intents=intents)
         self.synced = False
 
     async def on_ready(self):
         await self.wait_until_ready()
-        print_message('no guild',
-                      "--------------------------------------- NEW / REBOOTED ----------------------------------------")
         if not self.synced:
             print_message('no guild', "Trying to sync commands")
             await self.tree.sync()
             print_message('no guild', f"Synced slash commands for {self.user}")
-        await bot.change_presence(activity=discord.Game(name=f"{PREFIX}help"))
+        await bot.change_presence(activity=discord.Game(name=f"{prefix}help"))
         print_message('no guild', 'Logged in as:\n{0.user.name}\n{0.user.id}'.format(bot))
 
     async def on_voice_state_update(self, member, before, after):
@@ -71,7 +59,7 @@ class Bot(commands.Bot):
                 if voice.is_playing() and not voice.is_paused():
                     time = 0
                 if time == 600:  # how many seconds of inactivity to disconnect | 300 = 5min
-                    options[member.guild.id].stopped = True
+                    guild[member.guild.id].options.stopped = True
                     voice.stop()
                     await voice.disconnect()
                     print_message(member.guild.id, "Disconnecting after 10 min of nothing playing")
@@ -80,14 +68,14 @@ class Bot(commands.Bot):
 
     async def on_command_error(self, ctx, error):
         print_message(ctx.guild.id, f"{error}")
-        await ctx.reply(f"{error}   {bot.get_user(MY_ID).mention}", ephemeral=True)
+        await ctx.reply(f"{error}   {bot.get_user(my_id).mention}", ephemeral=True)
 
 
 # ---------------- Data Classes ------------
 
 class ContextImitation:
-    def __init__(self, guild, guild_id, author):
-        self.guild = guild
+    def __init__(self, guild_object, guild_id, author):
+        self.guild = guild_object
         self.guild.id = guild_id
         self.author = author
         self.message = MessageImitation(author)
@@ -98,7 +86,7 @@ class MessageImitation:
         self.author = author
 
 
-class Guild:
+class Options:
     def __init__(self, guild_id):
         self.guild_id = guild_id
         self.stopped = False
@@ -108,23 +96,36 @@ class Guild:
         self.response_type = 'short'  # long or short
         self.search_query = 'Never gonna give you up'
         self.buttons = False
+        self.volume = 0.5
 
 
 class Video:
-    def __init__(self, url, author):
+    def __init__(self, url, author, title=None, picture=None, duration=None, channel_name=None, channel_link=None):
         self.url = url
         self.author = author
 
-        try:
-            video = youtubesearchpython.Video.getInfo(url)  # mode=ResultMode.json
-        except Exception as e:
-            raise ValueError(f"Not a youtube link: {e}")
+        video = None
 
-        self.title = video['title']
-        self.picture = 'https://img.youtube.com/vi/' + video['id'] + '/default.jpg'
-        self.duration = video['duration']['secondsText']
-        self.channel_name = video['channel']['name']
-        self.channel_link = video['channel']['link']
+        if title is None and picture is None and duration is None and channel_name is None and channel_link is None:
+            try:
+                video = youtubesearchpython.Video.getInfo(url)  # mode=ResultMode.json
+            except Exception as e:
+                raise ValueError(f"Not a youtube link: {e}")
+
+
+        self.title = title
+        self.picture = picture
+        self.duration = duration
+        self.channel_name = channel_name
+        self.channel_link = channel_link
+
+
+        if video:
+            self.title = video['title']
+            self.picture = 'https://img.youtube.com/vi/' + video['id'] + '/default.jpg'
+            self.duration = video['duration']['secondsText']
+            self.channel_name = video['channel']['name']
+            self.channel_link = video['channel']['link']
 
     def renew(self):
         pass
@@ -133,14 +134,14 @@ class Video:
 class Radio:
     def __init__(self, name, author):
         self.author = author
-        self.url = radia_url[radia_name.index(name)]
+        self.url = radio_dict[name]['url']
 
-        self.picture = radia_thumbnail[radia_name.index(name)]
-        self.channel_name = radio_website[radia_name.index(name)]
+        self.picture = radio_dict[name]['thumbnail']
+        self.channel_name = radio_dict[name]['type']
         self.channel_link = self.url
         self.title = name
         self.duration = 'Stream'
-        self.radio_website = radio_website[radia_name.index(name)]
+        self.radio_website = radio_dict[name]['type']
 
     def renew(self):
         if self.radio_website == 'radia_cz':
@@ -166,89 +167,38 @@ class LocalFile:
         self.url = None
         self.author = author
         self.title = title
-        self.picture = vlc_logo_link
+        self.picture = vlc_logo
         self.duration = duration
         self.channel_name = 'Local file'
         self.channel_link = 'Local file'
 
-
-bot = Bot()
-
-queue = dict(zip(guild_ids, [[] for _ in range(len(guild_ids))]))
-search_list = dict(zip(guild_ids, [[] for _ in range(len(guild_ids))]))
-now_playing = dict(zip(guild_ids, [Video(url='dQw4w9WgXcQ', author='Tomer27cz#4272') for _ in range(len(guild_ids))]))
-options = dict(zip(guild_ids, [Guild(guild_ids[_]) for _ in range(len(guild_ids))]))
+    def renew(self):
+        pass
 
 
-# Sound effects listing
-all_sound_effects = listdir('sound_effects')  # getting file names
-for file_index, file_val in enumerate(all_sound_effects):
-    all_sound_effects[file_index] = all_sound_effects[file_index][:len(file_val) - 4]  # getting rid of extension
+class FromProbe:
+    def __init__(self, url, title, duration, author, channel_name, channel_link):
+        self.url = url
+        self.author = author
+        self.title = title
+        self.picture = vlc_logo
+        self.duration = duration
+        self.channel_name = channel_name
+        self.channel_link = channel_link
 
-vlc_logo_link = 'https://cdn.discordapp.com/attachments/892403162315644931/1008054767379030096/vlc.png'
-
-# ---------------------------------------------- TEXT ----------------------------------------------------------
-
-
-def text_guild(guild_id, content):
-    lang = options[guild_id].language
-    if lang == 'en':
-        return content
-    return globals()[f'text_{lang}'][content]
+    def renew(self):
+        pass
 
 
-# ---------video_info / url --------
+class Guild:
+    def __init__(self, guild_id):
+        self.options = Options(guild_id)
+        self.queue = []
+        self.search_list = []
+        self.now_playing = Video(url='dQw4w9WgXcQ', author=bot.get_user(my_id))
 
 
-def get_pure_url(url):
-    url = url[:url.index('&list=')]
-    return url
-
-
-def get_playlist_from_url(url):
-    try:
-        code = url[url.index('&list=')+1:url.index('&index=')]
-    except ValueError:
-        code = url[url.index('&list=')+1:]
-    playlist_url = 'https://www.youtube.com/playlist?' + code
-    return playlist_url
-
-# -------------- convert -----------
-
-
-def convert_duration(duration):
-    try:
-        if duration is None or duration == 0 or duration == '0':
-            return 'Stream'
-        seconds = int(duration) % (24 * 3600)
-        hour = seconds // 3600
-        seconds %= 3600
-        minutes = seconds // 60
-        seconds %= 60
-        if hour:
-            if not minutes:
-                minutes = 00
-            if not seconds:
-                seconds = 00
-            return "%d:%02d:%02d" % (hour, minutes, seconds)
-        if not hour:
-            if not minutes:
-                minutes = 00
-            if not seconds:
-                seconds = 00
-            return "%02d:%02d" % (minutes, seconds)
-    except (ValueError, TypeError):
-        return duration
-
-
-# ------------ other get/set info --------------------
-
-
-def mp3_length(path_of_mp3):
-    audio = MP3(path_of_mp3)
-    length = audio.info.length
-    return length
-
+# ------------ PRINT --------------------
 
 def print_command(ctx, text_data, opt, text_only=False):
     now_time = datetime.datetime.now()
@@ -280,9 +230,191 @@ def print_message(guild_id, content):
         f.write(message + '\n')
     f.close()
 
+# ---------------------------------------------- GUILD TO JSON ---------------------------------------------------------
+
+def video_to_json(video):
+    try:
+        author = video.author.id
+    except AttributeError:
+        author = my_id
+
+    video_dict = {'url': video.url,
+                  'author': author,
+                  'title': video.title,
+                  'picture': video.picture,
+                  'duration': video.duration,
+                  'channel_name': video.channel_name,
+                  'channel_link': video.channel_link}
+    return video_dict
+
+
+def guild_to_json(guild_object):
+    guild_dict = {}
+    search_dict = {}
+    queue_dict = {}
+    if guild_object.search_list:
+        for index, video in enumerate(guild_object.search_list):
+            search_dict[index] = video_to_json(video)
+
+    if guild_object.queue:
+        for index, video in enumerate(guild_object.queue):
+            queue_dict[index] = video_to_json(video)
+
+    guild_dict['options'] = guild_object.options.__dict__
+    guild_dict['queue'] = queue_dict
+    guild_dict['search_list'] = search_dict
+    guild_dict['now_playing'] = video_to_json(guild_object.now_playing)
+
+    return guild_dict
+
+
+def guilds_to_json(guild_dict):
+    guilds_dict = {}
+    for guild_id, guilds_object in guild_dict.items():
+        guilds_dict[int(guild_id)] = guild_to_json(guilds_object)
+    return guilds_dict
+
+# ---------------------------------------------- JSON TO GUILD ---------------------------------------------------------
+
+def json_to_video(video_dict):
+    try:
+        author = bot.get_user(video_dict['author'])
+    except AttributeError:
+        author = bot.get_user(bot_id)
+
+    video = Video(url=video_dict['url'],
+                  author=author,
+                  title=video_dict['title'],
+                  picture=video_dict['picture'],
+                  duration=video_dict['duration'],
+                  channel_name=video_dict['channel_name'],
+                  channel_link=video_dict['channel_link'])
+    return video
+
+
+def json_to_guild(guild_dict):
+    guild_object = Guild(guild_dict['options']['guild_id'])
+    guild_object.options = Options(guild_dict['options']['guild_id'])
+    guild_object.options.__dict__ = guild_dict['options']
+    guild_object.queue = [json_to_video(video_dict) for video_dict in guild_dict['queue'].values()]
+    guild_object.search_list = [json_to_video(video_dict) for video_dict in guild_dict['search_list'].values()]
+    guild_object.now_playing = json_to_video(guild_dict['now_playing'])
+
+    return guild_object
+
+
+def json_to_guilds(guilds_dict):
+    guilds_object = {}
+    for guild_id, guild_dict in guilds_dict.items():
+        guilds_object[int(guild_id)] = json_to_guild(guild_dict)
+
+    return guilds_object
+
+# ---------------------------------------------- LOAD -------------------------------------------------------------
+
+print_message('no guild', "--------------------------------------- NEW / REBOOTED ----------------------------------------")
+
+print_message('no guild', 'Loading radio.json ...')
+with open('src/radio.json', 'r') as file:
+    radio_dict = json.load(file)
+
+print_message('no guild', 'Loading languages.json ...')
+with open('src/languages.json', 'r') as file:
+    languages_dict = json.load(file)
+    text = languages_dict['en']
+
+print_message('no guild', 'Loading other.json ...')
+with open('src/other.json', 'r') as file:
+    other = json.load(file)
+    react_dict = other['reactions']
+    prefix = other['prefix']
+    my_id = other['my_id']
+    bot_id = other['bot_id']
+    vlc_logo = other['logo']
+    authorized_users = other['authorized']
+
+
+# ---------------------------------------------- BOT --------------------------------------------------------
+
+bot = Bot()
+
+# -----------------------------------------------------------------------------------------------------------
+
+
+print_message('no guild', 'Loading guilds.json ...')
+with open('src/guilds.json', 'r') as file:
+    guild = json_to_guilds(json.load(file))
+
+print_message('no guild', 'Loading sound_effects folder ...')
+try:
+    all_sound_effects = listdir('sound_effects')
+    for file_index, file_val in enumerate(all_sound_effects):
+        all_sound_effects[file_index] = all_sound_effects[file_index][:len(file_val) - 4]
+except FileNotFoundError:
+    all_sound_effects = ["No sound effects found"]
+
+
+# ---------------------------------------------- SAVE JSON -------------------------------------------------------------
+
+def save_json():
+    with open('src/guilds.json', 'w') as f:
+        json.dump(guilds_to_json(guild), f, indent=4)
+    print_message(guild_id='all', content='Updated guilds.json')
+
+# ---------------------------------------------- TEXT ----------------------------------------------------------
+
+def tg(guild_id, content):
+    lang = guild[guild_id].options.language
+    return languages_dict[lang][content]
+
+# --------- video_info / url --------
+
+def get_pure_url(url):
+    url = url[:url.index('&list=')]
+    return url
+
+
+def get_playlist_from_url(url):
+    try:
+        code = url[url.index('&list=')+1:url.index('&index=')]
+    except ValueError:
+        code = url[url.index('&list=')+1:]
+    playlist_url = 'https://www.youtube.com/playlist?' + code
+    return playlist_url
+
+# -------------- convert / get -----------
+
+def mp3_length(path_of_mp3):
+    audio = MP3(path_of_mp3)
+    length = audio.info.length
+    return length
+
+
+def convert_duration(duration):
+    try:
+        if duration is None or duration == 0 or duration == '0':
+            return 'Stream'
+        seconds = int(duration) % (24 * 3600)
+        hour = seconds // 3600
+        seconds %= 3600
+        minutes = seconds // 60
+        seconds %= 60
+        if hour:
+            if not minutes:
+                minutes = 00
+            if not seconds:
+                seconds = 00
+            return "%d:%02d:%02d" % (hour, minutes, seconds)
+        if not hour:
+            if not minutes:
+                minutes = 00
+            if not seconds:
+                seconds = 00
+            return "%02d:%02d" % (minutes, seconds)
+    except (ValueError, TypeError):
+        return duration
 
 # ---------------EMBED--------------
-
 
 def create_embed(video, name, guild_id):
     #  (link, title, picture, duration, user, author, author_link)
@@ -290,19 +422,18 @@ def create_embed(video, name, guild_id):
     embed = (discord.Embed(title=name,
                            description=f'```\n{video.title}\n```',
                            color=discord.Color.blurple()))
-    if name == text_guild(guild_id, "Now playing"):
-        now_playing[guild_id] = video
-    embed.add_field(name=text_guild(guild_id, 'Duration'), value=convert_duration(video.duration))
+    if name == tg(guild_id, "Now playing"):
+        guild[guild_id].now_playing = video
+    embed.add_field(name=tg(guild_id, 'Duration'), value=convert_duration(video.duration))
     try:
-        embed.add_field(name=text_guild(guild_id, 'Requested by'), value=video.author.mention)
+        embed.add_field(name=tg(guild_id, 'Requested by'), value=video.author.mention)
     except AttributeError:
-        embed.add_field(name=text_guild(guild_id, 'Requested by'), value=video.author)
-    embed.add_field(name=text_guild(guild_id, 'Author'), value=f'[{video.channel_name}]({video.channel_link})')
-    embed.add_field(name=text_guild(guild_id, 'URL'), value=f'[{video.url}]({video.url})')
+        embed.add_field(name=tg(guild_id, 'Requested by'), value=video.author)
+    embed.add_field(name=tg(guild_id, 'Author'), value=f'[{video.channel_name}]({video.channel_link})')
+    embed.add_field(name=tg(guild_id, 'URL'), value=f'[{video.url}]({video.url})')
     embed.set_thumbnail(url=video.picture)
 
     return embed
-
 
 # ------------- Youtube DL classes -----------
 
@@ -357,8 +488,8 @@ class YTDLSource(discord.PCMVolumeTransformer):
 
     ytdl = yt_dlp.YoutubeDL(YTDL_OPTIONS)
 
-    def __init__(self, ctx: commands.Context, source: discord.FFmpegPCMAudio, *, data: dict, volume: float = 0.5):
-        super().__init__(source, volume)
+    def __init__(self, ctx: commands.Context, source: discord.FFmpegPCMAudio, *, data: dict):
+        super().__init__(source, guild[ctx.guild.id].options.volume)
 
         self.requester = ctx.author
         self.channel = ctx.channel
@@ -465,12 +596,12 @@ class PlayerControlView(View):
                 button.style = discord.ButtonStyle.grey
                 await interaction.response.edit_message(view=self)
             elif voice.is_playing():
-                await interaction.response.send_message(text_guild(self.guild_id, "Player **already resumed!**"),
+                await interaction.response.send_message(tg(self.guild_id, "Player **already resumed!**"),
                                                         ephemeral=True)
             else:
-                await interaction.response.send_message(text_guild(self.guild_id, "No audio playing"), ephemeral=True)
+                await interaction.response.send_message(tg(self.guild_id, "No audio playing"), ephemeral=True)
         else:
-            await interaction.response.send_message(text_guild(self.guild_id, "No audio"), ephemeral=True)
+            await interaction.response.send_message(tg(self.guild_id, "No audio"), ephemeral=True)
 
     @discord.ui.button(emoji=react_dict['pause'], style=discord.ButtonStyle.blurple, custom_id='pause')
     async def pause_callback(self, interaction, button):
@@ -484,12 +615,12 @@ class PlayerControlView(View):
                 button.style = discord.ButtonStyle.grey
                 await interaction.response.edit_message(view=self)
             elif voice.is_paused():
-                await interaction.response.send_message(text_guild(self.guild_id, "Player **already paused!**"),
+                await interaction.response.send_message(tg(self.guild_id, "Player **already paused!**"),
                                                         ephemeral=True)
             else:
-                await interaction.response.send_message(text_guild(self.guild_id, "No audio playing"), ephemeral=True)
+                await interaction.response.send_message(tg(self.guild_id, "No audio playing"), ephemeral=True)
         else:
-            await interaction.response.send_message(text_guild(self.guild_id, "No audio"), ephemeral=True)
+            await interaction.response.send_message(tg(self.guild_id, "No audio"), ephemeral=True)
 
     # noinspection PyUnusedLocal
     @discord.ui.button(emoji=react_dict['stop'], style=discord.ButtonStyle.red, custom_id='stop')
@@ -498,12 +629,12 @@ class PlayerControlView(View):
         if voice:
             if voice.is_playing() or voice.is_paused():
                 voice.stop()
-                options[interaction.guild_id].stopped = True
+                guild[interaction.guild_id].options.stopped = True
                 await interaction.response.edit_message(view=None)
             else:
-                await interaction.response.send_message(text_guild(self.guild_id, "No audio playing"), ephemeral=True)
+                await interaction.response.send_message(tg(self.guild_id, "No audio playing"), ephemeral=True)
         else:
-            await interaction.response.send_message(text_guild(self.guild_id, "No audio"), ephemeral=True)
+            await interaction.response.send_message(tg(self.guild_id, "No audio"), ephemeral=True)
 
 
 class SearchOptionView(View):
@@ -518,62 +649,62 @@ class SearchOptionView(View):
     # noinspection PyUnusedLocal
     @discord.ui.button(emoji=react_dict['1'], style=discord.ButtonStyle.blurple, custom_id='1')
     async def callback_1(self, interaction, button):
-        video = search_list[self.guild.id][0]
+        video = guild[self.guild_id].search_list[0]
         if self.force:
-            queue[self.guild.id].insert(0, video)
+            guild[self.guild_id].queue.insert(0, video)
         else:
-            queue[self.guild.id].append(video)
+            guild[self.guild_id].queue.append(video)
         await interaction.response.edit_message(content=f'[`{video.title}`](<{video.url}>) '
-                                                        f'{text_guild(self.guild_id, "added to queue!")}', view=None)
+                                                        f'{tg(self.guild_id, "added to queue!")}', view=None)
 
     # noinspection PyUnusedLocal
     @discord.ui.button(emoji=react_dict['2'], style=discord.ButtonStyle.blurple, custom_id='2')
     async def callback_2(self, interaction, button):
-        video = search_list[self.guild.id][1]
+        video = guild[self.guild_id].search_list[1]
         if self.force:
-            queue[self.guild.id].insert(0, video)
+            guild[self.guild_id].queue.insert(0, video)
         else:
-            queue[self.guild.id].append(video)
+            guild[self.guild_id].queue.append(video)
         await interaction.response.edit_message(content=f'[`{video.title}`](<{video.url}>) '
-                                                        f'{text_guild(self.guild_id, "added to queue!")}', view=None)
+                                                        f'{tg(self.guild_id, "added to queue!")}', view=None)
 
     # noinspection PyUnusedLocal
     @discord.ui.button(emoji=react_dict['3'], style=discord.ButtonStyle.blurple, custom_id='3')
     async def callback_3(self, interaction, button):
-        video = search_list[self.guild.id][2]
+        video = guild[self.guild_id].search_list[2]
         if self.force:
-            queue[self.guild.id].insert(0, video)
+            guild[self.guild_id].queue.insert(0, video)
         else:
-            queue[self.guild.id].append(video)
+            guild[self.guild_id].queue.append(video)
         await interaction.response.edit_message(content=f'[`{video.title}`](<{video.url}>) '
-                                                        f'{text_guild(self.guild_id, "added to queue!")}', view=None)
+                                                        f'{tg(self.guild_id, "added to queue!")}', view=None)
 
     # noinspection PyUnusedLocal
     @discord.ui.button(emoji=react_dict['4'], style=discord.ButtonStyle.blurple, custom_id='4')
     async def callback_4(self, interaction, button):
-        video = search_list[self.guild.id][3]
+        video = guild[self.guild_id].search_list[3]
         if self.force:
-            queue[self.guild.id].insert(0, video)
+            guild[self.guild_id].queue.insert(0, video)
         else:
-            queue[self.guild.id].append(video)
+            guild[self.guild_id].queue.append(video)
         await interaction.response.edit_message(content=f'[`{video.title}`](<{video.url}>) '
-                                                        f'{text_guild(self.guild_id, "added to queue!")}', view=None)
+                                                        f'{tg(self.guild_id, "added to queue!")}', view=None)
 
     # noinspection PyUnusedLocal
     @discord.ui.button(emoji=react_dict['5'], style=discord.ButtonStyle.blurple, custom_id='5')
     async def callback_5(self, interaction, button):
-        video = search_list[self.guild.id][4]
+        video = guild[self.guild_id].search_list[4]
         if self.force:
-            queue[self.guild.id].insert(0, video)
+            guild[self.guild_id].queue.insert(0, video)
         else:
-            queue[self.guild.id].append(video)
+            guild[self.guild_id].queue.append(video)
         await interaction.response.edit_message(content=f'[`{video.title}`](<{video.url}>) '
-                                                        f'{text_guild(self.guild_id, "added to queue!")}', view=None)
+                                                        f'{tg(self.guild_id, "added to queue!")}', view=None)
 
     # noinspection PyUnusedLocal
     @discord.ui.button(emoji=react_dict['false'], style=discord.ButtonStyle.red, custom_id='6')
     async def callback_6(self, interaction, button):
-        await interaction.response.edit_message(content=f'{text_guild(self.guild_id, "Nothing selected")}', view=None)
+        await interaction.response.edit_message(content=f'{tg(self.guild_id, "Nothing selected")}', view=None)
 
 
 class PlaylistOptionView(View):
@@ -590,7 +721,7 @@ class PlaylistOptionView(View):
     @discord.ui.button(label='Yes', style=discord.ButtonStyle.blurple)
     async def callback_1(self, interaction, button):
         playlist_url = get_playlist_from_url(self.url)
-        await interaction.response.edit_message(content=text_guild(self.guild_id, "Adding playlist to queue..."), view=None)
+        await interaction.response.edit_message(content=tg(self.guild_id, "Adding playlist to queue..."), view=None)
         if self.force:
             response = await queue_command(self.ctx, playlist_url, 0, True, True)
         else:
@@ -615,29 +746,28 @@ class PlaylistOptionView(View):
 
 
 @bot.hybrid_command(name='search', with_app_command=True, description=text['search'],  help=text['search'])
-@app_commands.describe(search_query=text['search_query'])
+@app_commands.describe(search_query=text['search_query'], display_type=text['display_type'], force=text['force'])
 async def search_command(ctx: commands.Context,
                          search_query,
-                         display_type: Literal['text', 'embed'] = 'text',
+                         display_type: Literal['short', 'long'] = None,
                          force: bool = False
                          ):
     print_command(ctx, 'search', [search_query, display_type])
-    await ctx.defer()
+    # noinspection PyUnresolvedReferences
+    if not ctx.interaction.response.is_done():
+        await ctx.defer()
     guild_id = ctx.guild.id
+
+    if display_type is None:
+        display_type = guild[guild_id].options.response_type
 
     message = ''
 
-    response = options[guild_id].response_type
-    if display_type == 'text':
-        response = 'short'
-    if display_type == 'embed':
-        response = 'long'
-
-    if response == 'long':
-        await ctx.reply(text_guild(guild_id, 'Searching...'), ephemeral=True)
+    if display_type == 'long':
+        await ctx.reply(tg(guild_id, 'Searching...'), ephemeral=True)
 
     custom_search = youtubesearchpython.VideosSearch(search_query, limit=5)
-    search_list[guild_id].clear()
+    guild[guild_id].search_list.clear()
 
     view = SearchOptionView(ctx, force)
 
@@ -645,22 +775,24 @@ async def search_command(ctx: commands.Context,
         # noinspection PyTypeChecker
         url = custom_search.result()['result'][i]['link']
         video = Video(url, ctx.author)
-        search_list[guild_id].append(video)
+        guild[guild_id].search_list.append(video)
 
-        if response == 'long':
-            embed = create_embed(video, f'{text_guild(guild_id, "Result #")}{i + 1}', guild_id)
+        if display_type == 'long':
+            embed = create_embed(video, f'{tg(guild_id, "Result #")}{i + 1}', guild_id)
             await ctx.message.channel.send(embed=embed)
-        if response == 'short':
-            message += f'{text_guild(guild_id, "Result #")}{i+1} : [`{video.title}`](<{video.url}>)\n'
-    if response == 'short':
+        if display_type == 'short':
+            message += f'{tg(guild_id, "Result #")}{i+1} : [`{video.title}`](<{video.url}>)\n'
+    if display_type == 'short':
         await ctx.reply(message, view=view)
+
+    save_json()
 
 
 # -------------------------------------Queue---------------------------------------------------------
 
 
 @bot.hybrid_command(name='queue', with_app_command=True, description=text['queue_add'], help=text['queue_add'])
-@app_commands.describe(url=text['url'], position=text['pos'], mute_response=text['mute_response'])
+@app_commands.describe(url=text['url'], position=text['pos'], mute_response=text['mute_response'], is_internal=text['is_internal'], force=text['force'])
 async def queue_command(ctx: commands.Context,
                         url=None,
                         position: int = None,
@@ -673,7 +805,7 @@ async def queue_command(ctx: commands.Context,
     author = ctx.author
 
     if not url:
-        message = text_guild(guild_id, "`url` is **required**")
+        message = tg(guild_id, "`url` is **required**")
         if not mute_response:
             await ctx.reply(message, ephemeral=True)
         return [False, message]
@@ -711,12 +843,14 @@ async def queue_command(ctx: commands.Context,
             url = f"https://www.youtube.com/watch?v={playlist_videos[index]['id']}"
             video = Video(url, author)
 
-            if position or position == 0: queue[guild_id].insert(position, video)
-            else: queue[guild_id].append(video)
+            if position or position == 0: guild[guild_id].queue.insert(position, video)
+            else: guild[guild_id].queue.append(video)
 
-        message = f"`{playlist_songs}` {text_guild(guild_id, 'songs from playlist added to queue!')}"
+        message = f"`{playlist_songs}` {tg(guild_id, 'songs from playlist added to queue!')}"
         if not mute_response:
             await ctx.reply(message)
+
+        save_json()
 
         return [True, message, None]
 
@@ -724,7 +858,7 @@ async def queue_command(ctx: commands.Context,
         if 'index=' in url or 'list=' in url:
             view = PlaylistOptionView(ctx, url, force)
 
-            message = text_guild(guild_id,
+            message = tg(guild_id,
                                  'This video is from a **playlist**, do you want to add the playlist to **queue?**')
             await ctx.reply(message, view=view)
             return [False, message]
@@ -732,13 +866,15 @@ async def queue_command(ctx: commands.Context,
 
             video = Video(url, author)
 
-            if position or position == 0: queue[guild_id].insert(position, video)
-            else: queue[guild_id].append(video)
+            if position or position == 0: guild[guild_id].queue.insert(position, video)
+            else: guild[guild_id].queue.append(video)
 
-            message = f'[`{video.title}`](<{video.url}>) {text_guild(guild_id, "added to queue!")}'
+            message = f'[`{video.title}`](<{video.url}>) {tg(guild_id, "added to queue!")}'
 
             if not mute_response:
                 await ctx.reply(message)
+
+            save_json()
 
             return [True, message, video]
 
@@ -747,13 +883,15 @@ async def queue_command(ctx: commands.Context,
                 url_only_id = 'https://www.youtube.com/watch?v=' + url.split('watch?v=')[1]
                 video = Video(url_only_id, author)
 
-                if position or position == 0: queue[guild_id].insert(position, video)
-                else: queue[guild_id].append(video)
+                if position or position == 0: guild[guild_id].queue.insert(position, video)
+                else: guild[guild_id].queue.append(video)
 
-                message = f'[`{video.title}`](<{video.url}>) {text_guild(guild_id, "added to queue!")}'
+                message = f'[`{video.title}`](<{video.url}>) {tg(guild_id, "added to queue!")}'
 
                 if not mute_response:
                     await ctx.reply(message)
+
+                save_json()
 
                 return [True, message, video]
 
@@ -763,13 +901,15 @@ async def queue_command(ctx: commands.Context,
                     url_shorts = url.replace('shorts/', 'watch?v=')
                     video = Video(url_shorts, author)
 
-                    if position or position == 0: queue[guild_id].insert(position, video)
-                    else: queue[guild_id].append(video)
+                    if position or position == 0: guild[guild_id].queue.insert(position, video)
+                    else: guild[guild_id].queue.append(video)
 
-                    message = f'[`{video.title}`](<{video.url}>) {text_guild(guild_id, "added to queue!")}'
+                    message = f'[`{video.title}`](<{video.url}>) {tg(guild_id, "added to queue!")}'
 
                     if not mute_response:
                         await ctx.reply(message)
+
+                    save_json()
 
                     return [True, message, video]
 
@@ -778,15 +918,17 @@ async def queue_command(ctx: commands.Context,
                     if not is_internal:
                         await search_command(ctx, url, 'text', force)
 
-                    message = f'[`{url}`](<{url}>) {text_guild(guild_id, "is not supported!")}'
+                    message = f'[`{url}`](<{url}>) {tg(guild_id, "is not supported!")}'
 
                     # await ctx.reply(message, ephemeral=True)
+
+                    save_json()
 
                     return [False, message]
 
 
 @bot.hybrid_command(name='next_up', with_app_command=True, description=text['next_up'], help=text['next_up'])
-@app_commands.describe(url=text['url'])
+@app_commands.describe(url=text['url'], ephemeral=text['ephemeral'])
 async def next_up(ctx: commands.Context,
                  url=None,
                  ephemeral: bool = False
@@ -803,105 +945,102 @@ async def next_up(ctx: commands.Context,
         await play(ctx)
         return
 
-    if ephemeral:
-        await ctx.reply(response[1], ephemeral=True)
-    else:
-        await ctx.reply(response[1])
+    await ctx.reply(response[1], ephemeral=ephemeral)
+
+    save_json()
 
 
 
 @bot.hybrid_command(name='remove', with_app_command=True, description=text['queue_remove'], help=text['queue_remove'])
-@app_commands.describe(number=text['number'])
+@app_commands.describe(number=text['number'], display_type=text['display_type'], ephemeral=text['ephemeral'])
 async def remove(ctx: commands.Context,
                  number: int,
-                 ephemeral: Literal['True', 'False'] = 'False'
+                 display_type: Literal['short', 'long'] = None,
+                 ephemeral: bool = False
                  ):
-    print_command(ctx, 'remove', [number, ephemeral])
+    print_command(ctx, 'remove', [number, display_type, ephemeral])
     guild_id = ctx.guild.id
 
+    if not display_type:
+        display_type = guild[guild_id].options.response_type
+
     if number:
-        if number > len(queue[guild_id]):
-            if not queue[guild_id]:
-                await ctx.reply(text_guild(guild_id, "Nothing to **remove**, queue is **empty!**"), ephemeral=True)
+        if number > len(guild[guild_id].queue):
+            if not guild[guild_id].queue:
+                await ctx.reply(tg(guild_id, "Nothing to **remove**, queue is **empty!**"), ephemeral=True)
                 return
-            await ctx.reply(text_guild(guild_id, "Index out of range!"), ephemeral=True)
+            await ctx.reply(tg(guild_id, "Index out of range!"), ephemeral=True)
             return
 
-        video = queue[guild_id][number]
+        video = guild[guild_id].queue[number]
 
-        if options[guild_id].response_type == 'long':
-            embed = create_embed(video, f'{text_guild(guild_id, "REMOVED #")}{number}', guild_id)
-            if ephemeral == 'True':
-                await ctx.reply(embed=embed, ephemeral=True)
-            else:
-                await ctx.reply(embed=embed)
-        if options[guild_id].response_type == 'short':
-            if ephemeral == 'True':
-                await ctx.reply(f'REMOVED #{number} : [`{video.title}`](<{video.url}>)', ephemeral=True)
-            else:
-                await ctx.reply(f'REMOVED #{number} : [`{video.title}`](<{video.url}>)')
+        if display_type == 'long':
+            embed = create_embed(video, f'{tg(guild_id, "REMOVED #")}{number}', guild_id)
+            await ctx.reply(embed=embed, ephemeral=ephemeral)
+        if display_type == 'short':
+            await ctx.reply(f'REMOVED #{number} : [`{video.title}`](<{video.url}>)', ephemeral=ephemeral)
 
-        queue[guild_id].pop(number)
+        guild[guild_id].queue.pop(number)
+
+    save_json()
 
 @bot.hybrid_command(name='clear', with_app_command=True, description=text['clear'], help=text['clear'])
+@app_commands.describe(ephemeral=text['ephemeral'])
 async def clear(ctx: commands.Context,
-                 ephemeral: Literal['True', 'False'] = 'False'
+                 ephemeral: bool = False
                  ):
     print_command(ctx, 'clear', [ephemeral])
     guild_id = ctx.guild.id
-    queue[guild_id].clear()
-    if ephemeral == 'True':
-        await ctx.reply(text_guild(guild_id, 'Removed **all** songs from queue'), ephemeral=True)
-    else:
-        await ctx.reply(text_guild(guild_id, 'Removed **all** songs from queue'))
+    guild[guild_id].queue.clear()
+    await ctx.reply(tg(guild_id, 'Removed **all** songs from queue'), ephemeral=ephemeral)
+    return
+
+
+@bot.hybrid_command(name='shuffle', with_app_command=True, description=text['shuffle'], help=text['shuffle'])
+@app_commands.describe(ephemeral=text['ephemeral'])
+async def shuffle(ctx: commands.Context,
+                 ephemeral: bool = False
+                 ):
+    print_command(ctx, 'shuffle', [ephemeral])
+    guild_id = ctx.guild.id
+    random.shuffle(guild[guild_id].queue)
+    await ctx.reply(tg(guild_id, 'Songs in queue shuffled'), ephemeral=ephemeral)
     return
 
 
 @bot.hybrid_command(name='show', with_app_command=True, description=text['queue_show'], help=text['queue_show'])
-@app_commands.describe(display_type=text['display_type'])
+@app_commands.describe(display_type=text['display_type'], ephemeral=text['ephemeral'])
 async def show(ctx: commands.Context,
-               display_type: Literal['short', 'long'] = None,
-               ephemeral: Literal['True', 'False'] = 'False'
+               display_type: Literal['short', 'medium', 'long'] = None,
+               ephemeral: bool = False
                ):
     print_command(ctx, 'show', [display_type, ephemeral])
     guild_id = ctx.guild.id
     max_embed = 5
-    if not queue[guild_id]:
-        if ephemeral == 'True':
-            await ctx.reply(text_guild(guild_id, "Nothing to **show**, queue is **empty!**"), ephemeral=True)
-            return
-        await ctx.reply(text_guild(guild_id, "Nothing to **show**, queue is **empty!**"))
+    if not guild[guild_id].queue:
+        await ctx.reply(tg(guild_id, "Nothing to **show**, queue is **empty!**"), ephemeral=ephemeral)
         return
-    if display_type == 'short' or (len(queue[guild_id]) > max_embed and display_type != 'long'):
-        await ctx.reply(text_guild(guild_id, "Showing..."), ephemeral=True)
-        used_type = 'short'
 
-        # if ephemeral == 'True':
-        #     await ctx.send(f"**Loop** mode  `{options[guild_id].loop}`,  **Display** type `{used_type}`", ephemeral=True)
-        # else:
-        #     await ctx.message.channel.send(f"**Loop** mode  `{options[guild_id].loop}`,  **Display** type `{used_type}`")
-        #
-        # message = ''
-        # for index, val in enumerate(queue[guild_id]):
-        #     add = f'**{text_guild(guild_id, "Queue #")}{index}**  `{convert_duration(val.duration)}`  [`{val.title}`](<{val.url}>) \n'
-        #     if len(message) + len(add) > 2000:
-        #         if ephemeral == 'True':
-        #             await ctx.send(message, ephemeral=True)
-        #         else:
-        #             await ctx.message.channel.send(message)
-        #         message = ''
-        #     else:
-        #         message = message + add
-        #
-        # if ephemeral == 'True':
-        #     await ctx.send(message, ephemeral=True)
-        # else:
-        #     await ctx.message.channel.send(message)
+    if not display_type:
+        if len(guild[guild_id].queue) <= max_embed:
+            display_type = 'long'
+        else:
+            display_type = 'medium'
 
-        embed = discord.Embed(title="Song Queue", description=f'Loop: {options[guild_id].loop} | Display type: {used_type}', color=0x00ff00)
+    if display_type == 'long':
+        await ctx.send(f"**THE QUEUE**\n **Loop** mode  `{guild[guild_id].options.loop}`,  **Display** type `{display_type}`", ephemeral=ephemeral, mention_author=False)
+
+        for index, val in enumerate(guild[guild_id].queue):
+            embed = create_embed(val, f'{tg(guild_id, "Queue #")}{index}', guild_id)
+
+            await ctx.send(embed=embed, ephemeral=ephemeral, mention_author=False)
+
+
+    if display_type == 'medium':
+        embed = discord.Embed(title="Song Queue", description=f'Loop: {guild[guild_id].options.loop} | Display type: {display_type}', color=0x00ff00)
 
         message = ''
-        for index, val in enumerate(queue[guild_id]):
+        for index, val in enumerate(guild[guild_id].queue):
             add = f'**{index}** --> `{convert_duration(val.duration)}`  [{val.title}](<{val.url}>) \n'
 
             if len(message) + len(add) > 1023:
@@ -912,28 +1051,37 @@ async def show(ctx: commands.Context,
 
         embed.add_field(name="", value=message, inline=False)
 
-        if ephemeral == 'True':
-            await ctx.send(embed=embed, ephemeral=True)
+        if len(embed) < 6000:
+            await ctx.reply(embed=embed, ephemeral=ephemeral, mention_author=False)
         else:
-            await ctx.send(embed=embed)
+            await ctx.reply("HTTPException(discord 6000 character limit) >> using display type `short`", ephemeral=ephemeral, mention_author=False)
+            display_type = 'short'
 
 
-    elif display_type == 'long' or (len(queue[guild_id]) < max_embed and display_type != 'short'):
-        await ctx.reply(text_guild(guild_id, "Showing..."), ephemeral=True)
-        used_type = 'long'
+    if display_type == 'short':
+        send = f"**THE QUEUE**\n **Loop** mode  `{guild[guild_id].options.loop}`,  **Display** type `{display_type}`"
+        # noinspection PyUnresolvedReferences
+        if ctx.interaction.response.is_done(): await ctx.send(send, ephemeral=ephemeral, mention_author=False)
+        else: await ctx.reply(send, ephemeral=ephemeral, mention_author=False)
 
-        if ephemeral == 'True':
-            await ctx.send(f"**Loop** mode  `{options[guild_id].loop}`,  **Display** type `{used_type}`", ephemeral=True)
-        else:
-            await ctx.message.channel.send(f"**Loop** mode  `{options[guild_id].loop}`,  **Display** type `{used_type}`")
-
-        for index, val in enumerate(queue[guild_id]):
-            embed = create_embed(val, f'{text_guild(guild_id, "Queue #")}{index}', guild_id)
-
-            if ephemeral == 'True':
-                await ctx.send(embed=embed, ephemeral=True)
+        message = ''
+        for index, val in enumerate(guild[guild_id].queue):
+            add = f'**{tg(guild_id, "Queue #")}{index}**  `{convert_duration(val.duration)}`  [`{val.title}`](<{val.url}>) \n'
+            if len(message) + len(add) > 2000:
+                if ephemeral:
+                    await ctx.send(message, ephemeral=ephemeral, mention_author=False)
+                else:
+                    await ctx.message.channel.send(content=message, mention_author=False)
+                message = ''
             else:
-                await ctx.message.channel.send(embed=embed)
+                message = message + add
+
+        if ephemeral:
+            await ctx.send(message, ephemeral=ephemeral, mention_author=False)
+        else:
+            await ctx.message.channel.send(content=message, mention_author=False)
+
+    save_json()
 
 
 @bot.hybrid_command(name='skip', with_app_command=True, description=text['skip'], help=text['skip'])
@@ -941,7 +1089,7 @@ async def skip(ctx: commands.Context):
     guild_id = ctx.guild.id
     print_command(ctx, 'skip', None)
     if not ctx.voice_client.is_playing():
-        await ctx.reply(text_guild(guild_id, "There is **nothing to skip!**"), ephemeral=True)
+        await ctx.reply(tg(guild_id, "There is **nothing to skip!**"), ephemeral=True)
     if ctx.voice_client.is_playing():
         await stop(ctx, True)
         await asyncio.sleep(0.5)
@@ -952,12 +1100,12 @@ async def skip(ctx: commands.Context):
 async def loop_command(ctx: commands.Context):
     print_command(ctx, 'loop', None)
     guild_id = ctx.guild.id
-    if options[guild_id].loop:
-        options[guild_id].loop = False
+    if guild[guild_id].options.loop:
+        guild[guild_id].options.loop = False
         await ctx.reply("Loop mode: `False`", ephemeral=True)
         return
-    if not options[guild_id].loop:
-        options[guild_id].loop = True
+    if not guild[guild_id].options.loop:
+        guild[guild_id].options.loop = True
         await ctx.reply("Loop mode: `True`", ephemeral=True)
         return
 
@@ -966,144 +1114,123 @@ async def loop_command(ctx: commands.Context):
 async def loop_this(ctx: commands.Context):
     print_command(ctx, 'loop_this', None)
     guild_id = ctx.guild.id
-    if now_playing[guild_id] and ctx.voice_client.is_playing:
-        queue[guild_id].clear()
-        queue[guild_id].append(now_playing[guild_id])
-        options[guild_id].loop = True
-        await ctx.reply(f'{text_guild(guild_id, "Queue **cleared**, Player will now loop **currently** playing song:")}'
-                        f' [`{now_playing[guild_id].title}`](<{now_playing[guild_id].url}>)')
+    if guild[guild_id].now_playing and ctx.voice_client.is_playing:
+        guild[guild_id].queue.clear()
+        guild[guild_id].queue.append(guild[guild_id].now_playing)
+        guild[guild_id].options.loop = True
+        await ctx.reply(f'{tg(guild_id, "Queue **cleared**, Player will now loop **currently** playing song:")}'
+                        f' [`{guild[guild_id].now_playing.title}`](<{guild[guild_id].now_playing.url}>)')
     else:
-        await ctx.reply(text_guild(guild_id, "Nothing is playing **right now**"))
+        await ctx.reply(tg(guild_id, "Nothing is playing **right now**"))
 
 
 @bot.hybrid_command(name='nowplaying', with_app_command=True, description=text['nowplaying'], help=text['nowplaying'])
+@app_commands.describe(ephemeral=text['ephemeral'])
 async def now(ctx: commands.Context,
-              ephemeral: Literal['True', 'False'] = 'False'
+              ephemeral: bool = False
               ):
     print_command(ctx, 'nowplaying', [ephemeral])
     guild_id = ctx.guild.id
     if ctx.voice_client:
         if ctx.voice_client.is_playing():
-            now_playing[guild_id].renew()
-            embed = create_embed(now_playing[guild_id], "Now playing", guild_id)
+            guild[guild_id].now_playing.renew()
+            embed = create_embed(guild[guild_id].now_playing, "Now playing", guild_id)
 
             view = PlayerControlView(ctx)
 
-            if ephemeral == 'True':
-                if options[guild_id].buttons:
-                    await ctx.reply(embed=embed, view=view, ephemeral=True)
-                else:
-                    await ctx.reply(embed=embed, ephemeral=True)
-
-            if ephemeral == 'False':
-                if options[guild_id].buttons:
-                    await ctx.reply(embed=embed, view=view)
-                else:
-                    await ctx.reply(embed=embed)
+            if guild[guild_id].options.buttons:
+                await ctx.reply(embed=embed, view=view, ephemeral=ephemeral)
+            else:
+                await ctx.reply(embed=embed, ephemeral=ephemeral)
 
         if not ctx.voice_client.is_playing():
             if ctx.voice_client.is_paused():
                 await ctx.reply(
-                    f'{text_guild(guild_id, "There is no song playing right **now**, but there is one **paused:**")}'
-                    f'  [`{now_playing[guild_id].title}`](<{now_playing[guild_id].url}>)')
+                    f'{tg(guild_id, "There is no song playing right **now**, but there is one **paused:**")}'
+                    f'  [`{guild[guild_id].now_playing.title}`](<{guild[guild_id].now_playing.url}>)')
             else:
-                await ctx.reply(text_guild(guild_id, 'There is no song playing right **now**'))
+                await ctx.reply(tg(guild_id, 'There is no song playing right **now**'))
     else:
-        await ctx.reply(text_guild(guild_id, 'There is no song playing right **now**'))
+        await ctx.reply(tg(guild_id, 'There is no song playing right **now**'))
+
+    save_json()
 
 
 # -------------------------------------------Voice---------------------------------------------
 
+@bot.hybrid_command(name='list_radios', with_app_command=True, description=text['list_radios'], help=text['list_radios'])
+@app_commands.describe(ephemeral=text['ephemeral'])
+async def list_radios(ctx: commands.Context,
+                      ephemeral: bool = True
+                      ):
+    print_command(ctx, 'list_radios', [ephemeral])
+    embed = discord.Embed(title="Radio List")
+    message = ''
+    for index, (name, val) in enumerate(radio_dict.items()):
+        add = f'**{index}** --> {name}\n'
+
+        if len(message) + len(add) > 1023:
+            embed.add_field(name="", value=message, inline=False)
+            message = ''
+        else:
+            message = message + add
+
+    embed.add_field(name="", value=message, inline=False)
+
+    await ctx.send(embed=embed, ephemeral=ephemeral)
+
+
 
 @bot.hybrid_command(name='radio', with_app_command=True, description=text['radio'], help=text['radio'])
-@app_commands.describe(radia_cz_1=text['radio_menu'], radia_cz_2=text['radio_menu'], radia_cz_3=text['radio_menu'],
-                       radia_cz_4=text['radio_menu'], favourite_radio=text['favourite_radio'])
+@app_commands.describe(favourite_radio=text['favourite_radio'], radio_code=text['radio_code'])
 async def radio(ctx: commands.Context,
-                radia_cz_1: radia_cz_literal1 = None,
-                radia_cz_2: radia_cz_literal2 = None,
-                radia_cz_3: radia_cz_literal3 = None,
-                radia_cz_4: radia_cz_literal4 = None,
-                favourite_radio: favourite_radia_literal = None
+                favourite_radio: Literal['Rádio BLANÍK','Rádio BLANÍK CZ','Evropa 2','Fajn Radio','Hitrádio PopRock','Český rozhlas Pardubice','Radio Beat','Country Radio','Radio Kiss','Český rozhlas Vltava','Hitrádio Černá Hora'] = None,
+                radio_code: int = None,
                 ):
-    print_command(ctx, 'radio', [radia_cz_1, radia_cz_2, radia_cz_3, radia_cz_4, favourite_radio])
+    print_command(ctx, 'radio', [favourite_radio, radio_code])
     guild_id = ctx.guild.id
     radio_type = 'Rádio BLANÍK'
     await ctx.defer(ephemeral=False)
-    if (radia_cz_1 and radia_cz_2) or (radia_cz_1 and radia_cz_3) or (radia_cz_1 and radia_cz_4) or\
-            (radia_cz_4 and radia_cz_3) or (radia_cz_4 and radia_cz_2) or (radia_cz_2 and radia_cz_3) or\
-            (favourite_radio and radia_cz_1) or (favourite_radio and radia_cz_2) or\
-            (favourite_radio and radia_cz_3) or (favourite_radio and radia_cz_4):
-        await ctx.reply(text_guild(guild_id, "Only **one** argument possible!"), ephemeral=True)
+    if favourite_radio and radio_code:
+        await ctx.reply(tg(guild_id, "Only **one** argument possible!"), ephemeral=True)
         return
-    if radia_cz_1:
-        radio_type = radia_cz_1
-    elif radia_cz_2:
-        radio_type = radia_cz_2
-    elif radia_cz_3:
-        radio_type = radia_cz_3
-    elif radia_cz_4:
-        radio_type = radia_cz_4
-    elif favourite_radio:
-        radio_type = favourite_radio
 
+    if favourite_radio:
+        radio_type = favourite_radio
+    elif radio_code:
+        radio_type = list(radio_dict.keys())[radio_code]
 
     if not ctx.voice_client:
         response = await join(ctx, None, True)
         if not response:
             return
 
-    url = radia_stream[radia_name.index(radio_type)]
-    queue[guild_id].clear()
+    url = radio_dict[radio_type]['stream']
+    guild[guild_id].queue.clear()
 
     if ctx.voice_client.is_playing():
         await stop(ctx, True)  # call the stop coroutine if something else is playing, pass True to not send response
 
     radio_class = Radio(radio_type, ctx.author)
-    now_playing[guild_id] = radio_class
+    guild[guild_id].now_playing = radio_class
 
-    options[guild_id].is_radio = True
+    guild[guild_id].options.is_radio = True
 
     embed = create_embed(radio_class, 'Now playing', guild_id)
 
-    source = await discord.FFmpegOpusAudio.from_probe(url, **FFMPEG_OPTIONS)
+    source = discord.FFmpegPCMAudio(url, **FFMPEG_OPTIONS)
 
     ctx.voice_client.play(source)
 
-    if options[guild_id].buttons:
+    await volume_command(ctx, guild[guild_id].options.volume*100, False, True)
+
+    if guild[guild_id].options.buttons:
         view = PlayerControlView(ctx)
         await ctx.reply(embed=embed, view=view)
     else:
         await ctx.reply(embed=embed)  # view=view   f"**{text['Now playing']}** `{radio_type}`",
 
-
-# @bot.hybrid_command(name='radio_garden', with_app_command=True, description=text['radio'],
-#                     help=text['radio'])
-# async def radio_garden(ctx: commands.Context):
-#     guild_id = ctx.guild.id
-# 
-#     try:
-#         channel = ctx.message.author.voice.channel
-#         await channel.connect()
-#     except (discord.ext.commands.errors.CommandInvokeError, discord.errors.ClientException, AttributeError):
-#         pass
-#     if not ctx.voice_client:
-#         await ctx.reply(text_guild(guild_id, "Bot is not connected to a voice channel,"
-#                                              " do `/join` or connect to a voice channel yourself"), ephemeral=True)
-#         return
-# 
-#     voice = ctx.voice_client
-# 
-#     url = "http://radio.garden/visit/uvaly/Vy6uPWnV"
-# 
-#     is_radio[guild_id] = 'True'
-# 
-#     source = await discord.FFmpegOpusAudio.from_probe(url, **FFMPEG_OPTIONS)
-#     voice.play(source)
-# 
-#     await ctx.reply('yes')  # view=view   f"**{text['Now playing']}** `{radio_type}`",
-# 
-
-
+    save_json()
 
 
 @bot.hybrid_command(name='play', with_app_command=True, description=text['play'], help=text['play'])
@@ -1118,18 +1245,8 @@ async def play(ctx: commands.Context,
     guild_id = ctx.guild.id
 
     if url == 'next':
-        if options[guild_id].stopped:
+        if guild[guild_id].options.stopped:
             print_message(guild_id, "stopped")
-            return
-
-    if url and url != 'next':
-        if url[0:33] == "https://www.youtube.com/playlist?":
-            await ctx.defer()
-        if force:
-            response = await queue_command(ctx, url=url, position=0, mute_response=True, is_internal=False, force=force)
-        else:
-            response = await queue_command(ctx, url=url, position=None, mute_response=True, is_internal=False, force=force)
-        if not response[0]:
             return
 
     voice = ctx.voice_client
@@ -1142,58 +1259,69 @@ async def play(ctx: commands.Context,
         if not response:
             return
 
+
+    if url and url != 'next':
+        if force:
+            response = await queue_command(ctx, url=url, position=0, mute_response=True, is_internal=False, force=force)
+        else:
+            response = await queue_command(ctx, url=url, position=None, mute_response=True, is_internal=False, force=force)
+        if not response[0]:
+            return
+
     voice = ctx.voice_client
 
     if voice.is_playing():
-        if not options[guild_id].is_radio and not force:
+        if not guild[guild_id].options.is_radio and not force:
             if url and not force:
                 if response:
-                    await ctx.reply(f'{text_guild(guild_id, "**Already playing**, added to queue")}: [`{response[2].title}`](<{response[2].url}>)')
+                    await ctx.reply(f'{tg(guild_id, "**Already playing**, added to queue")}: [`{response[2].title}`](<{response[2].url}>)')
                     return
                 else:
-                    await ctx.reply(f'{text_guild(guild_id, "**Already playing**, added to queue")}')
+                    await ctx.reply(f'{tg(guild_id, "**Already playing**, added to queue")}')
                     return
-            await ctx.reply(text_guild(guild_id, "**Already playing**"), ephemeral=True)
+            await ctx.reply(tg(guild_id, "**Already playing**"), ephemeral=True)
             return
         voice.stop()
-        options[guild_id].stopped = True
-        options[guild_id].is_radio = False
+        guild[guild_id].options.stopped = True
+        guild[guild_id].options.is_radio = False
 
-    if not queue[guild_id]:
-        await ctx.reply(text_guild(guild_id, "There is **nothing** in your **queue**"))
+    if not guild[guild_id].queue:
+        await ctx.reply(tg(guild_id, "There is **nothing** in your **queue**"))
         return
 
-    video = queue[guild_id][0]
+    video = guild[guild_id].queue[0]
     if not force:
-        options[guild_id].stopped = False
+        guild[guild_id].options.stopped = False
 
     try:
         source = await YTDLSource.create_source(ctx, video.url)  # loop=bot.loop  va_list[0]
         voice.play(source, after=lambda e: asyncio.run_coroutine_threadsafe(play(ctx, arg), bot.loop))
 
-        options[guild_id].stopped = False
+        guild[guild_id].options.stopped = False
 
-        now_playing[guild_id] = video
+        guild[guild_id].now_playing = video
 
-        if options[guild_id].loop:
-            queue[guild_id].append(video)
+        if guild[guild_id].options.loop:
+            guild[guild_id].queue.append(video)
 
-        queue[guild_id].pop(0)
+        guild[guild_id].queue.pop(0)
 
         view = PlayerControlView(ctx)
 
-        if options[guild_id].response_type == 'long':
+        if guild[guild_id].options.response_type == 'long':
             embed = create_embed(video, "Now playing", guild_id)
-            if options[guild_id].buttons:
+            if guild[guild_id].options.buttons:
                 await ctx.reply(embed=embed, view=view)
             else:
                 await ctx.reply(embed=embed)
 
-        if options[guild_id].response_type == 'short':
-            if options[guild_id].buttons:
-                await ctx.reply(f'{text_guild(guild_id, "Now playing")} [`{video.title}`](<{video.url}>)', view=view)
+        if guild[guild_id].options.response_type == 'short':
+            if guild[guild_id].options.buttons:
+                await ctx.reply(f'{tg(guild_id, "Now playing")} [`{video.title}`](<{video.url}>)', view=view)
             else:
-                await ctx.reply(f'{text_guild(guild_id, "Now playing")} [`{video.title}`](<{video.url}>)')
+                await ctx.reply(f'{tg(guild_id, "Now playing")} [`{video.title}`](<{video.url}>)')
+
+        save_json()
 
     except (discord.ext.commands.errors.CommandInvokeError, IndexError, TypeError, discord.errors.ClientException,
             YTDLError, discord.errors.NotFound):
@@ -1201,53 +1329,32 @@ async def play(ctx: commands.Context,
         tb = traceback.format_exc()
         print_message(guild_id, tb)
         print_message(guild_id, "--------------------------------------------------------------")
-        await ctx.reply(f'{text_guild(guild_id, "An **error** occurred while trying to play the song")}'
-                        f' {bot.get_user(MY_ID).mention} ({sys.exc_info()[0]})')
-
-
-# @bot.hybrid_command(name='stream', with_app_command=True, description=text['stream'], help=text['stream'])
-# @app_commands.describe(url=text['play'], force=text['force'])
-# async def play(ctx: commands.Context,
-#                url=None,
-#                force=False
-#                ):
-#     print_command(ctx, 'play', [url])
-#     arg = 'next'
-#     guild_id = ctx.guild.id
+        await ctx.reply(f'{tg(guild_id, "An **error** occurred while trying to play the song")}'
+                        f' {bot.get_user(my_id).mention} ({sys.exc_info()[0]})')
 
 
 # ------------------------------------------------------Sound Effects--------------------------------------------------
 
-@bot.hybrid_command(name='sound', with_app_command=True, description=text['sound'], help=text['sound'])
-async def sound(ctx: commands.Context):
-    print_command(ctx, 'sound', None)
-    embed = discord.Embed(
-        title="Sound Effects",
-        colour=discord.Colour.from_rgb(241, 196, 15)
-        )
-    by = ceil(len(all_sound_effects) / 3)
-    l1 = '> 1 {all_sound_effects[0]}'
-    l2 = '> {by+1} {all_sound_effects[by]}'
-    l3 = '> {by*2+1} {all_sound_effects[by*2]}'
-    for x in range(by-1):
-        l1 = l1 + '\\n> ' + str(x+2) + ' {all_sound_effects[' + str(x+1) + ']}'
-    for x in range(by-1):
-        l2 = l2 + '\\n> {by + ' + str(x+2) + '} {all_sound_effects[' + str(x+1) + ' + by]}'
-    for x in range(by-1):
-        l3 = l3 + '\\n> {by*2 + ' + str(x+2) + '} {all_sound_effects[' + str(x+1) + ' + by*2]}'
+@bot.hybrid_command(name='sound_effects', with_app_command=True, description=text['sound'], help=text['sound'])
+@app_commands.describe(ephemeral=text['ephemeral'])
+async def sound_effects(ctx: commands.Context,
+                ephemeral: bool = True
+                ):
+    print_command(ctx, 'sound', [ephemeral])
+    embed = discord.Embed(title="Sound Effects", colour=discord.Colour.from_rgb(241, 196, 15))
+    message = ''
+    for index, val in enumerate(all_sound_effects):
+        add = f'**{index}** --> {val}\n'
 
-    exec("embed.add_field(name='**The** ', value=f'%s', inline=True)" % l1)
-    exec("embed.add_field(name='**Sound**', value=f'%s', inline=True)" % l2)
-    for f in range(by):
-        try:
-            exec("embed.add_field(name='**Effects**', value=f'%s', inline=True)" % l3)
-            break
-        except IndexError:
-            l3 = '> {by*2+1} {all_sound_effects[by*2]}'
-            for x in range(by-f+1):
-                l3 = l3 + '\\n> {by*2 + ' + str(x+2) + '} {all_sound_effects[' + str(x + 1) + ' + by*2]}'
+        if len(message) + len(add) > 1023:
+            embed.add_field(name="", value=message, inline=False)
+            message = ''
+        else:
+            message = message + add
 
-    await ctx.reply(embed=embed)
+    embed.add_field(name="", value=message, inline=False)
+
+    await ctx.send(embed=embed, ephemeral=ephemeral)
 
 
 @bot.hybrid_command(name='ps', with_app_command=True, description=text['ps'], help=text['ps'])
@@ -1257,11 +1364,11 @@ async def ps(ctx: commands.Context,
              ):
     print_command(ctx, 'ps', [effect_number])
     guild_id = ctx.guild.id
-    options[guild_id].is_radio = False
+    guild[guild_id].options.is_radio = False
     try:
-        name = all_sound_effects[effect_number-1]
+        name = all_sound_effects[effect_number]
     except IndexError:
-        await ctx.reply(text_guild(guild_id, "Number **not in list** (use `/sound` to get all sound effects)"),
+        await ctx.reply(tg(guild_id, "Number **not in list** (use `/sound` to get all sound effects)"),
                         ephemeral=True)
         return
 
@@ -1269,13 +1376,14 @@ async def ps(ctx: commands.Context,
     if path.exists(filename):
         source = FFmpegPCMAudio(filename)
         video = LocalFile(name, convert_duration(mp3_length(filename)), ctx.author)
-        now_playing[guild_id] = video
+        guild[guild_id].now_playing = video
     else:
         filename = "sound_effects/" + name + ".wav"
         if path.exists(filename):
             source = FFmpegPCMAudio(filename)
+
         else:
-            await ctx.reply(text_guild(guild_id, "No such file/website supported"), ephemeral=True)
+            await ctx.reply(tg(guild_id, "No such file/website supported"), ephemeral=True)
             return
 
     try:
@@ -1284,7 +1392,7 @@ async def ps(ctx: commands.Context,
         pass
 
     if not ctx.voice_client:
-        await ctx.reply(text_guild(guild_id, "Bot is not connected to a voice channel,"
+        await ctx.reply(tg(guild_id, "Bot is not connected to a voice channel,"
                                              " do `/join` or connect to a voice channel yourself"), ephemeral=True)
         return
 
@@ -1292,7 +1400,10 @@ async def ps(ctx: commands.Context,
 
     await stop(ctx, True)
     voice.play(source)
-    await ctx.reply(f"{text_guild(guild_id, 'Playing sound effect number')} `{effect_number}`", ephemeral=True)
+    await volume_command(ctx, guild[guild_id].options.volume*100, False, True)
+    await ctx.reply(f"{tg(guild_id, 'Playing sound effect number')} `{effect_number}`", ephemeral=True)
+
+    save_json()
 
 
 # -------------------------------------------------Voice Control-------------------------------------------------------
@@ -1315,7 +1426,7 @@ async def player_control(ctx: commands.Context,
 
     if action_type == "stop":
         voice.stop()
-        options[guild_id].stopped = True
+        guild[guild_id].options.stopped = True
 
         if not mute_response:
             await ctx.reply("Player **stopped!**", ephemeral=True)
@@ -1359,11 +1470,13 @@ async def stop(ctx: commands.Context,
 
     voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
     voice.stop()
-    options[guild_id].stopped = True
-    options[guild_id].loop = False
+    guild[guild_id].options.stopped = True
+    guild[guild_id].options.loop = False
 
     if not mute_response:
         await ctx.reply("Player **stopped!**", ephemeral=True)
+
+    save_json()
 
 
 @bot.hybrid_command(name='pause', with_app_command=True, description=f'Pause the player')
@@ -1385,6 +1498,8 @@ async def pause(ctx: commands.Context,
         if not mute_response:
             await ctx.reply("No audio playing", ephemeral=True)
 
+    save_json()
+
 
 @bot.hybrid_command(name='resume', with_app_command=True, description=f'Resume the player')
 @app_commands.describe(mute_response=text['mute_response'])
@@ -1404,146 +1519,227 @@ async def resume(ctx: commands.Context,
         if not mute_response:
             await ctx.reply("No audio paused", ephemeral=True)
 
+    save_json()
+
 
 # ----------------------------------------Bot control-------------------------------------------------------------------
 
 
-@bot.hybrid_command(name='kys', with_app_command=True, description=text['kys'], help=text['kys'])
-async def kys(ctx: commands.Context):
-    guild_id = ctx.guild.id
-    print_command(ctx, 'kys', None)
-    await ctx.reply(text_guild(guild_id, "Committing seppuku..."))
-    exit(3)
-
-
 async def is_authorised(ctx):
-    if ctx.author.id in authorized_users:
+    if ctx.author.id in authorized_users or ctx.author.id == 349164237605568513:
         return True
 
 
-@bot.hybrid_command(name='zz_nuke', with_app_command=True)
-@commands.check(is_authorised)
-async def nuke(ctx: commands.Context,
-               message,
-               guild=None,
-               delete: bool = True
-               ):
-    # guild_id = ctx.guild.id
-    print_command(ctx, 'nuke', [guild, message, delete])
+@bot.hybrid_command(name='kys', with_app_command=True, description=text['kys'], help=text['kys'])
+@commands.is_owner()
+async def kys(ctx: commands.Context):
+    guild_id = ctx.guild.id
+    print_command(ctx, 'kys', None)
+    await ctx.reply(tg(guild_id, "Committing seppuku..."))
+    exit(3)
 
-    await ctx.defer()
-    all_guild = False
-    guilds = []
-    text_channel_list = []
-    nuked = []
-    not_nuked = []
 
-    if guild:
-        try:
-            guild = int(guild)
-        except (TypeError, ValueError):
-            if guild != 'all':
-                await ctx.reply("That is not a guild id", ephemeral=True)
-                return
-            all_guild = True
+# @bot.hybrid_command(name='zz_nuke', with_app_command=True)
+# @commands.check(is_authorised)
+# async def nuke(ctx: commands.Context,
+#                message,
+#                guild=None,
+#                delete: bool = True
+#                ):
+#     # guild_id = ctx.guild.id
+#     print_command(ctx, 'nuke', [guild, message, delete])
+#
+#     await ctx.defer()
+#     all_guild = False
+#     guilds = []
+#     text_channel_list = []
+#     nuked = []
+#     not_nuked = []
+#
+#     if guild:
+#         try:
+#             guild = int(guild)
+#         except (TypeError, ValueError):
+#             if guild != 'all':
+#                 await ctx.reply("That is not a guild id", ephemeral=True)
+#                 return
+#             all_guild = True
+#
+#         if not all_guild:
+#             guild_object = bot.get_guild(guild)
+#             if guild_object is None:
+#                 await ctx.reply("That guild doesn't exist", ephemeral=True)
+#                 return
+#             guilds = [guild_object]
+#
+#         if all_guild:
+#             guilds = []
+#             for guild in bot.guilds:
+#                 guilds.append(guild)
+#
+#     if not guild:
+#         guild_object = ctx.guild
+#         guilds = [guild_object]
+#
+#     for guild_object in guilds:
+#         for channel in guild_object.text_channels:
+#             try:
+#                 msg = await channel.send(message)
+#                 if delete:
+#                     await msg.delete()
+#                 nuked.append(channel.name)
+#             except Forbidden:
+#                 not_nuked.append(channel.name)
+#                 print(channel.name)
+#             text_channel_list.append(channel)
+#     await ctx.reply(f"Nuke complete with `{len(nuked)}` channels", ephemeral=True)
+#     print_command(ctx, 'Nuked channels', nuked, True)
+#     print_command(ctx, 'Not accessible channels', not_nuked, True)
 
-        if not all_guild:
-            guild_object = bot.get_guild(guild)
-            if guild_object is None:
-                await ctx.reply("That guild doesn't exist", ephemeral=True)
-                return
-            guilds = [guild_object]
 
-        if all_guild:
-            guilds = []
-            for guild in bot.guilds:
-                guilds.append(guild)
+@bot.hybrid_command(name='zz_config', with_app_command=True)
+@commands.is_owner()
+async def config_command(ctx: commands.Context):
+    print_command(ctx, 'config', None)
+    try:
+        content = requests.get(ctx.message.attachments[0].url).content
+    except IndexError:
+        await ctx.reply(f"No file attached: use >> `{prefix}zz_config [guilds.json]` ( **[]** = just upload a file )", ephemeral=True)
+        return
 
-    if not guild:
-        guild_object = ctx.guild
-        guilds = [guild_object]
+    with open('src/guilds.json', 'wb') as f:
+        f.write(content)
 
-    for guild_object in guilds:
-        for channel in guild_object.text_channels:
-            try:
-                msg = await channel.send(message)
-                if delete:
-                    await msg.delete()
-                nuked.append(channel.name)
-            except Forbidden:
-                not_nuked.append(channel.name)
-                print(channel.name)
-            text_channel_list.append(channel)
-    await ctx.reply(f"Nuke complete with `{len(nuked)}` channels", ephemeral=True)
-    print_command(ctx, 'Nuked channels', nuked, True)
-    print_command(ctx, 'Not accessible channels', not_nuked, True)
+    print_message('no guild', 'Loading guilds.json ...')
+    with open('src/guilds.json', 'r') as f:
+        globals()['guild'] = json_to_guilds(json.load(f))
+
+    await ctx.reply("Loaded new `guilds.json`", ephemeral=True)
+
 
 
 @bot.hybrid_command(name='zz_log', with_app_command=True)
 @commands.is_owner()
-async def log_command(ctx: commands.Context):
-    print_command(ctx, 'log', None)
-    log = discord.File('log.txt')
-    await ctx.reply(file=log, ephemeral=True)
+async def log_command(ctx: commands.Context,
+                      log_type: Literal['console', 'json'] = 'console'
+                      ):
+    print_command(ctx, 'log', [log_type])
+    save_json()
+    if log_type == 'json':
+        file_to_send = discord.File('src/guilds.json')
+    else:
+        file_to_send = discord.File('log.txt')
+    await ctx.reply(file=file_to_send, ephemeral=True)
 
 
+# noinspection PyTypeHints
 @bot.hybrid_command(name='zz_change_config', with_app_command=True)
-@app_commands.describe(guild='all, this, {guild_id}')
+@app_commands.describe(server='all, this, {guild_id}')
 @commands.is_owner()
 async def change_config(ctx: commands.Context,
                         stopped: Literal['True', 'False'] = None,
                         loop: Literal['True', 'False'] = None,
                         is_radio: Literal['True', 'False'] = None,
                         buttons: Literal['True', 'False'] = None,
-                        language: language_list_literal = None,
+                        language: Literal[tuple(languages_dict.keys())] = None,
                         response_type: Literal['short', 'long'] = None,
-                        guild = None,
+                        volume: int = None,
+                        server = None,
                         ):
-    print_command(ctx, 'owner_commands', [stopped, loop, is_radio, buttons, language, response_type, guild])
+    print_command(ctx, 'owner_commands', [stopped, loop, is_radio, buttons, language, response_type, volume, server])
     guild_id = ctx.guild.id
 
+    save_json()
+
     guilds = []
-    if guild == 'all':
-        for guild in bot.guilds:
-            guilds.append(guild.id)
-    elif guild == 'this':
+    if server == 'all':
+        for guild_id, guild_class in guild:
+            guilds.append(guild_id)
+    elif server == 'this':
         guilds.append(ctx.guild.id)
     else:
         try:
-            if int(guild) in bot.guilds:
-                guilds.append(guild)
+            if int(server) in bot.guilds:
+                guilds.append(int(server))
             else:
-                await ctx.reply(text_guild(guild_id, "That guild doesn't exist or the bot is no"), ephemeral=True)
+                await ctx.reply(tg(guild_id, "That guild doesn't exist or the bot is no"), ephemeral=True)
                 return
         except (ValueError, TypeError):
-            await ctx.reply(text_guild(guild_id, "That is not a **guild id!**"), ephemeral=True)
+            await ctx.reply(tg(guild_id, "That is not a **guild id!**"), ephemeral=True)
             return
 
     for guild_id in guilds:
         if stopped:
-            options[guild_id].stopped = bool(stopped)
+            guild[guild_id].options.stopped = bool(stopped)
         if loop:
-            options[guild_id].loop = bool(loop)
+            guild[guild_id].options.loop = bool(loop)
         if is_radio:
-            options[guild_id].is_radio = bool(is_radio)
+            guild[guild_id].options.is_radio = bool(is_radio)
         if buttons:
-            options[guild_id].buttons = bool(buttons)
+            guild[guild_id].options.buttons = bool(buttons)
         if language:
-            options[guild_id].language = language
+            guild[guild_id].options.language = language
         if response_type:
-            options[guild_id].response_type = response_type
+            guild[guild_id].options.response_type = response_type
+        if volume:
+            guild[guild_id].options.volume = volume
 
-        config = f'`stopped={options[guild_id].stopped}`, `loop={options[guild_id].loop}`,' \
-                 f' `is_radio={options[guild_id].is_radio}`, `buttons={options[guild_id].buttons}`,' \
-                 f' `language={options[guild_id].language}`, `response_type={options[guild_id].response_type}`'
+        config = f'`stopped={guild[guild_id].options.stopped}`, `loop={guild[guild_id].options.loop}`,' \
+                 f' `is_radio={guild[guild_id].options.is_radio}`, `buttons={guild[guild_id].options.buttons}`,' \
+                 f' `language={guild[guild_id].options.language}`, `response_type={guild[guild_id].options.response_type}`'
+
+        save_json()
 
         await ctx.reply(f'**Config for guild `{guild_id}`**\n {config}', ephemeral=True)
 
 
+@bot.hybrid_command(name='zz_probe', with_app_command=True)
+@commands.is_owner()
+async def probe_command(ctx: commands.Context,
+                        url = None,
+                        ephemeral: bool = True
+                        ):
+    print_command(ctx, 'probe', [url])
+    guild_id = ctx.guild.id
+    if url is None:
+        await ctx.reply("Please provide a url", ephemeral=ephemeral)
+        return
+
+    codec, bitrate = await discord.FFmpegOpusAudio.probe(url)
+    if codec is None and bitrate is None:
+        await ctx.reply(f"[`{url}`](<{url}>) does not have `bitrate` and `codec` properties", ephemeral=ephemeral)
+        return
+
+    try:
+        if not ctx.voice_client:
+            response = await join(ctx, None, True)
+            if not response:
+                return
+
+        if ctx.voice_client.is_playing():
+            await stop(ctx, True)
+
+        guild[guild_id].now_playing = FromProbe(url=url, author=ctx.author, title='URL Probe', duration=0, channel_link=url, channel_name='URL Probe')
+
+        source = discord.FFmpegPCMAudio(url, **FFMPEG_OPTIONS)
+
+        ctx.voice_client.play(source)
+
+        await volume_command(ctx, guild[guild_id].options.volume * 100, False, True)
+
+        await ctx.reply(f'{tg(guild_id, "Now playing")}: [`{url}`](<{url}>)', ephemeral=ephemeral)
+    except Exception as e:
+        await ctx.reply(f'Error: {e}', ephemeral=ephemeral)
+
+    save_json()
+
+
 # @owner_commands.error
+# @nuke.error
 @change_config.error
-@nuke.error
 @log_command.error
+@probe_command.error
+@kys.error
 async def owner_error(ctx, error):
     if isinstance(error, commands.CheckFailure):
         print_command(ctx, 'owner_commands', 'Failed')
@@ -1553,24 +1749,61 @@ async def owner_error(ctx, error):
                         "　　　　　　　　　.· ´¸.·´¨) ¸.·*¨)\n"
                         "　　　　　　　　　　(¸.·´ (¸.·' ☆ **Fuck off**\n")
 
+
 @bot.hybrid_command(name='ping', with_app_command=True, description=text['ping'], help=text['ping'])
 async def ping(ctx: commands.Context):
     print_command(ctx, 'ping', None)
     await ctx.reply(f'**Pong!** Latency: {round(bot.latency * 1000)}ms')
+    save_json()
 
 
+@bot.hybrid_command(name='volume', with_app_command=True, description=text['volume'], help=text['volume'])
+@app_commands.describe(volume=text['volume'], ephemeral=text['ephemeral'], mute_response=text['mute_response'])
+async def volume_command(ctx: commands.Context,
+                         volume: int = None,
+                         ephemeral: bool = False,
+                         mute_response: bool = False
+                         ):
+    print_command(ctx, 'volume', [volume])
+    guild_id = ctx.guild.id
+
+    if volume:
+        new_volume = volume / 100
+
+        guild[guild_id].options.volume = new_volume
+        voice = ctx.voice_client
+        if voice:
+            try:
+                if voice.source:
+                    voice.source.volume = new_volume
+                    voice.source = discord.PCMVolumeTransformer(voice.source, volume=new_volume)
+            except AttributeError:
+                pass
+
+        if not mute_response:
+            await ctx.reply(f'Changed the volume for this server to: `{guild[guild_id].options.volume*100}%`', ephemeral=ephemeral)
+    else:
+        if not mute_response:
+            await ctx.reply(f'The volume for this server is: `{guild[guild_id].options.volume*100}%`', ephemeral=ephemeral)
+
+    save_json()
+
+
+# noinspection PyTypeHints
 @bot.hybrid_command(name='language', with_app_command=True, description=text['language'], help=text['language'])
+@app_commands.describe(country_code=text['country_code'])
 async def language_command(ctx: commands.Context,
-                   country_code: language_list_literal
+                   country_code: Literal[tuple(languages_dict.keys())]
                    ):
     guild_id = ctx.guild.id
     print_command(ctx, 'language', [country_code])
-    options[guild_id].language = country_code
-    await ctx.reply(f'{text_guild(guild_id, "Changed the language for this server to: ")} `{options[guild_id].language}`')
+    guild[guild_id].options.language = country_code
+    await ctx.reply(f'{tg(guild_id, "Changed the language for this server to: ")} `{guild[guild_id].options.language}`')
+    save_json()
 
 
 @bot.hybrid_command(name='join', with_app_command=True, description=text['join'], help=text['join'])
-@app_commands.describe(channel_id=text['channel_id'])
+@app_commands.describe(channel_id=text['channel_id'], mute_response=text['mute_response'])
 async def join(ctx: commands.Context,
                channel_id=None,
                mute_response: bool = False
@@ -1586,10 +1819,10 @@ async def join(ctx: commands.Context,
             await channel.connect()
             await ctx.guild.change_voice_state(channel=channel, self_deaf=True)
             if not mute_response:
-                await ctx.reply(f"{text_guild(guild_id, 'Joined voice channel:')}  `{channel.name}`", ephemeral=True)
+                await ctx.reply(f"{tg(guild_id, 'Joined voice channel:')}  `{channel.name}`", ephemeral=True)
             return True
 
-        await ctx.reply(text_guild(guild_id, "You are **not connected** to a voice channel"), ephemeral=True)
+        await ctx.reply(tg(guild_id, "You are **not connected** to a voice channel"), ephemeral=True)
         return False
 
     try:
@@ -1599,7 +1832,7 @@ async def join(ctx: commands.Context,
         await voice_channel.connect()
         await ctx.guild.change_voice_state(channel=voice_channel, self_deaf=True)
         if not mute_response:
-            await ctx.reply(f"{text_guild(guild_id, 'Joined voice channel:')}  `{voice_channel.name}`", ephemeral=True)
+            await ctx.reply(f"{tg(guild_id, 'Joined voice channel:')}  `{voice_channel.name}`", ephemeral=True)
         return True
     except (discord.ext.commands.errors.CommandInvokeError, discord.errors.ClientException, AttributeError):
 
@@ -1607,7 +1840,7 @@ async def join(ctx: commands.Context,
         tb = traceback.format_exc()
         print_message(guild_id, tb)
         print_message(guild_id, "--------------------------------------------------------------")
-        await ctx.reply(text_guild(guild_id, "Channel **doesn't exist** or bot doesn't have"
+        await ctx.reply(tg(guild_id, "Channel **doesn't exist** or bot doesn't have"
                                              " **sufficient permission** to join"), ephemeral=True)
         return False
 
@@ -1618,11 +1851,13 @@ async def disconnect(ctx: commands.Context):
     print_command(ctx, 'disconnect', None)
     if ctx.voice_client:
         await stop(ctx, True)
-        await ctx.reply(f"{text_guild(guild_id, 'Left voice channel:')} `{ctx.guild.voice_client.channel}`",
-                        ephemeral=True)
+        await ctx.reply(f"{tg(guild_id, 'Left voice channel:')} `{ctx.guild.voice_client.channel}`",
+                        ephemeral=True, mention_author=False)
         await ctx.guild.voice_client.disconnect(force=True)
     else:
-        await ctx.reply(text_guild(guild_id, "Bot is **not** in a voice channel"), ephemeral=True)
+        await ctx.reply(tg(guild_id, "Bot is **not** in a voice channel"), ephemeral=True, mention_author=False)
+
+    save_json()
 
 
 # Context menu commands
@@ -1678,6 +1913,158 @@ async def show_profile(inter, member: discord.Member):
     await inter.response.send_message(embed=embed, ephemeral=True)
 
 
+#invite, stats, uptime, ping, about, help
 
+bot.remove_command('help')
+@bot.hybrid_command(name='help', with_app_command=True)
+async def help_command(ctx: commands.Context,
+               command: Literal['ping', 'language', 'sound_effects', 'list_radios', 'play', 'radio', 'ps', 'player', 'skip', 'nowplaying', 'loop', 'loop_this', 'queue', 'next_up', 'remove', 'clear', 'shuffle', 'show', 'search', 'stop', 'pause', 'resume', 'join', 'disconnect', 'volume'] = None
+               ):
+    print_command(ctx, 'help', [command])
+    gi = ctx.guild.id
 
-bot.run("MTAwNzAwNDQ2MzkzMzk1MjEyMA.G5MuhM.jzpAzgSh4hNSFWB3dtBBu641YE6fxVGDbj4crA")
+    embed = discord.Embed(title="Help", description="Use `/help <command>` to get help on a command")
+    embed.add_field(name="General", value=f"`/help` - {tg(gi, 'help')}\n"
+                                          f"`/ping` - {tg(gi, 'ping')}\n"
+                                          f"`/language` - {tg(gi, 'language')}\n"
+                                          f"`/sound_ effects` - {tg(gi, 'sound')}\n"
+                                          f"`/list_radios` - {tg(gi, 'list_radios')}\n"
+                    , inline=False)
+    embed.add_field(name="Player", value=f"`/play` - {tg(gi, 'play')}\n"
+                                         f"`/radio` - {tg(gi, 'radio')}\n"
+                                         f"`/ps` - {tg(gi, 'ps')}\n"
+                                         f"`/player` - {tg(gi, 'player')}\n"
+                                         f"`/skip` - {tg(gi, 'skip')}\n"
+                                         f"`/nowplaying` - {tg(gi, 'nowplaying')}\n"
+                                         f"`/loop` - {tg(gi, 'loop')}\n"
+                                         f"`/loop_this` - {tg(gi, 'loop_this')}\n"
+                    , inline=False)
+    embed.add_field(name="Queue", value=f"`/queue` - {tg(gi, 'queue_add')}\n"
+                                        f"`/remove` - {tg(gi, 'queue_remove')}\n"
+                                        f"`/clear` - {tg(gi, 'clear')}\n"
+                                        f"`/shuffle` - {tg(gi, 'shuffle')}\n"
+                                        f"`/show` - {tg(gi, 'queue_show')}\n"
+                                        f"`/search` - {tg(gi, 'search')}"
+                    , inline=False)
+    embed.add_field(name="Voice", value=f"`/stop` - {tg(gi, 'stop')}\n"
+                                        f"`/pause` - {tg(gi, 'pause')}\n"
+                                        f"`/resume` - {tg(gi, 'resume')}\n"
+                                        f"`/join` - {tg(gi, 'join')}\n"
+                                        f"`/disconnect` - {tg(gi, 'die')}\n"
+                                        f"`/volume` - {tg(gi, 'volume')}"
+                    , inline=False)
+
+    if command == 'ping':
+        embed = discord.Embed(title="Help", description=f"`/ping` - {tg(gi, 'ping')}")
+
+    elif command == 'language':
+        embed = discord.Embed(title="Help", description=f"`/language` - {tg(gi, 'language')}")
+        embed.add_field(name="Arguments", value=f"`country_code` - {tg(gi, 'country_code')}", inline=False)
+
+    elif command == 'sound_effects':
+        embed = discord.Embed(title="Help", description=f"`/sound_effects` - {tg(gi, 'sound')}")
+        embed.add_field(name="Arguments", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
+
+    elif command == 'list_radios':
+        embed = discord.Embed(title="Help", description=f"`/list_radios` - {tg(gi, 'list_radios')}")
+        embed.add_field(name="Arguments", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
+
+    elif command == 'play':
+        embed = discord.Embed(title="Help", description=f"`/play` - {tg(gi, 'play')}")
+        embed.add_field(name="Arguments", value=f"`url` - {tg(gi, 'url')}", inline=False)
+        embed.add_field(name="", value=f"`force` - {tg(gi, 'force')}", inline=False)
+
+    elif command == 'radio':
+        embed = discord.Embed(title="Help", description=f"`/radio` - {tg(gi, 'radio')}")
+        embed.add_field(name="Arguments", value=f"`favourite_radio` - {tg(gi, 'favourite_radio')}", inline=False)
+        embed.add_field(name="", value=f"`radio_code` - {tg(gi, 'radio_code')}", inline=False)
+
+    elif command == 'ps':
+        embed = discord.Embed(title="Help", description=f"`/ps` - {tg(gi, 'ps')}")
+        embed.add_field(name="Arguments", value=f"`effect_number` - {tg(gi, 'effects_number')}", inline=False)
+
+    elif command == 'player':
+        embed = discord.Embed(title="Help", description=f"`/player` - {tg(gi, 'player')}")
+        embed.add_field(name="Arguments", value=f"`action_type` - {tg(gi, 'action_type')}", inline=False)
+        embed.add_field(name="", value=f"`mute_response` - {tg(gi, 'mute_response')}", inline=False)
+
+    elif command == 'skip':
+        embed = discord.Embed(title="Help", description=f"`/skip` - {tg(gi, 'skip')}")
+
+    elif command == 'nowplaying':
+        embed = discord.Embed(title="Help", description=f"`/nowplaying` - {tg(gi, 'nowplaying')}")
+        embed.add_field(name="Arguments", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
+
+    elif command == 'loop':
+        embed = discord.Embed(title="Help", description=f"`/loop` - {tg(gi, 'loop')}")
+
+    elif command == 'loop_this':
+        embed = discord.Embed(title="Help", description=f"`/loop_this` - {tg(gi, 'loop_this')}")
+
+    elif command == 'queue':
+        embed = discord.Embed(title="Help", description=f"`/queue` - {tg(gi, 'queue_add')}")
+        embed.add_field(name="Arguments", value=f"`url` - {tg(gi, 'url')}", inline=False)
+        embed.add_field(name="", value=f"`position` - {tg(gi, 'pos')}", inline=False)
+        embed.add_field(name="", value=f"`mute_response` - {tg(gi, 'mute_response')}", inline=False)
+        embed.add_field(name="", value=f"`is_internal` - {tg(gi, 'is_internal')}", inline=False)
+        embed.add_field(name="", value=f"`force` - {tg(gi, 'force')}", inline=False)
+
+    elif command == 'next_up':
+        embed = discord.Embed(title="Help", description=f"`/next_up` - {tg(gi, 'next_up')}")
+        embed.add_field(name="Arguments", value=f"`url` - {tg(gi, 'url')}", inline=False)
+        embed.add_field(name="", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
+
+    elif command == 'remove':
+        embed = discord.Embed(title="Help", description=f"`/remove` - {tg(gi, 'remove')}")
+        embed.add_field(name="Arguments", value=f"`number` - {tg(gi, 'number')}", inline=False)
+        embed.add_field(name="", value=f"`display_type` - {tg(gi, 'display_type')}", inline=False)
+        embed.add_field(name="", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
+
+    elif command == 'clear':
+        embed = discord.Embed(title="Help", description=f"`/clear` - {tg(gi, 'clear')}")
+        embed.add_field(name="Arguments", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
+
+    elif command == 'shuffle':
+        embed = discord.Embed(title="Help", description=f"`/shuffle` - {tg(gi, 'shuffle')}")
+        embed.add_field(name="Arguments", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
+
+    elif command == 'show':
+        embed = discord.Embed(title="Help", description=f"`/show` - {tg(gi, 'show')}")
+        embed.add_field(name="Arguments", value=f"`display_type` - {tg(gi, 'display_type')}", inline=False)
+        embed.add_field(name="", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
+
+    elif command == 'search':
+        embed = discord.Embed(title="Help", description=f"`/search` - {tg(gi, 'search')}")
+        embed.add_field(name="Arguments", value=f"`search_query` - {tg(gi, 'search_query')}", inline=False)
+        embed.add_field(name="", value=f"`display_type` - {tg(gi, 'display_type')}", inline=False)
+        embed.add_field(name="", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
+
+    elif command == 'stop':
+        embed = discord.Embed(title="Help", description=f"`/stop` - {tg(gi, 'stop')}")
+        embed.add_field(name="Arguments", value=f"`mute_response` - {tg(gi, 'mute_response')}", inline=False)
+
+    elif command == 'pause':
+        embed = discord.Embed(title="Help", description=f"`/pause` - {tg(gi, 'pause')}")
+        embed.add_field(name="Arguments", value=f"`mute_response` - {tg(gi, 'mute_response')}", inline=False)
+
+    elif command == 'resume':
+        embed = discord.Embed(title="Help", description=f"`/resume` - {tg(gi, 'resume')}")
+        embed.add_field(name="Arguments", value=f"`mute_response` - {tg(gi, 'mute_response')}", inline=False)
+
+    elif command == 'join':
+        embed = discord.Embed(title="Help", description=f"`/join` - {tg(gi, 'join')}")
+        embed.add_field(name="Arguments", value=f"`channel_id` - {tg(gi, 'channel_id')}", inline=False)
+        embed.add_field(name="", value=f"`mute_response` - {tg(gi, 'mute_response')}", inline=False)
+
+    elif command == 'disconnect':
+        embed = discord.Embed(title="Help", description=f"`/disconnect` - {tg(gi, 'die')}")
+
+    elif command == 'volume':
+        embed = discord.Embed(title="Help", description=f"`/volume` - {tg(gi, 'volume')}")
+        embed.add_field(name="Arguments", value=f"`volume` - {tg(gi, 'volume')}", inline=False)
+        embed.add_field(name="", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
+        embed.add_field(name="", value=f"`mute_response` - {tg(gi, 'mute_response')}", inline=False)
+
+    await ctx.reply(embed=embed, ephemeral=True)
+
+bot.run(api_key_testing)
