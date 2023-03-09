@@ -3,6 +3,7 @@ __pycache__/
 .idea/
 api_keys.py
 testing.py
+translate.py
 *.py[cod]
 
 # C extensions

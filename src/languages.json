@@ -56,6 +56,7 @@
         "radio_list": "Radio list",
         "is_internal": "This is used for internal commands",
         "ephemeral": "If True, command sends a response only the user can see",
+        "ear_rape": "Ear Rape >> can only be turned off by /disconnect",
         "Now playing": "Now playing",
         "Duration": "Duration",
         "Requested by": "Requested by",
@@ -89,7 +90,9 @@
         "Disconnecting after 180 seconds of nothing playing": "Disconnecting after 180 seconds of nothing playing",
         "The volume for this server is:": "The volume for this server is:",
         "Changed the volume for this server to:": "Changed the volume for this server to:",
+        "Multiplied the volume by:": "Multiplied the volume by:",
         "**Already playing**": "**Already playing**",
+        "I'm already in this channel": "I'm already in this channel",
         "Bot is **not** in a voice channel": "Bot is **not** in a voice channel",
         "Bot already connected to a channel:": "Bot already connected to a channel:",
         "Channel **doesn't exist** or bot doesn't have **sufficient permission** to join": "Channel **doesn't exist** or bot doesn't have **sufficient permission** to join",
@@ -245,7 +248,10 @@
         "is_internal": "Pou\u017e\u00edv\u00e1 se pro intern\u00ed p\u0159\u00edkazy",
         "ephemeral": "Pokud je nastavena hodnota true, p\u0159\u00edkaz ode\u0161le odpov\u011b\u010f, kterou vid\u00ed pouze u\u017eivatel",
         "No": "Ne",
-        "Songs in queue shuffled": "Skladby ve front\u011b zam\u00edchan\u00e9"
+        "Songs in queue shuffled": "Skladby ve front\u011b zam\u00edchan\u00e9",
+        "ear_rape": "Zn\u00e1siln\u011bn\u00ed ucha >> lze pouze vypnout /odpojit",
+        "Multiplied the volume by:": "Vyn\u00e1soben\u00e9 hlasitosti:",
+        "I'm already in this channel": "U\u017e jsem v tomto kan\u00e1lu"
     },
     "de": {
         "search": "Suchen Sie YouTube nach der bereitgestellten Abfrage",
@@ -369,7 +375,10 @@
         "is_internal": "Dies wird f\u00fcr interne Befehle verwendet",
         "ephemeral": "Wenn wahr, sendet der Befehl eine Antwort, die nur der Benutzer sehen kann",
         "No": "NEIN",
-        "Songs in queue shuffled": "Songs in der Warteschlange schlurft"
+        "Songs in queue shuffled": "Songs in der Warteschlange schlurft",
+        "ear_rape": "Ohrvergewaltigung >> kann nur durch /trennen",
+        "Multiplied the volume by:": "Multipliziert den Band mit:",
+        "I'm already in this channel": "Ich bin schon in diesem Kanal"
     },
     "eo": {
         "search": "Ser\u0109u YouTube",
@@ -493,7 +502,10 @@
         "is_internal": "\u0108i tio estas uzata por internaj komandoj",
         "ephemeral": "Se vera, komando sendas respondon nur la uzanto povas vidi",
         "No": "Ne",
-        "Songs in queue shuffled": "Kantoj en vosto \u015dveli\u011dis"
+        "Songs in queue shuffled": "Kantoj en vosto \u015dveli\u011dis",
+        "ear_rape": "Orela seksperforto >> nur povas esti mal\u015daltita per /malkonekti",
+        "Multiplied the volume by:": "Multobligis la volumon per:",
+        "I'm already in this channel": "Mi jam estas en \u0109i tiu kanalo"
     },
     "es": {
         "search": "Busque en YouTube la consulta proporcionada",
@@ -617,7 +629,10 @@
         "is_internal": "Esto se usa para comandos internos",
         "ephemeral": "Si es verdadero, el comando env\u00eda una respuesta solo que el usuario puede ver",
         "No": "No",
-        "Songs in queue shuffled": "Canciones en la cola barajada"
+        "Songs in queue shuffled": "Canciones en la cola barajada",
+        "ear_rape": "La violaci\u00f3n en el o\u00eddo >> solo se puede apagar por /desconectar",
+        "Multiplied the volume by:": "Multiplic\u00f3 el volumen por:",
+        "I'm already in this channel": "Ya estoy en este canal"
     },
     "fr": {
         "search": "Recherchez YouTube pour la requ\u00eate fournie",
@@ -741,7 +756,10 @@
         "is_internal": "Ceci est utilis\u00e9 pour les commandes internes",
         "ephemeral": "Si c'est vrai, Commande envoie une r\u00e9ponse uniquement que l'utilisateur peut voir",
         "No": "Non",
-        "Songs in queue shuffled": "Chansons en file d'attente m\u00e9lang\u00e9es"
+        "Songs in queue shuffled": "Chansons en file d'attente m\u00e9lang\u00e9es",
+        "ear_rape": "Le viol d'oreille >> ne peut \u00eatre d\u00e9sactiv\u00e9 que par / d\u00e9connecter",
+        "Multiplied the volume by:": "Multipli\u00e9 le volume par:",
+        "I'm already in this channel": "Je suis d\u00e9j\u00e0 dans cette cha\u00eene"
     },
     "it": {
         "search": "Cerca YouTube per la query fornita",
@@ -865,7 +883,10 @@
         "is_internal": "Questo viene utilizzato per i comandi interni",
         "ephemeral": "Se vero, il comando invia una risposta che solo l'utente pu\u00f2 vedere",
         "No": "NO",
-        "Songs in queue shuffled": "Canzoni in coda mescolate"
+        "Songs in queue shuffled": "Canzoni in coda mescolate",
+        "ear_rape": "Rape dell'orecchio >> pu\u00f2 essere disattivato solo da /disconnetti",
+        "Multiplied the volume by:": "Moltiplicato il volume per:",
+        "I'm already in this channel": "Sono gi\u00e0 in questo canale"
     },
     "ja": {
         "search": "YouTube\u3092\u691c\u7d22\u3057\u3066\u304f\u3060\u3055\u3044",
@@ -989,7 +1010,10 @@
         "is_internal": "\u3053\u308c\u306f\u3001\u5185\u90e8\u30b3\u30de\u30f3\u30c9\u306b\u4f7f\u7528\u3055\u308c\u307e\u3059",
         "ephemeral": "\u672c\u5f53\u306a\u3089\u3001\u30b3\u30de\u30f3\u30c9\u306f\u30e6\u30fc\u30b6\u30fc\u306e\u307f\u304c\u898b\u308b\u3053\u3068\u304c\u3067\u304d\u308b\u5fdc\u7b54\u3092\u9001\u4fe1\u3057\u307e\u3059",
         "No": "\u3044\u3044\u3048",
-        "Songs in queue shuffled": "\u30ad\u30e5\u30fc\u306e\u6b4c\u306f\u30b7\u30e3\u30c3\u30d5\u30eb\u3055\u308c\u307e\u3057\u305f"
+        "Songs in queue shuffled": "\u30ad\u30e5\u30fc\u306e\u6b4c\u306f\u30b7\u30e3\u30c3\u30d5\u30eb\u3055\u308c\u307e\u3057\u305f",
+        "ear_rape": "\u8033\u306e\u30ec\u30a4\u30d7>>\u306f\u3001 /\u5207\u65ad\u306b\u3088\u3063\u3066\u306e\u307f\u30aa\u30d5\u306b\u3059\u308b\u3053\u3068\u304c\u3067\u304d\u307e\u3059",
+        "Multiplied the volume by:": "\u30dc\u30ea\u30e5\u30fc\u30e0\u306b\u6b21\u306e\u3088\u3046\u306b\u639b\u3051\u307e\u3057\u305f\u3002",
+        "I'm already in this channel": "\u79c1\u306f\u3059\u3067\u306b\u3053\u306e\u30c1\u30e3\u30f3\u30cd\u30eb\u306b\u3044\u307e\u3059"
     },
     "ko": {
         "search": "\uc81c\uacf5\ub41c \ucffc\ub9ac\ub97c \uac80\uc0c9\ud558\uc2ed\uc2dc\uc624",
@@ -1113,7 +1137,10 @@
         "is_internal": "\uc774\uac83\uc740 \ub0b4\ubd80 \uba85\ub839\uc5d0 \uc0ac\uc6a9\ub429\ub2c8\ub2e4",
         "ephemeral": "true \uc778 \uacbd\uc6b0 \uba85\ub839\uc740 \uc751\ub2f5\uc744 \ubcf4\ub0c5\ub2c8\ub2e4.",
         "No": "\uc544\ub2c8\uc694",
-        "Songs in queue shuffled": "\ub300\uae30\uc5f4\uc758 \ub178\ub798\uac00 \ub4a4\uc11e\uc5c8\ub2e4"
+        "Songs in queue shuffled": "\ub300\uae30\uc5f4\uc758 \ub178\ub798\uac00 \ub4a4\uc11e\uc5c8\ub2e4",
+        "ear_rape": "\uadc0 \uac15\uac04 >> \ub9cc \uaebc\uc9c8 \uc218 \uc788\uc2b5\ub2c8\ub2e4.",
+        "Multiplied the volume by:": "\ubcfc\ub968\uc744 \uacf1\ud55c \ub2e4\uc74c :",
+        "I'm already in this channel": "\ub098\ub294 \uc774\ubbf8\uc774 \ucc44\ub110\uc5d0 \uc788\uc2b5\ub2c8\ub2e4"
     },
     "la": {
         "search": "Search YouTube pro provisum query",
@@ -1237,7 +1264,10 @@
         "is_internal": "Hoc adhibetur ad internum imperium",
         "ephemeral": "Si verum, imperio mittit responsionem tantum usor videre",
         "No": "Non",
-        "Songs in queue shuffled": "Carmina in queue"
+        "Songs in queue shuffled": "Carmina in queue",
+        "ear_rape": "Aures Raptu >> Non solum convertit off per / disconnect",
+        "Multiplied the volume by:": "Multiplicentur volumen per:",
+        "I'm already in this channel": "Im 'iam in hoc channel"
     },
     "zh": {
         "search": "\u641c\u7d22YouTube\u63d0\u4f9b\u7684\u67e5\u8be2",
@@ -1361,7 +1391,10 @@
         "is_internal": "\u8fd9\u7528\u4e8e\u5185\u90e8\u547d\u4ee4",
         "ephemeral": "\u5982\u679c\u4e3atrue\uff0c\u547d\u4ee4\u53ea\u53d1\u9001\u54cd\u5e94\uff0c\u53ea\u6709\u7528\u6237\u53ef\u4ee5\u770b\u5230",
         "No": "\u4e0d",
-        "Songs in queue shuffled": "\u961f\u5217\u4e2d\u7684\u6b4c\u66f2"
+        "Songs in queue shuffled": "\u961f\u5217\u4e2d\u7684\u6b4c\u66f2",
+        "ear_rape": "\u8033\u6735\u5f3a\u5978>>\u53ea\u80fd\u901a\u8fc7 /\u65ad\u5f00\u8fde\u63a5",
+        "Multiplied the volume by:": "\u4e58\u4ee5\uff1a",
+        "I'm already in this channel": "\u6211\u5df2\u7ecf\u5728\u8fd9\u4e2a\u9891\u9053"
     },
     "nl": {
         "search": "Zoek YouTube naar de verstrekte query",
@@ -1485,7 +1518,10 @@
         "is_internal": "Dit wordt gebruikt voor interne opdrachten",
         "ephemeral": "Indien waar, verzendt opdracht een antwoord alleen de gebruiker kan zien",
         "No": "Nee",
-        "Songs in queue shuffled": "Liedjes in de rij geschoven"
+        "Songs in queue shuffled": "Liedjes in de rij geschoven",
+        "ear_rape": "Oor verkrachting >> kan alleen worden uitgeschakeld /verbroken",
+        "Multiplied the volume by:": "Het volume vermenigvuldigd met:",
+        "I'm already in this channel": "Ik ben al in dit kanaal"
     },
     "pl": {
         "search": "Wyszukaj YouTube, aby uzyska\u0107 dostarczone zapytanie",
@@ -1609,7 +1645,10 @@
         "is_internal": "Jest to u\u017cywane do polece\u0144 wewn\u0119trznych",
         "ephemeral": "Je\u015bli prawda, polecenie wysy\u0142a odpowied\u017a tylko u\u017cytkownik",
         "No": "NIE",
-        "Songs in queue shuffled": "Piosenki w kolejce tasowa\u0142y"
+        "Songs in queue shuffled": "Piosenki w kolejce tasowa\u0142y",
+        "ear_rape": "Gwa\u0142t ucha >> mo\u017cna wy\u0142\u0105czy\u0107 tylko przez /od\u0142\u0105czaj\u0105c",
+        "Multiplied the volume by:": "Pomno\u017cy\u0142 g\u0142o\u015bno\u015b\u0107:",
+        "I'm already in this channel": "Jestem ju\u017c w tym kanale"
     },
     "pt": {
         "search": "Pesquise o YouTube pela consulta fornecida",
@@ -1733,7 +1772,10 @@
         "is_internal": "Isso \u00e9 usado para comandos internos",
         "ephemeral": "Se true, o comando envia uma resposta que apenas o usu\u00e1rio pode ver",
         "No": "N\u00e3o",
-        "Songs in queue shuffled": "M\u00fasicas na fila embaralhadas"
+        "Songs in queue shuffled": "M\u00fasicas na fila embaralhadas",
+        "ear_rape": "Estupro de ouvido >> s\u00f3 pode ser desligado por /desconectando",
+        "Multiplied the volume by:": "Multiplicou o volume por:",
+        "I'm already in this channel": "Eu j\u00e1 estou neste canal"
     },
     "ru": {
         "search": "\u041f\u043e\u0438\u0441\u043a YouTube \u0434\u043b\u044f \u043f\u0440\u0435\u0434\u043e\u0441\u0442\u0430\u0432\u043b\u0435\u043d\u043d\u043e\u0433\u043e \u0437\u0430\u043f\u0440\u043e\u0441\u0430",
@@ -1857,7 +1899,10 @@
         "is_internal": "\u042d\u0442\u043e \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u0435\u0442\u0441\u044f \u0434\u043b\u044f \u0432\u043d\u0443\u0442\u0440\u0435\u043d\u043d\u0438\u0445 \u043a\u043e\u043c\u0430\u043d\u0434",
         "ephemeral": "\u0415\u0441\u043b\u0438 true, \u043a\u043e\u043c\u0430\u043d\u0434\u0430 \u043e\u0442\u043f\u0440\u0430\u0432\u043b\u044f\u0435\u0442 \u043e\u0442\u0432\u0435\u0442, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u043c\u043e\u0436\u0435\u0442 \u0432\u0438\u0434\u0435\u0442\u044c \u0442\u043e\u043b\u044c\u043a\u043e \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c",
         "No": "\u041d\u0435\u0442",
-        "Songs in queue shuffled": "\u041f\u0435\u0441\u043d\u0438 \u0432 \u043e\u0447\u0435\u0440\u0435\u0434\u0438 \u043f\u0435\u0440\u0435\u0442\u0430\u0441\u043e\u0432\u0430\u043d\u044b"
+        "Songs in queue shuffled": "\u041f\u0435\u0441\u043d\u0438 \u0432 \u043e\u0447\u0435\u0440\u0435\u0434\u0438 \u043f\u0435\u0440\u0435\u0442\u0430\u0441\u043e\u0432\u0430\u043d\u044b",
+        "ear_rape": "\u0423\u0445\u043e \u0438\u0437\u043d\u0430\u0441\u0438\u043b\u043e\u0432\u0430\u043d\u0438\u0435 >> \u043c\u043e\u0436\u043d\u043e \u043e\u0442\u043a\u043b\u044e\u0447\u0438\u0442\u044c \u0442\u043e\u043b\u044c\u043a\u043e \u0441 \u043f\u043e\u043c\u043e\u0449\u044c\u044e /\u043e\u0442\u043a\u043b\u044e\u0447\u0438\u0442\u044c",
+        "Multiplied the volume by:": "\u0423\u043c\u043d\u043e\u0436\u0438\u043b \u043e\u0431\u044a\u0435\u043c \u043d\u0430:",
+        "I'm already in this channel": "\u042f \u0443\u0436\u0435 \u043d\u0430 \u044d\u0442\u043e\u043c \u043a\u0430\u043d\u0430\u043b\u0435"
     },
     "sv": {
         "search": "S\u00f6k YouTube efter den medf\u00f6ljande fr\u00e5gan",
@@ -1981,7 +2026,10 @@
         "is_internal": "Detta anv\u00e4nds f\u00f6r interna kommandon",
         "ephemeral": "Om sant, kommandot skickar ett svar som endast anv\u00e4ndaren kan se",
         "No": "Nej",
-        "Songs in queue shuffled": "L\u00e5tar i k\u00f6 blandas"
+        "Songs in queue shuffled": "L\u00e5tar i k\u00f6 blandas",
+        "ear_rape": "\u00d6ron v\u00e5ldt\u00e4kt >> kan bara st\u00e4ngas av /koppla bort",
+        "Multiplied the volume by:": "Multiplicerad volymen genom:",
+        "I'm already in this channel": "Jag \u00e4r redan i den h\u00e4r kanalen"
     },
     "tr": {
         "search": "Verilen sorgu i\u00e7in youtube aray\u0131n",
@@ -2105,6 +2153,9 @@
         "is_internal": "Bu dahili komutlar i\u00e7in kullan\u0131l\u0131r",
         "ephemeral": "Do\u011fruysa, komut yaln\u0131zca kullan\u0131c\u0131n\u0131n g\u00f6rebilece\u011fi bir yan\u0131t g\u00f6nderir",
         "No": "HAYIR",
-        "Songs in queue shuffled": "Kuyruktaki \u015fark\u0131lar kar\u0131\u015f\u0131k"
+        "Songs in queue shuffled": "Kuyruktaki \u015fark\u0131lar kar\u0131\u015f\u0131k",
+        "ear_rape": "Kulak Tecav\u00fcz >> Sadece kapat\u0131labilir /ba\u011flant\u0131s\u0131 kesilebilir",
+        "Multiplied the volume by:": "Sesi \u015fu \u015fekilde \u00e7arp\u0131l\u0131r:",
+        "I'm already in this channel": "Zaten bu kanalday\u0131m"
     }
 }
