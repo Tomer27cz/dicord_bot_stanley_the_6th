@@ -20,7 +20,7 @@ from typing import Literal
 import traceback
 import datetime
 
-from api_keys import api_key_testing as api_key
+from api_keys import api_key
 
 import functools
 
@@ -1558,7 +1558,6 @@ async def rape_play_command(ctx: commands.Context,
                       channel_id = None,
                       ):
     print_command(ctx, 'rape_play', [effect_number, channel_id])
-    guild_id = ctx.guild.id
 
     if not effect_number:
         effect_number = 1
