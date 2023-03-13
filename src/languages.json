@@ -114,6 +114,7 @@
         "You have not searched anything yet": "You have not searched anything yet",
         "`url` is **required**": "`url` is **required**",
         "is not supported!": "is not supported!",
+        "No results found!": "No results found!",
         "Chose only one!": "Chose only one!",
         "Nothing to **show**, queue is **empty!**": "Nothing to **show**, queue is **empty!**",
         "Nothing to **remove**, queue is **empty!**": "Nothing to **remove**, queue is **empty!**",
@@ -251,7 +252,8 @@
         "Songs in queue shuffled": "Skladby ve front\u011b zam\u00edchan\u00e9",
         "ear_rape": "Zn\u00e1siln\u011bn\u00ed ucha >> lze pouze vypnout /odpojit",
         "Multiplied the volume by:": "Vyn\u00e1soben\u00e9 hlasitosti:",
-        "I'm already in this channel": "U\u017e jsem v tomto kan\u00e1lu"
+        "I'm already in this channel": "U\u017e jsem v tomto kan\u00e1lu",
+        "No results found!": "Nebyly nalezeny \u017e\u00e1dn\u00e9 v\u00fdsledky!"
     },
     "de": {
         "search": "Suchen Sie YouTube nach der bereitgestellten Abfrage",
@@ -378,7 +380,8 @@
         "Songs in queue shuffled": "Songs in der Warteschlange schlurft",
         "ear_rape": "Ohrvergewaltigung >> kann nur durch /trennen",
         "Multiplied the volume by:": "Multipliziert den Band mit:",
-        "I'm already in this channel": "Ich bin schon in diesem Kanal"
+        "I'm already in this channel": "Ich bin schon in diesem Kanal",
+        "No results found!": "Keine Ergebnisse gefunden!"
     },
     "eo": {
         "search": "Ser\u0109u YouTube",
@@ -505,7 +508,8 @@
         "Songs in queue shuffled": "Kantoj en vosto \u015dveli\u011dis",
         "ear_rape": "Orela seksperforto >> nur povas esti mal\u015daltita per /malkonekti",
         "Multiplied the volume by:": "Multobligis la volumon per:",
-        "I'm already in this channel": "Mi jam estas en \u0109i tiu kanalo"
+        "I'm already in this channel": "Mi jam estas en \u0109i tiu kanalo",
+        "No results found!": "Neniuj rezultoj trovitaj!"
     },
     "es": {
         "search": "Busque en YouTube la consulta proporcionada",
@@ -632,7 +636,8 @@
         "Songs in queue shuffled": "Canciones en la cola barajada",
         "ear_rape": "La violaci\u00f3n en el o\u00eddo >> solo se puede apagar por /desconectar",
         "Multiplied the volume by:": "Multiplic\u00f3 el volumen por:",
-        "I'm already in this channel": "Ya estoy en este canal"
+        "I'm already in this channel": "Ya estoy en este canal",
+        "No results found!": "\u00a1No se han encontrado resultados!"
     },
     "fr": {
         "search": "Recherchez YouTube pour la requ\u00eate fournie",
@@ -759,7 +764,8 @@
         "Songs in queue shuffled": "Chansons en file d'attente m\u00e9lang\u00e9es",
         "ear_rape": "Le viol d'oreille >> ne peut \u00eatre d\u00e9sactiv\u00e9 que par / d\u00e9connecter",
         "Multiplied the volume by:": "Multipli\u00e9 le volume par:",
-        "I'm already in this channel": "Je suis d\u00e9j\u00e0 dans cette cha\u00eene"
+        "I'm already in this channel": "Je suis d\u00e9j\u00e0 dans cette cha\u00eene",
+        "No results found!": "Aucun r\u00e9sultat trouv\u00e9!"
     },
     "it": {
         "search": "Cerca YouTube per la query fornita",
@@ -886,7 +892,8 @@
         "Songs in queue shuffled": "Canzoni in coda mescolate",
         "ear_rape": "Rape dell'orecchio >> pu\u00f2 essere disattivato solo da /disconnetti",
         "Multiplied the volume by:": "Moltiplicato il volume per:",
-        "I'm already in this channel": "Sono gi\u00e0 in questo canale"
+        "I'm already in this channel": "Sono gi\u00e0 in questo canale",
+        "No results found!": "Nessun risultato trovato!"
     },
     "ja": {
         "search": "YouTube\u3092\u691c\u7d22\u3057\u3066\u304f\u3060\u3055\u3044",
@@ -1013,7 +1020,8 @@
         "Songs in queue shuffled": "\u30ad\u30e5\u30fc\u306e\u6b4c\u306f\u30b7\u30e3\u30c3\u30d5\u30eb\u3055\u308c\u307e\u3057\u305f",
         "ear_rape": "\u8033\u306e\u30ec\u30a4\u30d7>>\u306f\u3001 /\u5207\u65ad\u306b\u3088\u3063\u3066\u306e\u307f\u30aa\u30d5\u306b\u3059\u308b\u3053\u3068\u304c\u3067\u304d\u307e\u3059",
         "Multiplied the volume by:": "\u30dc\u30ea\u30e5\u30fc\u30e0\u306b\u6b21\u306e\u3088\u3046\u306b\u639b\u3051\u307e\u3057\u305f\u3002",
-        "I'm already in this channel": "\u79c1\u306f\u3059\u3067\u306b\u3053\u306e\u30c1\u30e3\u30f3\u30cd\u30eb\u306b\u3044\u307e\u3059"
+        "I'm already in this channel": "\u79c1\u306f\u3059\u3067\u306b\u3053\u306e\u30c1\u30e3\u30f3\u30cd\u30eb\u306b\u3044\u307e\u3059",
+        "No results found!": "\u7d50\u679c\u304c\u898b\u3064\u304b\u308a\u307e\u305b\u3093\uff01"
     },
     "ko": {
         "search": "\uc81c\uacf5\ub41c \ucffc\ub9ac\ub97c \uac80\uc0c9\ud558\uc2ed\uc2dc\uc624",
@@ -1140,7 +1148,8 @@
         "Songs in queue shuffled": "\ub300\uae30\uc5f4\uc758 \ub178\ub798\uac00 \ub4a4\uc11e\uc5c8\ub2e4",
         "ear_rape": "\uadc0 \uac15\uac04 >> \ub9cc \uaebc\uc9c8 \uc218 \uc788\uc2b5\ub2c8\ub2e4.",
         "Multiplied the volume by:": "\ubcfc\ub968\uc744 \uacf1\ud55c \ub2e4\uc74c :",
-        "I'm already in this channel": "\ub098\ub294 \uc774\ubbf8\uc774 \ucc44\ub110\uc5d0 \uc788\uc2b5\ub2c8\ub2e4"
+        "I'm already in this channel": "\ub098\ub294 \uc774\ubbf8\uc774 \ucc44\ub110\uc5d0 \uc788\uc2b5\ub2c8\ub2e4",
+        "No results found!": "\uac80\uc0c9 \uacb0\uacfc\uac00 \uc5c6\uc2b5\ub2c8\ub2e4!"
     },
     "la": {
         "search": "Search YouTube pro provisum query",
@@ -1267,7 +1276,8 @@
         "Songs in queue shuffled": "Carmina in queue",
         "ear_rape": "Aures Raptu >> Non solum convertit off per / disconnect",
         "Multiplied the volume by:": "Multiplicentur volumen per:",
-        "I'm already in this channel": "Im 'iam in hoc channel"
+        "I'm already in this channel": "Im 'iam in hoc channel",
+        "No results found!": "Non inveni results!"
     },
     "zh": {
         "search": "\u641c\u7d22YouTube\u63d0\u4f9b\u7684\u67e5\u8be2",
@@ -1394,7 +1404,8 @@
         "Songs in queue shuffled": "\u961f\u5217\u4e2d\u7684\u6b4c\u66f2",
         "ear_rape": "\u8033\u6735\u5f3a\u5978>>\u53ea\u80fd\u901a\u8fc7 /\u65ad\u5f00\u8fde\u63a5",
         "Multiplied the volume by:": "\u4e58\u4ee5\uff1a",
-        "I'm already in this channel": "\u6211\u5df2\u7ecf\u5728\u8fd9\u4e2a\u9891\u9053"
+        "I'm already in this channel": "\u6211\u5df2\u7ecf\u5728\u8fd9\u4e2a\u9891\u9053",
+        "No results found!": "\u672a\u627e\u5230\u7ed3\u679c\uff01"
     },
     "nl": {
         "search": "Zoek YouTube naar de verstrekte query",
@@ -1521,7 +1532,8 @@
         "Songs in queue shuffled": "Liedjes in de rij geschoven",
         "ear_rape": "Oor verkrachting >> kan alleen worden uitgeschakeld /verbroken",
         "Multiplied the volume by:": "Het volume vermenigvuldigd met:",
-        "I'm already in this channel": "Ik ben al in dit kanaal"
+        "I'm already in this channel": "Ik ben al in dit kanaal",
+        "No results found!": "Geen resultaten gevonden!"
     },
     "pl": {
         "search": "Wyszukaj YouTube, aby uzyska\u0107 dostarczone zapytanie",
@@ -1648,7 +1660,8 @@
         "Songs in queue shuffled": "Piosenki w kolejce tasowa\u0142y",
         "ear_rape": "Gwa\u0142t ucha >> mo\u017cna wy\u0142\u0105czy\u0107 tylko przez /od\u0142\u0105czaj\u0105c",
         "Multiplied the volume by:": "Pomno\u017cy\u0142 g\u0142o\u015bno\u015b\u0107:",
-        "I'm already in this channel": "Jestem ju\u017c w tym kanale"
+        "I'm already in this channel": "Jestem ju\u017c w tym kanale",
+        "No results found!": "Nie znaleziono wynik\u00f3w!"
     },
     "pt": {
         "search": "Pesquise o YouTube pela consulta fornecida",
@@ -1775,7 +1788,8 @@
         "Songs in queue shuffled": "M\u00fasicas na fila embaralhadas",
         "ear_rape": "Estupro de ouvido >> s\u00f3 pode ser desligado por /desconectando",
         "Multiplied the volume by:": "Multiplicou o volume por:",
-        "I'm already in this channel": "Eu j\u00e1 estou neste canal"
+        "I'm already in this channel": "Eu j\u00e1 estou neste canal",
+        "No results found!": "Nenhum resultado encontrado!"
     },
     "ru": {
         "search": "\u041f\u043e\u0438\u0441\u043a YouTube \u0434\u043b\u044f \u043f\u0440\u0435\u0434\u043e\u0441\u0442\u0430\u0432\u043b\u0435\u043d\u043d\u043e\u0433\u043e \u0437\u0430\u043f\u0440\u043e\u0441\u0430",
@@ -1902,7 +1916,8 @@
         "Songs in queue shuffled": "\u041f\u0435\u0441\u043d\u0438 \u0432 \u043e\u0447\u0435\u0440\u0435\u0434\u0438 \u043f\u0435\u0440\u0435\u0442\u0430\u0441\u043e\u0432\u0430\u043d\u044b",
         "ear_rape": "\u0423\u0445\u043e \u0438\u0437\u043d\u0430\u0441\u0438\u043b\u043e\u0432\u0430\u043d\u0438\u0435 >> \u043c\u043e\u0436\u043d\u043e \u043e\u0442\u043a\u043b\u044e\u0447\u0438\u0442\u044c \u0442\u043e\u043b\u044c\u043a\u043e \u0441 \u043f\u043e\u043c\u043e\u0449\u044c\u044e /\u043e\u0442\u043a\u043b\u044e\u0447\u0438\u0442\u044c",
         "Multiplied the volume by:": "\u0423\u043c\u043d\u043e\u0436\u0438\u043b \u043e\u0431\u044a\u0435\u043c \u043d\u0430:",
-        "I'm already in this channel": "\u042f \u0443\u0436\u0435 \u043d\u0430 \u044d\u0442\u043e\u043c \u043a\u0430\u043d\u0430\u043b\u0435"
+        "I'm already in this channel": "\u042f \u0443\u0436\u0435 \u043d\u0430 \u044d\u0442\u043e\u043c \u043a\u0430\u043d\u0430\u043b\u0435",
+        "No results found!": "\u0420\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442\u043e\u0432 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e!"
     },
     "sv": {
         "search": "S\u00f6k YouTube efter den medf\u00f6ljande fr\u00e5gan",
@@ -2029,7 +2044,8 @@
         "Songs in queue shuffled": "L\u00e5tar i k\u00f6 blandas",
         "ear_rape": "\u00d6ron v\u00e5ldt\u00e4kt >> kan bara st\u00e4ngas av /koppla bort",
         "Multiplied the volume by:": "Multiplicerad volymen genom:",
-        "I'm already in this channel": "Jag \u00e4r redan i den h\u00e4r kanalen"
+        "I'm already in this channel": "Jag \u00e4r redan i den h\u00e4r kanalen",
+        "No results found!": "Inga resultat funna!"
     },
     "tr": {
         "search": "Verilen sorgu i\u00e7in youtube aray\u0131n",
@@ -2156,6 +2172,7 @@
         "Songs in queue shuffled": "Kuyruktaki \u015fark\u0131lar kar\u0131\u015f\u0131k",
         "ear_rape": "Kulak Tecav\u00fcz >> Sadece kapat\u0131labilir /ba\u011flant\u0131s\u0131 kesilebilir",
         "Multiplied the volume by:": "Sesi \u015fu \u015fekilde \u00e7arp\u0131l\u0131r:",
-        "I'm already in this channel": "Zaten bu kanalday\u0131m"
+        "I'm already in this channel": "Zaten bu kanalday\u0131m",
+        "No results found!": "Sonu\u00e7 bulunamad\u0131!"
     }
 }

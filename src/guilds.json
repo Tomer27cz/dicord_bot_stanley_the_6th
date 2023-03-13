@@ -9,112 +9,69 @@
             "response_type": "short",
             "search_query": "Never gonna give you up",
             "buttons": false,
-            "volume": 0.5
+            "volume": 1.0,
+            "buffer": 600
         },
         "queue": {},
         "search_list": {},
         "now_playing": {
-            "url": "https://www.youtube.com/watch?v=dywZIz0Yb4U",
+            "url": "dQw4w9WgXcQ",
             "author": 349164237605568513,
-            "title": "Czech Patriotic Song - \"N\u00e1\u0161 tat\u00ed\u010dku Masaryku\"",
-            "picture": "https://img.youtube.com/vi/dywZIz0Yb4U/default.jpg",
-            "duration": "75",
-            "channel_name": "Czech Lion",
-            "channel_link": "https://www.youtube.com/channel/UClBgcMoDdx9r8xYR1hKlzoQ"
+            "title": "Rick Astley - Never Gonna Give You Up (Official Music Video)",
+            "picture": "https://img.youtube.com/vi/dQw4w9WgXcQ/default.jpg",
+            "duration": "212",
+            "channel_name": "Rick Astley",
+            "channel_link": "https://www.youtube.com/channel/UCuAXFkgsw1L7xaCfnd5JJOw"
         }
     },
     "1008145667622969397": {
         "options": {
             "guild_id": 1008145667622969397,
-            "stopped": true,
+            "stopped": false,
             "loop": false,
             "is_radio": false,
             "language": "cs",
             "response_type": "short",
             "search_query": "Never gonna give you up",
             "buttons": false,
-            "volume": 0.5
+            "volume": 1.0,
+            "buffer": 600
+        },
+        "queue": {},
+        "search_list": {},
+        "now_playing": {
+            "url": "dQw4w9WgXcQ",
+            "author": 349164237605568513,
+            "title": "Rick Astley - Never Gonna Give You Up (Official Music Video)",
+            "picture": "https://img.youtube.com/vi/dQw4w9WgXcQ/default.jpg",
+            "duration": "212",
+            "channel_name": "Rick Astley",
+            "channel_link": "https://www.youtube.com/channel/UCuAXFkgsw1L7xaCfnd5JJOw"
+        }
+    },
+    "892403162315644928": {
+        "options": {
+            "guild_id": 892403162315644928,
+            "stopped": true,
+            "loop": false,
+            "is_radio": false,
+            "language": "cs",
+            "response_type": "short",
+            "search_query": "hdbcshdvhjksbhjibvkhjsdbuhkifvvhdsauihujisbvbfujisdbnaujkgfbnjhb",
+            "buttons": false,
+            "volume": 1.0,
+            "buffer": 600
         },
         "queue": {},
         "search_list": {},
         "now_playing": {
             "url": null,
             "author": 349164237605568513,
-            "title": "cbt",
+            "title": "seal",
             "picture": "https://cdn.discordapp.com/attachments/892403162315644931/1008054767379030096/vlc.png",
-            "duration": "03:29",
+            "duration": "00:30",
             "channel_name": "Local file",
             "channel_link": "Local file"
-        }
-    },
-    "892403162315644928": {
-        "options": {
-            "guild_id": 892403162315644928,
-            "stopped": false,
-            "loop": false,
-            "is_radio": false,
-            "language": "en",
-            "response_type": "short",
-            "search_query": "Never gonna give you up",
-            "buttons": false,
-            "volume": 1.0
-        },
-        "queue": {},
-        "search_list": {
-            "0": {
-                "url": "https://www.youtube.com/watch?v=_spfCq_FAFE",
-                "author": 349164237605568513,
-                "title": "Kry\u0161tof - Cesta ft. Tom\u00e1\u0161 Klus",
-                "picture": "https://img.youtube.com/vi/_spfCq_FAFE/default.jpg",
-                "duration": "353",
-                "channel_name": "KrystofVEVO",
-                "channel_link": "https://www.youtube.com/channel/UCWkfAuH-OLFiB3wMr_lzW7g"
-            },
-            "1": {
-                "url": "https://www.youtube.com/watch?v=e8WhbRgxe64",
-                "author": 349164237605568513,
-                "title": "Lvcas Dope & DJ Wich - Cesta feat. Rytmus, Ego, Kali (OFFICIAL VIDEO)",
-                "picture": "https://img.youtube.com/vi/e8WhbRgxe64/default.jpg",
-                "duration": "284",
-                "channel_name": "DJ Wich",
-                "channel_link": "https://www.youtube.com/channel/UCAPuqmV3qYBTv0_hkvs6xgg"
-            },
-            "2": {
-                "url": "https://www.youtube.com/watch?v=uy7_GVZA4R8",
-                "author": 349164237605568513,
-                "title": "Kry\u0161tof ft. Tom\u00e1\u0161 Klus - Cesta (text)",
-                "picture": "https://img.youtube.com/vi/uy7_GVZA4R8/default.jpg",
-                "duration": "351",
-                "channel_name": "Some Song",
-                "channel_link": "https://www.youtube.com/channel/UCZMOrPzqdyMbZxMyj3aQVig"
-            },
-            "3": {
-                "url": "https://www.youtube.com/watch?v=EKioe_qDpTo",
-                "author": 349164237605568513,
-                "title": "Tragedis - Cesta (OFFICIAL VIDEO 2019)",
-                "picture": "https://img.youtube.com/vi/EKioe_qDpTo/default.jpg",
-                "duration": "210",
-                "channel_name": "Tragedis",
-                "channel_link": "https://www.youtube.com/channel/UCasPU0kTlcc4ZvkwQjHJrfw"
-            },
-            "4": {
-                "url": "https://www.youtube.com/watch?v=-zoyoQUzxus",
-                "author": 349164237605568513,
-                "title": "!Cesta 2009 cz cely film zdarma",
-                "picture": "https://img.youtube.com/vi/-zoyoQUzxus/default.jpg",
-                "duration": "6681",
-                "channel_name": "Roman Filo",
-                "channel_link": "https://www.youtube.com/channel/UCZ4VDzeMsujV8Scx0snAyaA"
-            }
-        },
-        "now_playing": {
-            "url": "https://www.youtube.com/watch?v=rQ2te_g_-MI",
-            "author": 349164237605568513,
-            "title": "Mayonnaise On An Escalator",
-            "picture": "https://img.youtube.com/vi/rQ2te_g_-MI/default.jpg",
-            "duration": "46",
-            "channel_name": "DarkStar Digital",
-            "channel_link": "https://www.youtube.com/channel/UCTKeEU4JfQUTsYjQ-VQnhgQ"
         }
     }
 }
