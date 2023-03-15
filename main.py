@@ -20,7 +20,7 @@ from typing import Literal
 import traceback
 import datetime
 
-from api_keys import api_key
+from api_keys import api_key_testing as api_key
 
 import functools
 
@@ -241,7 +241,7 @@ class Guild:
         self.options = Options(guild_id)
         self.queue = []
         self.search_list = []
-        self.now_playing = Video(url='dQw4w9WgXcQ', author=bot.get_user(my_id))
+        self.now_playing = Video(url='https://www.youtube.com/watch?v=dQw4w9WgXcQ', author=bot.get_user(my_id))
 
 
 # ------------ PRINT --------------------
@@ -1395,6 +1395,25 @@ async def now(ctx: commands.Context,
     save_json()
 
 
+@bot.hybrid_command(name='last', with_app_command=True, description=text['last'], help=text['last'])
+@app_commands.describe(ephemeral=text['ephemeral'])
+async def last(ctx: commands.Context,
+              ephemeral: bool = False
+              ):
+    print_command(ctx, 'last', [ephemeral])
+    guild_id = ctx.guild.id
+    guild[guild_id].now_playing.renew()
+    embed = create_embed(guild[guild_id].now_playing, "Last played", guild_id)
+
+    view = PlayerControlView(ctx)
+
+    if guild[guild_id].options.buttons:
+        await ctx.reply(embed=embed, view=view, ephemeral=ephemeral)
+    else:
+        await ctx.reply(embed=embed, ephemeral=ephemeral)
+
+    save_json()
+
 @bot.hybrid_command(name='loop', with_app_command=True, description=text['loop'], help=text['loop'])
 async def loop_command(ctx: commands.Context):
     print_command(ctx, 'loop', None)
@@ -1435,7 +1454,12 @@ async def stop(ctx: commands.Context,
     guild_id = ctx.guild.id
 
     voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
-    voice.stop()
+    if voice:
+        voice.stop()
+    else:
+        if not mute_response:
+            await ctx.reply(tg(guild_id, "Bot is not connected to a voice channel"), ephemeral=True)
+            return
     guild[guild_id].options.stopped = True
     guild[guild_id].options.loop = False
 
@@ -1453,16 +1477,20 @@ async def pause(ctx: commands.Context,
     print_command(ctx, 'pause', [mute_response])
     voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
 
-    if voice.is_playing():
-        voice.pause()
-        if not mute_response:
-            await ctx.reply("Player **paused!**", ephemeral=True)
-    elif voice.is_paused():
-        if not mute_response:
-            await ctx.reply("Player **already paused!**", ephemeral=True)
+    if voice:
+        if voice.is_playing():
+            voice.pause()
+            if not mute_response:
+                await ctx.reply("Player **paused!**", ephemeral=True)
+        elif voice.is_paused():
+            if not mute_response:
+                await ctx.reply("Player **already paused!**", ephemeral=True)
+        else:
+            if not mute_response:
+                await ctx.reply("No audio playing", ephemeral=True)
     else:
         if not mute_response:
-            await ctx.reply("No audio playing", ephemeral=True)
+            await ctx.reply(tg(ctx.guild.id, "Bot is not connected to a voice channel"), ephemeral=True)
 
     save_json()
 
@@ -1474,16 +1502,20 @@ async def resume(ctx: commands.Context,
                  ):
     print_command(ctx, 'resume', [mute_response])
     voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
-    if voice.is_paused():
-        voice.resume()
-        if not mute_response:
-            await ctx.reply("Player **resumed!**", ephemeral=True)
-    elif voice.is_playing():
-        if not mute_response:
-            await ctx.reply("Player **already resumed!**", ephemeral=True)
+    if voice:
+        if voice.is_paused():
+            voice.resume()
+            if not mute_response:
+                await ctx.reply("Player **resumed!**", ephemeral=True)
+        elif voice.is_playing():
+            if not mute_response:
+                await ctx.reply("Player **already resumed!**", ephemeral=True)
+        else:
+            if not mute_response:
+                await ctx.reply("No audio paused", ephemeral=True)
     else:
         if not mute_response:
-            await ctx.reply("No audio paused", ephemeral=True)
+            await ctx.reply(tg(ctx.guild.id, "Bot is not connected to a voice channel"), ephemeral=True)
 
     save_json()
 
@@ -1715,7 +1747,19 @@ async def is_authorised(ctx):
         return True
 
 
-@bot.hybrid_command(name='rape_play', with_app_command=True)
+@bot.hybrid_command(name='admin_announce', with_app_command=True)
+@commands.check(is_authorised)
+async def announce_command(ctx: commands.Context,
+                      message
+                      ):
+    print_command(ctx, 'announce', [message])
+    for guild_object in bot.guilds:
+        await guild_object.system_channel.send(message)
+
+    await ctx.reply(f'Announced message to all servers: `{message}`')
+
+
+@bot.hybrid_command(name='admin_rape_play', with_app_command=True)
 @commands.check(is_authorised)
 async def rape_play_command(ctx: commands.Context,
                       effect_number: int = None,
@@ -1747,7 +1791,7 @@ async def rape_play_command(ctx: commands.Context,
     await ctx.reply(f'Playing effect `{effect_number}` with ear rape in `{channel_id if channel_id else "user channel"}` >>> effect can only be turned off by `/disconnect`', ephemeral=True)
 
 
-@bot.hybrid_command(name='rape', with_app_command=True)
+@bot.hybrid_command(name='admin_rape', with_app_command=True)
 @commands.check(is_authorised)
 async def ear_rape_command(ctx: commands.Context):
     print_command(ctx, 'rape', None)
@@ -1774,7 +1818,7 @@ async def ear_rape_command(ctx: commands.Context):
     save_json()
 
 
-@bot.hybrid_command(name='kys', with_app_command=True)
+@bot.hybrid_command(name='admin_kys', with_app_command=True)
 @commands.check(is_authorised)
 async def kys(ctx: commands.Context):
     guild_id = ctx.guild.id
@@ -1840,7 +1884,7 @@ async def kys(ctx: commands.Context):
 #     print_command(ctx, 'Nuked channels', nuked, True)
 #     print_command(ctx, 'Not accessible channels', not_nuked, True)
 
-@bot.hybrid_command(name='config', with_app_command=True)
+@bot.hybrid_command(name='admin_config', with_app_command=True)
 @commands.check(is_authorised)
 async def config_command(ctx: commands.Context,
                          config_file: discord.Attachment,
@@ -1867,8 +1911,7 @@ async def config_command(ctx: commands.Context,
         await ctx.reply(f"Saved new `{config_type}.json`", ephemeral=True)
 
 
-
-@bot.hybrid_command(name='log', with_app_command=True)
+@bot.hybrid_command(name='admin_log', with_app_command=True)
 @commands.check(is_authorised)
 async def log_command(ctx: commands.Context,
                       log_type: Literal['log.txt', 'guilds.json', 'other.json', 'radio.json', 'languages.json'] = 'log.txt'
@@ -1889,7 +1932,7 @@ async def log_command(ctx: commands.Context,
 
 
 # noinspection PyTypeHints
-@bot.hybrid_command(name='change_config', with_app_command=True)
+@bot.hybrid_command(name='admin_change_config', with_app_command=True)
 @app_commands.describe(server='all, this, {guild_id}', volume='No division', buffer='In seconds', language='Language code', response_type='short, long', buttons='True, False', is_radio='True, False', loop='True, False', stopped='True, False')
 @commands.check(is_authorised)
 async def change_config(ctx: commands.Context,
@@ -1957,7 +2000,7 @@ async def change_config(ctx: commands.Context,
         await ctx.reply(f'**Config for guild `{guild_id}`**\n {config}', ephemeral=True)
 
 
-@bot.hybrid_command(name='probe', with_app_command=True)
+@bot.hybrid_command(name='admin_probe', with_app_command=True)
 @commands.check(is_authorised)
 async def probe_command(ctx: commands.Context,
                         url = None,
@@ -1998,44 +2041,10 @@ async def probe_command(ctx: commands.Context,
     save_json()
 
 
-
-# @owner_commands.error
-# @nuke.error
-# @change_config.error
-# @config_command.error
-# @log_command.error
-# @probe_command.error
-# @kys.error
-# @ear_rape_command.error
-# @rape_play_command.error
-# async def auth_error(ctx, error):
-#     if isinstance(error, commands.CheckFailure):
-#         print_command(ctx, 'owner_commands', 'Failed')
-#         await ctx.reply("（ ͡° ͜ʖ ͡°)つ━☆・。\n"
-#                         "⊂　　 ノ 　　　・゜+.\n"
-#                         "　しーＪ　　　°。+ ´¨)\n"
-#                         "　　　　　　　　　.· ´¸.·´¨) ¸.·*¨)\n"
-#                         "　　　　　　　　　　(¸.·´ (¸.·' ☆ **Fuck off**\n")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#invite, stats, uptime, ping, about, help
-
 bot.remove_command('help')
 @bot.hybrid_command(name='help', with_app_command=True, description='Shows all available commands', help='Shows all available commands')
 async def help_command(ctx: commands.Context,
-               command: Literal['ping', 'language', 'sound_effects', 'list_radios', 'play', 'radio', 'ps', 'skip', 'nowplaying', 'loop', 'loop_this', 'queue', 'next_up', 'remove', 'clear', 'shuffle', 'show', 'search', 'stop', 'pause', 'resume', 'join', 'disconnect', 'volume'] = None
+               command: Literal['language', 'sound_effects', 'list_radios', 'play', 'radio', 'ps', 'skip', 'nowplaying', 'last', 'loop', 'loop_this', 'queue', 'next_up', 'remove', 'clear', 'shuffle', 'show', 'search', 'stop', 'pause', 'resume', 'join', 'disconnect', 'volume'] = None
                ):
     print_command(ctx, 'help', [command])
     gi = ctx.guild.id
@@ -2053,6 +2062,7 @@ async def help_command(ctx: commands.Context,
                                          f"`/player` - {tg(gi, 'player')}\n"
                                          f"`/skip` - {tg(gi, 'skip')}\n"
                                          f"`/nowplaying` - {tg(gi, 'nowplaying')}\n"
+                                         f"`/last` - {tg(gi, 'last')}\n"
                                          f"`/loop` - {tg(gi, 'loop')}\n"
                                          f"`/loop_this` - {tg(gi, 'loop_this')}\n"
                     , inline=False)
@@ -2070,13 +2080,14 @@ async def help_command(ctx: commands.Context,
                                         f"`/disconnect` - {tg(gi, 'die')}\n"
                                         f"`/volume` - {tg(gi, 'volume')}"
                     , inline=False)
-    embed.add_field(name="Admin Commands", value=f"`/rape` - \n"
-                                                 f"`/rape_play` - \n"
-                                                 f"`/kys` - \n"
-                                                 f"`/config` - \n"
-                                                 f"`/log` - \n"
-                                                 f"`/change_config` - \n"
-                                                 f"`/probe` - "
+    embed.add_field(name="Admin Commands", value=f"`/admin_announce` - \n"
+                                                 f"`/admin_rape` - \n"
+                                                 f"`/admin_rape_play` - \n"
+                                                 f"`/admin_kys` - \n"
+                                                 f"`/admin_config` - \n"
+                                                 f"`/admin_log` - \n"
+                                                 f"`/admin_change_config` - \n"
+                                                 f"`/admin_probe` - "
                     , inline=False)
 
     if command == 'ping':
@@ -2113,6 +2124,10 @@ async def help_command(ctx: commands.Context,
 
     elif command == 'nowplaying':
         embed = discord.Embed(title="Help", description=f"`/nowplaying` - {tg(gi, 'nowplaying')}")
+        embed.add_field(name="Arguments", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
+
+    elif command == 'last':
+        embed = discord.Embed(title="Help", description=f"`/last` - {tg(gi, 'last')}")
         embed.add_field(name="Arguments", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
 
     elif command == 'loop':
