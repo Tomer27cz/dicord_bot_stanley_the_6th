@@ -1127,7 +1127,7 @@ async def search_command(ctx: commands.Context,
     if display_type is None:
         display_type = guild[guild_id].options.response_type
 
-    message = ''
+    message = f'**Search query:** `{search_query}`\n'
 
     if display_type == 'long':
         await ctx.reply(tg(guild_id, 'Searching...'), ephemeral=True)
@@ -1464,7 +1464,7 @@ async def stop(ctx: commands.Context,
     guild[guild_id].options.loop = False
 
     if not mute_response:
-        await ctx.reply("Player **stopped!**", ephemeral=True)
+        await ctx.reply(f"{tg(guild_id, 'Player **stopped!**')}", ephemeral=True)
 
     save_json()
 
@@ -1475,19 +1475,20 @@ async def pause(ctx: commands.Context,
                 mute_response: bool = False
                 ):
     print_command(ctx, 'pause', [mute_response])
+    guild_id = ctx.guild.id
     voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
 
     if voice:
         if voice.is_playing():
             voice.pause()
             if not mute_response:
-                await ctx.reply("Player **paused!**", ephemeral=True)
+                await ctx.reply(f"{tg(guild_id, 'Player **paused!**')}", ephemeral=True)
         elif voice.is_paused():
             if not mute_response:
-                await ctx.reply("Player **already paused!**", ephemeral=True)
+                await ctx.reply(f"{tg(guild_id, 'Player **already paused!**')}", ephemeral=True)
         else:
             if not mute_response:
-                await ctx.reply("No audio playing", ephemeral=True)
+                await ctx.reply(f"{tg(guild_id, 'No audio playing')}", ephemeral=True)
     else:
         if not mute_response:
             await ctx.reply(tg(ctx.guild.id, "Bot is not connected to a voice channel"), ephemeral=True)
@@ -1501,21 +1502,22 @@ async def resume(ctx: commands.Context,
                  mute_response: bool = False
                  ):
     print_command(ctx, 'resume', [mute_response])
+    guild_id = ctx.guild.id
     voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
     if voice:
         if voice.is_paused():
             voice.resume()
             if not mute_response:
-                await ctx.reply("Player **resumed!**", ephemeral=True)
+                await ctx.reply(f"{tg(guild_id, 'Player **resumed!**')}", ephemeral=True)
         elif voice.is_playing():
             if not mute_response:
-                await ctx.reply("Player **already resumed!**", ephemeral=True)
+                await ctx.reply(f"{tg(guild_id, 'Player **already resumed!**')}", ephemeral=True)
         else:
             if not mute_response:
-                await ctx.reply("No audio paused", ephemeral=True)
+                await ctx.reply(f"{tg(guild_id, 'No audio playing')}", ephemeral=True)
     else:
         if not mute_response:
-            await ctx.reply(tg(ctx.guild.id, "Bot is not connected to a voice channel"), ephemeral=True)
+            await ctx.reply(tg(guild_id, "Bot is not connected to a voice channel"), ephemeral=True)
 
     save_json()
 
@@ -1621,7 +1623,7 @@ async def volume_command(ctx: commands.Context,
 
 @bot.tree.context_menu(name='Add to queue')
 async def add_to_queue(inter, message: discord.Message):
-    ctx = ContextImitation(inter.guild, inter.guild_id, inter.user, inter)
+    ctx = await bot.get_context(inter)
     print_command(ctx, 'add_to_queue', [message.content])
     response = await queue_command(ctx, message.content, None, True)
     if not inter.response.is_done():
@@ -1630,7 +1632,7 @@ async def add_to_queue(inter, message: discord.Message):
 
 @bot.tree.context_menu(name='Show Profile')
 async def show_profile(inter, member: discord.Member):
-    ctx = ContextImitation(inter.guild, inter.guild_id, inter.user, inter)
+    ctx = await bot.get_context(inter)
     print_command(ctx, 'show_profile', [member])
     embed = discord.Embed(title=f"{member.name}#{member.discriminator}", description=f"ID: `{member.id}` | Name: `{member.display_name}` | Nickname: `{member.nick}`")
     embed.add_field(name="Created at", value=member.created_at.strftime("%d/%m/%Y %H:%M:%S"), inline=True)
@@ -2044,10 +2046,24 @@ async def probe_command(ctx: commands.Context,
 bot.remove_command('help')
 @bot.hybrid_command(name='help', with_app_command=True, description='Shows all available commands', help='Shows all available commands')
 async def help_command(ctx: commands.Context,
-               command: Literal['language', 'sound_effects', 'list_radios', 'play', 'radio', 'ps', 'skip', 'nowplaying', 'last', 'loop', 'loop_this', 'queue', 'next_up', 'remove', 'clear', 'shuffle', 'show', 'search', 'stop', 'pause', 'resume', 'join', 'disconnect', 'volume'] = None
+                       general: Literal['help', 'ping', 'language', 'sound_effects', 'list_radios'] = None,
+                       player: Literal['play', 'radio', 'ps', 'skip', 'nowplaying', 'last', 'loop', 'loop_this'] = None,
+                       queue: Literal['queue', 'remove', 'clear', 'shuffle', 'show', 'search'] = None,
+                       voice: Literal['stop', 'pause', 'resume', 'join', 'disconnect', 'volume'] = None,
                ):
-    print_command(ctx, 'help', [command])
+    print_command(ctx, 'help', [general, player, queue, voice])
     gi = ctx.guild.id
+
+    if general:
+        command = general
+    elif player:
+        command = player
+    elif queue:
+        command = queue
+    elif voice:
+        command = voice
+    else:
+        command = None
 
     embed = discord.Embed(title="Help", description=f"Use `/help <command>` to get help on a command | Prefix: `{prefix}`")
     embed.add_field(name="General", value=f"`/help` - {tg(gi, 'help')}\n"
@@ -2059,7 +2075,6 @@ async def help_command(ctx: commands.Context,
     embed.add_field(name="Player", value=f"`/play` - {tg(gi, 'play')}\n"
                                          f"`/radio` - {tg(gi, 'radio')}\n"
                                          f"`/ps` - {tg(gi, 'ps')}\n"
-                                         f"`/player` - {tg(gi, 'player')}\n"
                                          f"`/skip` - {tg(gi, 'skip')}\n"
                                          f"`/nowplaying` - {tg(gi, 'nowplaying')}\n"
                                          f"`/last` - {tg(gi, 'last')}\n"
@@ -2080,6 +2095,9 @@ async def help_command(ctx: commands.Context,
                                         f"`/disconnect` - {tg(gi, 'die')}\n"
                                         f"`/volume` - {tg(gi, 'volume')}"
                     , inline=False)
+    embed.add_field(name="Context Menu", value=f"`Add to queue` - {tg(gi, 'queue_add')}\n"
+                                               f"`Show Profile` - {tg(gi, 'profile')}\n")
+
     embed.add_field(name="Admin Commands", value=f"`/admin_announce` - \n"
                                                  f"`/admin_rape` - \n"
                                                  f"`/admin_rape_play` - \n"
@@ -2090,7 +2108,10 @@ async def help_command(ctx: commands.Context,
                                                  f"`/admin_probe` - "
                     , inline=False)
 
-    if command == 'ping':
+    if command == 'help':
+        embed = discord.Embed(title="Help", description=f"`/help` - {tg(gi, 'help')}")
+
+    elif command == 'ping':
         embed = discord.Embed(title="Help", description=f"`/ping` - {tg(gi, 'ping')}")
 
     elif command == 'language':
