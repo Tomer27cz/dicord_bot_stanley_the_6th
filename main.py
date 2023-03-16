@@ -2110,46 +2110,51 @@ async def help_command(ctx: commands.Context,
 
     if command == 'help':
         embed = discord.Embed(title="Help", description=f"`/help` - {tg(gi, 'help')}")
+        embed.add_field(name=f"{tg(gi, 'Arguments')}", value=f"`general` - {tg(gi, 'The commands from')} General\n"
+                                                f"`player` - {tg(gi, 'The commands from')} Player\n"
+                                                f"`queue` - {tg(gi, 'The commands from')} Queue\n"
+                                                f"`voice` - {tg(gi, 'The commands from')} Voice"
+                        , inline=False)
 
     elif command == 'ping':
         embed = discord.Embed(title="Help", description=f"`/ping` - {tg(gi, 'ping')}")
 
     elif command == 'language':
         embed = discord.Embed(title="Help", description=f"`/language` - {tg(gi, 'language')}")
-        embed.add_field(name="Arguments", value=f"`country_code` - {tg(gi, 'country_code')}", inline=False)
+        embed.add_field(name=f"{tg(gi, 'Arguments')}", value=f"`country_code` - {tg(gi, 'country_code')}", inline=False)
 
     elif command == 'sound_effects':
         embed = discord.Embed(title="Help", description=f"`/sound_effects` - {tg(gi, 'sound')}")
-        embed.add_field(name="Arguments", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
+        embed.add_field(name=f"{tg(gi, 'Arguments')}", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
 
     elif command == 'list_radios':
         embed = discord.Embed(title="Help", description=f"`/list_radios` - {tg(gi, 'list_radios')}")
-        embed.add_field(name="Arguments", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
+        embed.add_field(name=f"{tg(gi, 'Arguments')}", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
 
     elif command == 'play':
         embed = discord.Embed(title="Help", description=f"`/play` - {tg(gi, 'play')}")
-        embed.add_field(name="Arguments", value=f"`url` - {tg(gi, 'url')}", inline=False)
+        embed.add_field(name=f"{tg(gi, 'Arguments')}", value=f"`url` - {tg(gi, 'url')}", inline=False)
         embed.add_field(name="", value=f"`force` - {tg(gi, 'force')}", inline=False)
 
     elif command == 'radio':
         embed = discord.Embed(title="Help", description=f"`/radio` - {tg(gi, 'radio')}")
-        embed.add_field(name="Arguments", value=f"`favourite_radio` - {tg(gi, 'favourite_radio')}", inline=False)
+        embed.add_field(name=f"{tg(gi, 'Arguments')}", value=f"`favourite_radio` - {tg(gi, 'favourite_radio')}", inline=False)
         embed.add_field(name="", value=f"`radio_code` - {tg(gi, 'radio_code')}", inline=False)
 
     elif command == 'ps':
         embed = discord.Embed(title="Help", description=f"`/ps` - {tg(gi, 'ps')}")
-        embed.add_field(name="Arguments", value=f"`effect_number` - {tg(gi, 'effects_number')}", inline=False)
+        embed.add_field(name=f"{tg(gi, 'Arguments')}", value=f"`effect_number` - {tg(gi, 'effects_number')}", inline=False)
 
     elif command == 'skip':
         embed = discord.Embed(title="Help", description=f"`/skip` - {tg(gi, 'skip')}")
 
     elif command == 'nowplaying':
         embed = discord.Embed(title="Help", description=f"`/nowplaying` - {tg(gi, 'nowplaying')}")
-        embed.add_field(name="Arguments", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
+        embed.add_field(name=f"{tg(gi, 'Arguments')}", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
 
     elif command == 'last':
         embed = discord.Embed(title="Help", description=f"`/last` - {tg(gi, 'last')}")
-        embed.add_field(name="Arguments", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
+        embed.add_field(name=f"{tg(gi, 'Arguments')}", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
 
     elif command == 'loop':
         embed = discord.Embed(title="Help", description=f"`/loop` - {tg(gi, 'loop')}")
@@ -2159,56 +2164,56 @@ async def help_command(ctx: commands.Context,
 
     elif command == 'queue':
         embed = discord.Embed(title="Help", description=f"`/queue` - {tg(gi, 'queue_add')}")
-        embed.add_field(name="Arguments", value=f"`url` - {tg(gi, 'url')}", inline=False)
+        embed.add_field(name=f"{tg(gi, 'Arguments')}", value=f"`url` - {tg(gi, 'url')}", inline=False)
         embed.add_field(name="", value=f"`position` - {tg(gi, 'pos')}", inline=False)
         embed.add_field(name="", value=f"`mute_response` - {tg(gi, 'mute_response')}", inline=False)
         embed.add_field(name="", value=f"`force` - {tg(gi, 'force')}", inline=False)
 
     elif command == 'next_up':
         embed = discord.Embed(title="Help", description=f"`/next_up` - {tg(gi, 'next_up')}")
-        embed.add_field(name="Arguments", value=f"`url` - {tg(gi, 'url')}", inline=False)
+        embed.add_field(name=f"{tg(gi, 'Arguments')}", value=f"`url` - {tg(gi, 'url')}", inline=False)
         embed.add_field(name="", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
 
     elif command == 'remove':
         embed = discord.Embed(title="Help", description=f"`/remove` - {tg(gi, 'remove')}")
-        embed.add_field(name="Arguments", value=f"`number` - {tg(gi, 'number')}", inline=False)
+        embed.add_field(name=f"{tg(gi, 'Arguments')}", value=f"`number` - {tg(gi, 'number')}", inline=False)
         embed.add_field(name="", value=f"`display_type` - {tg(gi, 'display_type')}", inline=False)
         embed.add_field(name="", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
 
     elif command == 'clear':
         embed = discord.Embed(title="Help", description=f"`/clear` - {tg(gi, 'clear')}")
-        embed.add_field(name="Arguments", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
+        embed.add_field(name=f"{tg(gi, 'Arguments')}", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
 
     elif command == 'shuffle':
         embed = discord.Embed(title="Help", description=f"`/shuffle` - {tg(gi, 'shuffle')}")
-        embed.add_field(name="Arguments", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
+        embed.add_field(name=f"{tg(gi, 'Arguments')}", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
 
     elif command == 'show':
         embed = discord.Embed(title="Help", description=f"`/show` - {tg(gi, 'show')}")
-        embed.add_field(name="Arguments", value=f"`display_type` - {tg(gi, 'display_type')}", inline=False)
+        embed.add_field(name=f"{tg(gi, 'Arguments')}", value=f"`display_type` - {tg(gi, 'display_type')}", inline=False)
         embed.add_field(name="", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
 
     elif command == 'search':
         embed = discord.Embed(title="Help", description=f"`/search` - {tg(gi, 'search')}")
-        embed.add_field(name="Arguments", value=f"`search_query` - {tg(gi, 'search_query')}", inline=False)
+        embed.add_field(name=f"{tg(gi, 'Arguments')}", value=f"`search_query` - {tg(gi, 'search_query')}", inline=False)
         embed.add_field(name="", value=f"`display_type` - {tg(gi, 'display_type')}", inline=False)
         embed.add_field(name="", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
 
     elif command == 'stop':
         embed = discord.Embed(title="Help", description=f"`/stop` - {tg(gi, 'stop')}")
-        embed.add_field(name="Arguments", value=f"`mute_response` - {tg(gi, 'mute_response')}", inline=False)
+        embed.add_field(name=f"{tg(gi, 'Arguments')}", value=f"`mute_response` - {tg(gi, 'mute_response')}", inline=False)
 
     elif command == 'pause':
         embed = discord.Embed(title="Help", description=f"`/pause` - {tg(gi, 'pause')}")
-        embed.add_field(name="Arguments", value=f"`mute_response` - {tg(gi, 'mute_response')}", inline=False)
+        embed.add_field(name=f"{tg(gi, 'Arguments')}", value=f"`mute_response` - {tg(gi, 'mute_response')}", inline=False)
 
     elif command == 'resume':
         embed = discord.Embed(title="Help", description=f"`/resume` - {tg(gi, 'resume')}")
-        embed.add_field(name="Arguments", value=f"`mute_response` - {tg(gi, 'mute_response')}", inline=False)
+        embed.add_field(name=f"{tg(gi, 'Arguments')}", value=f"`mute_response` - {tg(gi, 'mute_response')}", inline=False)
 
     elif command == 'join':
         embed = discord.Embed(title="Help", description=f"`/join` - {tg(gi, 'join')}")
-        embed.add_field(name="Arguments", value=f"`channel_id` - {tg(gi, 'channel_id')}", inline=False)
+        embed.add_field(name=f"{tg(gi, 'Arguments')}", value=f"`channel_id` - {tg(gi, 'channel_id')}", inline=False)
         embed.add_field(name="", value=f"`mute_response` - {tg(gi, 'mute_response')}", inline=False)
 
     elif command == 'disconnect':
@@ -2216,7 +2221,7 @@ async def help_command(ctx: commands.Context,
 
     elif command == 'volume':
         embed = discord.Embed(title="Help", description=f"`/volume` - {tg(gi, 'volume')}")
-        embed.add_field(name="Arguments", value=f"`volume` - {tg(gi, 'volume')}", inline=False)
+        embed.add_field(name=f"{tg(gi, 'Arguments')}", value=f"`volume` - {tg(gi, 'volume')}", inline=False)
         embed.add_field(name="", value=f"`ephemeral` - {tg(gi, 'ephemeral')}", inline=False)
         embed.add_field(name="", value=f"`mute_response` - {tg(gi, 'mute_response')}", inline=False)
 
