@@ -25,7 +25,6 @@ from api_keys import api_key_testing as api_key
 import functools
 
 
-
 # ---------------- Bot class ------------
 
 
@@ -52,10 +51,10 @@ class Bot(commands.Bot):
         sys_channel = guild_object.system_channel
         if sys_channel is not None:
             if sys_channel.permissions_for(guild_object.me).send_messages:
-                await sys_channel.send(f"Hello **`{guild_object.name}`**! I am `{self.user.display_name}`. Thank you for inviting me.\n\nTo see what commands I have available type `/help`.", delete_after=60)
+                await sys_channel.send(f"Hello **`{guild_object.name}`**! I am `{self.user.display_name}`. Thank you for inviting me.\n\nTo see what commands I have available type `/help`.")
                 return
         else:
-            await text_channels[0].send(f"Hello **`{guild_object.name}`**! I am `{self.user.display_name}`. Thank you for inviting me.\n\nTo see what commands I have available type `/help`.", delete_after=60)
+            await text_channels[0].send(f"Hello **`{guild_object.name}`**! I am `{self.user.display_name}`. Thank you for inviting me.\n\nTo see what commands I have available type `/help`.")
 
 
     async def on_voice_state_update(self, member, before, after):
@@ -97,38 +96,6 @@ class Bot(commands.Bot):
 
 
 # ---------------- Data Classes ------------
-
-class ContextImitation:
-    def __init__(self, guild_object, guild_id, author, interaction):
-        self.guild = guild_object
-        self.guild.id = guild_id
-        self.author = author
-        self.message = MessageImitation(author, interaction)
-        self.interaction = interaction
-
-    def defer(self):
-        self.interaction.response.defer()
-        return asyncio.sleep(0)
-
-    def send(self, *args, **kwargs):
-        return self.interaction.response.send_message(*args, **kwargs)
-
-    def reply(self, *args, **kwargs):
-        return self.interaction.response.send_message(*args, **kwargs)
-
-
-class MessageImitation:
-    def __init__(self, author, interaction):
-        self.author = author
-        self.channel = ChannelImitation(interaction)
-
-class ChannelImitation:
-    def __init__(self, interaction):
-        self.id = interaction.channel_id
-        self.interaction = interaction
-
-    def send(self, *args, **kwargs):
-        return self.interaction.response.send_message(*args, **kwargs)
 
 
 class Options:
@@ -241,8 +208,28 @@ class Guild:
         self.options = Options(guild_id)
         self.queue = []
         self.search_list = []
-        self.now_playing = Video(url='https://www.youtube.com/watch?v=dQw4w9WgXcQ', author=bot.get_user(my_id))
+        self.now_playing = Video(url='https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+                                 author=bot.get_user(my_id),
+                                 title='Never gonna give you up',
+                                 picture='https://img.youtube.com/vi/dQw4w9WgXcQ/default.jpg',
+                                 duration='3:33',
+                                 channel_name='Rick Astley',
+                                 channel_link='https://www.youtube.com/channel/UCuAXFkgsw1L7xaCfnd5JJOw')
 
+
+# -------- Get SoundEffects ------------
+
+def load_sound_effects():
+    # noinspection PyGlobalUndefined
+    global all_sound_effects
+    all_sound_effects = ["No sound effects found"]
+    try:
+        all_sound_effects = listdir('sound_effects')
+        for file_index, file_val in enumerate(all_sound_effects):
+            all_sound_effects[file_index] = all_sound_effects[file_index][:len(file_val) - 4]
+    except FileNotFoundError:
+        all_sound_effects = ["No sound effects found"]
+    print_message('no guild', 'Loaded sound_effects folder')
 
 # ------------ PRINT --------------------
 
@@ -253,28 +240,21 @@ def print_command(ctx, text_data, opt, text_only=False):
     if not text_only:
         message = f"{now_time.strftime('%d/%m/%y %X')} -{ctx.guild.id}- Command ({text_data}) was requested by" \
                   f" ({ctx.message.author}) -- (options: {opt})"
-        if text_data == 'queue_add':
-            if opt[3]:
-                message = f"{now_time.strftime('%d/%m/%y %X')} -{ctx.guild.id}- Muted ({text_data}) was requested by" \
-                          f" ({ctx.message.author}) -- (options: {opt})"
 
     print(message)
     message += "\n"
 
-    f = open("log.txt", "a", encoding="utf-8")
-    f.write(message)
-    f.close()
-
+    with open("log.txt", "a", encoding="utf-8") as f:
+        f.write(message)
 
 def print_message(guild_id, content):
     now_time = datetime.datetime.now()
-    f = open("log.txt", "a")
-    messages = content.split('\n')
-    for index, val in enumerate(messages):
-        message = f"{now_time.strftime('%d/%m/%y %X')} -{guild_id}- {val}"
-        print(message)
-        f.write(message + '\n')
-    f.close()
+    message = f"{now_time.strftime('%d/%m/%y %X')} -{guild_id}- {content}"
+
+    print(message)
+
+    with open("log.txt", "a", encoding="utf-8") as f:
+        f.write(message)
 
 # ---------------------------------------------- GUILD TO JSON ---------------------------------------------------------
 
@@ -340,7 +320,8 @@ def json_to_video(video_dict):
 
 def json_to_guild(guild_dict):
     guild_object = Guild(guild_dict['options']['guild_id'])
-    guild_object.options = Options(guild_dict['options']['guild_id'])
+    # guild_object.options = Options(guild_dict['options']['guild_id'])
+    # options_time = time.time() - start_time - guild_time
     guild_object.options.__dict__ = guild_dict['options']
     guild_object.queue = [json_to_video(video_dict) for video_dict in guild_dict['queue'].values()]
     guild_object.search_list = [json_to_video(video_dict) for video_dict in guild_dict['search_list'].values()]
@@ -360,16 +341,19 @@ def json_to_guilds(guilds_dict):
 
 print_message('no guild', "--------------------------------------- NEW / REBOOTED ----------------------------------------")
 
-print_message('no guild', 'Loading radio.json ...')
+build_new_guilds = False
+
 with open('src/radio.json', 'r') as file:
     radio_dict = json.load(file)
+print_message('no guild', 'Loaded radio.json')
 
-print_message('no guild', 'Loading languages.json ...')
+
 with open('src/languages.json', 'r') as file:
     languages_dict = json.load(file)
     text = languages_dict['en']
+print_message('no guild', 'Loaded languages.json')
 
-print_message('no guild', 'Loading other.json ...')
+
 with open('src/other.json', 'r') as file:
     other = json.load(file)
     react_dict = other['reactions']
@@ -378,37 +362,35 @@ with open('src/other.json', 'r') as file:
     bot_id = other['bot_id']
     vlc_logo = other['logo']
     authorized_users = other['authorized']
+print_message('no guild', 'Loaded other.json')
 
 
-# ---------------------------------------------- BOT --------------------------------------------------------
+# ---------------------------------------------- BOT -------------------------------------------------------------------
 
 bot = Bot()
 
-# -----------------------------------------------------------------------------------------------------------
+print_message('no guild', 'Initialized bot class')
+
+# ----------------------------------------------------------------------------------------------------------------------
 
 
-print_message('no guild', 'Loading guilds.json ...')
 with open('src/guilds.json', 'r') as file:
     guild = json_to_guilds(json.load(file))
+print_message('no guild', 'Loaded guilds.json')
 
-# print_message('no guild', 'Building new guilds.json ...')
-#
-# with open('src/guilds.json', 'r') as file:
-#     jf = json.load(file)
-#
-# guild = dict(zip(jf.keys(), [Guild(int(guild)) for guild in jf.keys()]))
-# with open('src/guilds.json', 'w') as f:
-#     f.write(json.dumps(guilds_to_json(guild), indent=4))
-#
-# exit(1)
 
-print_message('no guild', 'Loading sound_effects folder ...')
-try:
-    all_sound_effects = listdir('sound_effects')
-    for file_index, file_val in enumerate(all_sound_effects):
-        all_sound_effects[file_index] = all_sound_effects[file_index][:len(file_val) - 4]
-except FileNotFoundError:
-    all_sound_effects = ["No sound effects found"]
+if build_new_guilds:
+    print_message('no guild', 'Building new guilds.json ...')
+    with open('src/guilds.json', 'r') as file:
+        jf = json.load(file)
+    guild = dict(zip(jf.keys(), [Guild(int(guild)) for guild in jf.keys()]))
+    with open('src/guilds.json', 'w') as file:
+        file.write(json.dumps(guilds_to_json(guild), indent=4))
+    exit(1)
+
+
+all_sound_effects = ["No sound effects found"]
+load_sound_effects()
 
 
 # ---------------------------------------------- SAVE JSON -------------------------------------------------------------
@@ -425,11 +407,6 @@ def tg(guild_id, content):
     return languages_dict[lang][content]
 
 # --------- video_info / url --------
-
-def get_pure_url(url):
-    url = url[:url.index('&list=')]
-    return url
-
 
 def get_playlist_from_url(url):
     try:
@@ -628,8 +605,6 @@ class YTDLSource(discord.PCMVolumeTransformer):
 
         return ', '.join(duration)
 
-# ----------------------------------------------------------------------------------------------------------------------
-
 
 # ------------------------------------ View Classes --------------------------------------------------------------------
 
@@ -790,7 +765,7 @@ class PlaylistOptionView(View):
     # noinspection PyUnusedLocal
     @discord.ui.button(label='No, just this', style=discord.ButtonStyle.blurple)
     async def callback_2(self, interaction, button):
-        pure_url = get_pure_url(self.url)
+        pure_url = self.url[:self.url.index('&list=')]
         if self.force:
             response = await queue_command(self.ctx, pure_url, 0, True, self.force)
         else:
@@ -1749,25 +1724,25 @@ async def is_authorised(ctx):
         return True
 
 
-@bot.hybrid_command(name='admin_announce', with_app_command=True)
+@bot.hybrid_command(name='zz_announce', with_app_command=True)
 @commands.check(is_authorised)
 async def announce_command(ctx: commands.Context,
                       message
                       ):
-    print_command(ctx, 'announce', [message])
+    print_command(ctx, 'zz_announce', [message])
     for guild_object in bot.guilds:
         await guild_object.system_channel.send(message)
 
     await ctx.reply(f'Announced message to all servers: `{message}`')
 
 
-@bot.hybrid_command(name='admin_rape_play', with_app_command=True)
+@bot.hybrid_command(name='zz_ear_rape_play', with_app_command=True)
 @commands.check(is_authorised)
 async def rape_play_command(ctx: commands.Context,
                       effect_number: int = None,
                       channel_id = None,
                       ):
-    print_command(ctx, 'rape_play', [effect_number, channel_id])
+    print_command(ctx, 'zz_rape_play', [effect_number, channel_id])
 
     if not effect_number and effect_number != 0:
         effect_number = 1
@@ -1793,10 +1768,10 @@ async def rape_play_command(ctx: commands.Context,
     await ctx.reply(f'Playing effect `{effect_number}` with ear rape in `{channel_id if channel_id else "user channel"}` >>> effect can only be turned off by `/disconnect`', ephemeral=True)
 
 
-@bot.hybrid_command(name='admin_rape', with_app_command=True)
+@bot.hybrid_command(name='zz_ear_rape', with_app_command=True)
 @commands.check(is_authorised)
 async def ear_rape_command(ctx: commands.Context):
-    print_command(ctx, 'rape', None)
+    print_command(ctx, 'zz_rape', None)
     guild_id = ctx.guild.id
     times = 10
     new_volume = 10000000000000
@@ -1820,79 +1795,22 @@ async def ear_rape_command(ctx: commands.Context):
     save_json()
 
 
-@bot.hybrid_command(name='admin_kys', with_app_command=True)
+@bot.hybrid_command(name='zz_kys', with_app_command=True)
 @commands.check(is_authorised)
 async def kys(ctx: commands.Context):
     guild_id = ctx.guild.id
-    print_command(ctx, 'kys', None)
+    print_command(ctx, 'zz_kys', None)
     await ctx.reply(tg(guild_id, "Committing seppuku..."))
     exit(3)
 
 
-# @bot.hybrid_command(name='zz_nuke', with_app_command=True)
-# @commands.check(is_authorised)
-# async def nuke(ctx: commands.Context,
-#                message,
-#                guild=None,
-#                delete: bool = True
-#                ):
-#     # guild_id = ctx.guild.id
-#     print_command(ctx, 'nuke', [guild, message, delete])
-#
-#     await ctx.defer()
-#     all_guild = False
-#     guilds = []
-#     text_channel_list = []
-#     nuked = []
-#     not_nuked = []
-#
-#     if guild:
-#         try:
-#             guild = int(guild)
-#         except (TypeError, ValueError):
-#             if guild != 'all':
-#                 await ctx.reply("That is not a guild id", ephemeral=True)
-#                 return
-#             all_guild = True
-#
-#         if not all_guild:
-#             guild_object = bot.get_guild(guild)
-#             if guild_object is None:
-#                 await ctx.reply("That guild doesn't exist", ephemeral=True)
-#                 return
-#             guilds = [guild_object]
-#
-#         if all_guild:
-#             guilds = []
-#             for guild in bot.guilds:
-#                 guilds.append(guild)
-#
-#     if not guild:
-#         guild_object = ctx.guild
-#         guilds = [guild_object]
-#
-#     for guild_object in guilds:
-#         for channel in guild_object.text_channels:
-#             try:
-#                 msg = await channel.send(message)
-#                 if delete:
-#                     await msg.delete()
-#                 nuked.append(channel.name)
-#             except Forbidden:
-#                 not_nuked.append(channel.name)
-#                 print(channel.name)
-#             text_channel_list.append(channel)
-#     await ctx.reply(f"Nuke complete with `{len(nuked)}` channels", ephemeral=True)
-#     print_command(ctx, 'Nuked channels', nuked, True)
-#     print_command(ctx, 'Not accessible channels', not_nuked, True)
-
-@bot.hybrid_command(name='admin_config', with_app_command=True)
+@bot.hybrid_command(name='zz_config', with_app_command=True)
 @commands.check(is_authorised)
 async def config_command(ctx: commands.Context,
                          config_file: discord.Attachment,
                          config_type:  Literal['guilds', 'other', 'radio', 'languages'] = 'guilds',
                          ):
-    print_command(ctx, 'config', [config_file, config_type])
+    print_command(ctx, 'zz_config', [config_file, config_type])
 
     if config_file.filename != f'{config_type}.json':
         await ctx.reply(f'You need to upload a `{config_type}.json` file', ephemeral=True)
@@ -1913,12 +1831,12 @@ async def config_command(ctx: commands.Context,
         await ctx.reply(f"Saved new `{config_type}.json`", ephemeral=True)
 
 
-@bot.hybrid_command(name='admin_log', with_app_command=True)
+@bot.hybrid_command(name='zz_log', with_app_command=True)
 @commands.check(is_authorised)
 async def log_command(ctx: commands.Context,
                       log_type: Literal['log.txt', 'guilds.json', 'other.json', 'radio.json', 'languages.json'] = 'log.txt'
                       ):
-    print_command(ctx, 'log', [log_type])
+    print_command(ctx, 'zz_log', [log_type])
     save_json()
     if log_type == 'other.json':
         file_to_send = discord.File('src/other.json')
@@ -1934,7 +1852,7 @@ async def log_command(ctx: commands.Context,
 
 
 # noinspection PyTypeHints
-@bot.hybrid_command(name='admin_change_config', with_app_command=True)
+@bot.hybrid_command(name='zz_change_config', with_app_command=True)
 @app_commands.describe(server='all, this, {guild_id}', volume='No division', buffer='In seconds', language='Language code', response_type='short, long', buttons='True, False', is_radio='True, False', loop='True, False', stopped='True, False')
 @commands.check(is_authorised)
 async def change_config(ctx: commands.Context,
@@ -1948,7 +1866,7 @@ async def change_config(ctx: commands.Context,
                         volume = None,
                         server = None,
                         ):
-    print_command(ctx, 'owner_commands', [stopped, loop, is_radio, buttons, language, response_type, volume, server])
+    print_command(ctx, 'zz_owner_commands', [stopped, loop, is_radio, buttons, language, response_type, volume, server])
     guild_id = ctx.guild.id
 
     save_json()
@@ -2002,13 +1920,13 @@ async def change_config(ctx: commands.Context,
         await ctx.reply(f'**Config for guild `{guild_id}`**\n {config}', ephemeral=True)
 
 
-@bot.hybrid_command(name='admin_probe', with_app_command=True)
+@bot.hybrid_command(name='zz_probe', with_app_command=True)
 @commands.check(is_authorised)
 async def probe_command(ctx: commands.Context,
                         url = None,
                         ephemeral: bool = False
                         ):
-    print_command(ctx, 'probe', [url])
+    print_command(ctx, 'zz_probe', [url])
     guild_id = ctx.guild.id
     if url is None:
         await ctx.reply("Please provide a url", ephemeral=ephemeral)
@@ -2043,8 +1961,13 @@ async def probe_command(ctx: commands.Context,
     save_json()
 
 
+# --------------------------------------------- HELP COMMAND -----------------------------------------------------------
+
+
+
 bot.remove_command('help')
 @bot.hybrid_command(name='help', with_app_command=True, description='Shows all available commands', help='Shows all available commands')
+@app_commands.describe(general='General commands', player='Player commands', queue='Queue commands', voice='Voice commands')
 async def help_command(ctx: commands.Context,
                        general: Literal['help', 'ping', 'language', 'sound_effects', 'list_radios'] = None,
                        player: Literal['play', 'radio', 'ps', 'skip', 'nowplaying', 'last', 'loop', 'loop_this'] = None,
@@ -2098,14 +2021,14 @@ async def help_command(ctx: commands.Context,
     embed.add_field(name="Context Menu", value=f"`Add to queue` - {tg(gi, 'queue_add')}\n"
                                                f"`Show Profile` - {tg(gi, 'profile')}\n")
 
-    embed.add_field(name="Admin Commands", value=f"`/admin_announce` - \n"
-                                                 f"`/admin_rape` - \n"
-                                                 f"`/admin_rape_play` - \n"
-                                                 f"`/admin_kys` - \n"
-                                                 f"`/admin_config` - \n"
-                                                 f"`/admin_log` - \n"
-                                                 f"`/admin_change_config` - \n"
-                                                 f"`/admin_probe` - "
+    embed.add_field(name="Admin Commands (only for bot owner)", value=f"`/zz_announce` - \n"
+                                                 f"`/zz_rape` - \n"
+                                                 f"`/zz_rape_play` - \n"
+                                                 f"`/zz_kys` - \n"
+                                                 f"`/zz_config` - \n"
+                                                 f"`/zz_log` - \n"
+                                                 f"`/zz_change_config` - \n"
+                                                 f"`/zz_probe` - "
                     , inline=False)
 
     if command == 'help':
