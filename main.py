@@ -20,7 +20,7 @@ from typing import Literal
 import traceback
 import datetime
 
-from api_keys import api_key
+from api_keys import api_key_testing as api_key
 
 import functools
 
@@ -112,6 +112,7 @@ class Options:
         self.buffer = 600 # how many seconds of nothing before it disconnects | 600 = 10min
 
 
+# noinspection PyTypeChecker
 class Video:
     def __init__(self, url, author, title=None, picture=None, duration=None, channel_name=None, channel_link=None):
         self.url = url
@@ -252,6 +253,7 @@ def print_message(guild_id, content):
     message = f"{now_time.strftime('%d/%m/%y %X')} -{guild_id}- {content}"
 
     print(message)
+    message += "\n"
 
     with open("log.txt", "a", encoding="utf-8") as f:
         f.write(message)
@@ -1962,7 +1964,6 @@ async def probe_command(ctx: commands.Context,
 
 
 # --------------------------------------------- HELP COMMAND -----------------------------------------------------------
-
 
 
 bot.remove_command('help')
