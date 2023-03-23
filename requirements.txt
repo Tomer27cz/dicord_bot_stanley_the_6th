@@ -10,6 +10,3 @@ beautifulsoup4
 urllib3
 lxml
 yt_dlp
-Pillow
-opencv-python==4.6.0.66
-numpy
