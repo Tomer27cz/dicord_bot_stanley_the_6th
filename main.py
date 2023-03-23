@@ -6,6 +6,8 @@ from discord import FFmpegPCMAudio, app_commands
 from discord.ext import commands
 from discord.ui import View
 
+import pypresence
+
 import yt_dlp
 import youtubesearchpython
 from urllib.request import urlopen
@@ -23,7 +25,6 @@ import datetime
 from api_keys import api_key_testing as api_key
 
 import functools
-
 
 # ---------------- Bot class ------------
 
@@ -234,11 +235,11 @@ def load_sound_effects():
 # ------------ PRINT --------------------
 
 def print_command(ctx, text_data, opt, text_only=False):
-    now_time = datetime.datetime.now()
-    message = f"{now_time.strftime('%d/%m/%y %X')} -{ctx.guild.id}- {text_data}: {opt}"
+    now_time = datetime.datetime.now(datetime.timezone(datetime.timedelta(seconds=3600), 'CET'))
+    message = f"{now_time.strftime('(CET) %d/%m/%Y %X')} | {ctx.guild.id} | {text_data}: {opt}"
 
     if not text_only:
-        message = f"{now_time.strftime('%d/%m/%y %X')} -{ctx.guild.id}- Command ({text_data}) was requested by" \
+        message = f"{now_time.strftime('(CET) %d/%m/%Y %X')} | {ctx.guild.id} | Command ({text_data}) was requested by" \
                   f" ({ctx.message.author}) -- (options: {opt})"
 
     print(message)
@@ -248,8 +249,8 @@ def print_command(ctx, text_data, opt, text_only=False):
         f.write(message)
 
 def print_message(guild_id, content):
-    now_time = datetime.datetime.now()
-    message = f"{now_time.strftime('%d/%m/%y %X')} -{guild_id}- {content}"
+    now_time = datetime.datetime.now(datetime.timezone(datetime.timedelta(seconds=3600), 'CET'))
+    message = f"{now_time.strftime('(CET) %d/%m/%Y %X')} | {guild_id} | {content}"
 
     print(message)
 
@@ -338,8 +339,8 @@ def json_to_guilds(guilds_dict):
     return guilds_object
 
 # ---------------------------------------------- LOAD -------------------------------------------------------------
-
 print_message('no guild', "--------------------------------------- NEW / REBOOTED ----------------------------------------")
+
 
 build_new_guilds = False
 
@@ -369,7 +370,23 @@ print_message('no guild', 'Loaded other.json')
 
 bot = Bot()
 
-print_message('no guild', 'Initialized bot class')
+print_message('no guild', 'Bot class initialized')
+
+# ---------------- Rich Presence ------------
+
+rp_bot_id = 1007004463933952120
+rp = pypresence.Presence(rp_bot_id , loop=asyncio.get_event_loop())
+rp.connect()
+
+rp.update(state="Online",
+           details="Music & Radio Bot",
+           large_image="logo",
+           large_text="large_text",
+           buttons=[{"label": "Invite Bot", "url": "https://discord.com/api/oauth2/authorize?client_id=1007004463933952120&permissions=3198017&scope=bot"},
+                    {"label": "GitHub", "url": "https://github.com/Tomer27cz/discord_bot_stanley_the_6th"}]
+           )
+
+print_message('no guild', 'Rich Presence initialized')
 
 # ----------------------------------------------------------------------------------------------------------------------
 
